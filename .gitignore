@@ -1,2 +1,7 @@
+# Compiled Java files
 *.class
 *.jar
+
+# Libreoffice temp files
+\.~lock*
+
