@@ -1,0 +1,36 @@
+Coding tasks:
+
+Global tasks: 
+Making sure everyone has setup Eclipse and Tomcat as well as knows how to upload to the GitHub for working together.
+Making sure that everyone is aware that we're meant to keep track of our hours, if you haven't been doing this then please start and backtrack on previous work.
+
+Coding:
+Implementation of the class diagram as seen in GitHub (skeleton code)
+Design of the mySQL database tables (what will they include? how many tables? etc.) 
+Connecting to the database via Java code additionally getting and setting data (test data for now don't have to set player data yet etc)
+Basic design of the main page (header and footer stuff, not the rest of the design)
+The implementation of the basic pages in which our data will be derived from (template before adding our data from the java stuff)
+
+Non-coding:
+Start of design Documentation for the project design specification.
+IMPORTANT: Finish the test specification! (get an update on this spec, add extra help if required)
+
+Packages:
+
+Package's that we need to be setup in a certain way as told by the coding standards document: aber.dcs.cs211.07.*
+
+aber.dcs.cs211.07.views
+aber.dcs.cs211.07.data
+aber.dcs.cs211.07.db
+aber.dcs.cs211.07.api
+aber.dcs.cs211.07.tests
+
+Tasks and who's doing them:
+
+Database design: Miles & Sam
+Class diagram implementation (skeleton code): Stoyko
+GUI/ basic templates before serverside interaction (HTML and CSS): Nathan
+Connecting to database (getting and setting data from blank database): Dan C
+JUnit testing (basic tests): John
+Design specification (starting): James B
+Test specification (finishing): Adrian & Dan S
