@@ -1,0 +1,21 @@
+Meeting minutes 13/11/2012
+
+attendance:
+
+Miles Warburton
+Dan Stuessy
+Dan Corwell
+Samuel Clements
+Nathan Hand
+
+We went over and discussed the Test specification that was e-mailed by adrian, we found one or two mistakes/ issues that were discussed to be resolved by Dan Stuessy.
+
+Thursday we will look at the finished Test specification document (or nearly finished) and then it will be given to Nathan to upload to the BB submission, Nathan Hand will upload all deliverables. 
+
+Dan Corwell will be going to the next standards meeting tomorrow, he will be discussing all problems we have/ need cofirmed for our project this will be discussed in the Thursday meeting.
+
+Nathan Hand feels that meetings have been lacking productivity because not everyone is attending the meetings and meetings require back and forth between all members.
+
+A few members have discussed giving out phone numbers to eachother so that contacting eachother for important things would be easier, this will be dealt with either by an e-mail or a gitHub file.
+
+The next meeting will be on Thursday 15/11/2012 at 12PM in the Delphinium. 
