@@ -1,0 +1,37 @@
+Changes to standards/ mostly confirmed standards:
+
+Moster attributes:
+
+-Health
+-Strength
+-Speed*
+-Accuracy*
+-Armour*
+-Dodge*
+
+* Work out ourselves, no suggested math for working out these variables yet.
+
+Store:
+
+Breeding and trading can be in the same area under the idea of a "store" in which you can goto to trade and breed with friends.
+
+Breeding:
+
+Open offer to all friends which includes money to given to the person making the offer.
+Money is set by the person making the offer so you can offer x amount of money and any friend can breed with you.
+Breeding should only occur once then the offer dissapears (NOT CONFIRMED) 
+one instance of breeding makes sense because then we can code Trading and Breeding in the same way, because a breed can only take place once.
+
+Trading:
+
+Open offer to all friends which includes money to be given to the person making the offer, money is set for the "trade/ sale" by the person making the offer.
+
+Fighting:
+A fight takes place like the following player1 offer's to fight player2 selecting which 2 monsters will fight there is also an amount of currency for the winner of the fight.
+Both players put up that amount of money when the fight is accepted, and the fight takes place winner takes all. (so no creation of value from our monster stats)
+
+other notes:
+
+Get list of friends from server using rest?
+pass all variabled through JSON
+Same amount of money for all starting (how much?)
