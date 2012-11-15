@@ -19,11 +19,11 @@ Packages:
 
 Package's that we need to be setup in a certain way as told by the coding standards document: aber.dcs.cs211.07.*
 
-aber.dcs.cs211.07.views
-aber.dcs.cs211.07.data
-aber.dcs.cs211.07.db
-aber.dcs.cs211.07.api
-aber.dcs.cs211.07.tests
+aber.dcs.cs211.group07.views
+aber.dcs.cs211.group07.data
+aber.dcs.cs211.group07.db
+aber.dcs.cs211.group07.api
+aber.dcs.cs211.group07.tests
 
 Tasks and who's doing them:
 
