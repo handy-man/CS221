@@ -2,6 +2,9 @@ package aber.dcs.cs211.group07.data;
 
 import java.util.List;
 
+import aber.dcs.cs211.group07.data.offers.Offer;
+import aber.dcs.cs211.group07.data.requests.Request;
+
 public class Player {
 
 	public int id;

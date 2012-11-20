@@ -10,31 +10,32 @@ public class Monster {
 	public final Date birth;
 	public final boolean gender;
 	public int health_lost;
-	public Time age_rate;
-	
+
+	static final int AGE_RATE = 0;
+
 	public Monster(Date d,boolean g){
 		this.birth = d;
 		this.gender = g;
 	}
-	
+
 	public int getHealth(){
 		return 0;
 	}
-	
+
 	public int getStrength(){
 		return 0;
 	}
-	
+
 	public int getToughness(){
 		return 0;
 	}
-	
+
 	public int getEvasion(){
 		return 0;
 	}
-	
+
 	public Time getAge(){
 		return null;
 	}
-	
+
 }
