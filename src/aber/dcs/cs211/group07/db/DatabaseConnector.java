@@ -6,8 +6,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 
+import aber.dcs.cs211.group07.data.Player;
+
 /**
  * Creates a connection to a database to access its tables and edit them
+ * 
+ * Created specific classes for each table.
+ * WILL PROBABLY DELETE THIS CLASS 
  * 
  * @author  Dan Cornwell
  *
@@ -17,6 +22,11 @@ public class DatabaseConnector {
 
 	//A statement from the connection, used to get result sets
 	private Statement statement = null;
+	
+	private ResultSet monsterResultSet=null;
+	private ResultSet playerResultSet=null;
+	private String monsterTable= "SELECT * FROM monster";
+	private String playerTable= "SELECT * FROM player";
 	
 	//A result set for a specific table. Initialized before each method to get updated set
 	private ResultSet resultSetTable1=null;
@@ -131,6 +141,7 @@ public class DatabaseConnector {
 			System.out.println( error.getMessage( ) );
 		}
 	}
+	
 
 }
 
