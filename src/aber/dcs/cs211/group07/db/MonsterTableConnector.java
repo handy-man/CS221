@@ -85,11 +85,10 @@ public class MonsterTableConnector {
 		/**
 		 * Returns a monster from the table
 		 * 
-		 * @param monName - name of the monster
-		 * @param ownerName - name of the owner
+		 * @param monID - id of the monster
 		 * @return a monster instance
 		 */
-		public Monster getMonster(Monster mon) {
+		public Monster getMonster(int monID) {
 			
 			Monster foundMonster = null;
 			
@@ -97,7 +96,7 @@ public class MonsterTableConnector {
 				results = statement.executeQuery(monsterTable);
 				while(results.next()) {
 						
-						if(results.getInt("ID")==mon.id)
+						if(results.getInt("ID")==monID)
 						{
 							//create a monster with some constructor
 						}
@@ -111,7 +110,8 @@ public class MonsterTableConnector {
 		}
 		
 		/**
-		 * Changes owner of a monster
+		 * Changes owner of a monster in the table
+		 * also sets the instance of monster's player variable
 		 * 
 		 * @param mon - the monster to be edited
 		 * @param newOwner - the new owner of the monster
@@ -124,9 +124,12 @@ public class MonsterTableConnector {
 
 					if(results.getInt("ID")==mon.id) {
 						
-						String sql = "UPDATE MONSTER SET PLAYER='"+newOwner.email+
+						String sql = "UPDATE MONSTER SET PLAYER='"+newOwner+
 								"' WHERE ID="+mon.id;
+						
 						statement.executeUpdate(sql);
+						
+						mon.player=newOwner;
 
 						break;
 					}
@@ -146,9 +149,14 @@ public class MonsterTableConnector {
 
 					if(results.getInt("ID")==mon.id) {
 						
-						String sql = "UPDATE MONSTER SET HEALTH_LOST="+amount+
+						int newHealth = mon.health_lost+amount;
+						
+						String sql = "UPDATE MONSTER SET HEALTH_LOST="+newHealth+
 								" WHERE ID="+mon.id;
+						
 						statement.executeUpdate(sql);
+						
+						mon.health_lost = newHealth;
 
 						break;
 					}

@@ -85,10 +85,10 @@ public class PlayerTableConnector {
 	 * 
 	 * UNFINISHED
 	 * 
-	 * @param playerName - name of the player we want to get
+	 * @param playerID - id of the player we want to get
 	 * @return a player instance
 	 */
-	public Player getPlayer(Player player) {
+	public Player getPlayer(int playerID) {
 
 		Player foundPlayer = null;
 
@@ -96,8 +96,10 @@ public class PlayerTableConnector {
 			results = statement.executeQuery(playerTable);
 			while(results.next()) {
 
-				if((results.getString("email")).equals(player.email)) {
+				if((results.getInt("ID")==playerID)) {
+					Player p = new Player();
 					//create a player with a constructor using table row
+					foundPlayer=p;
 				}
 
 			}
@@ -110,7 +112,8 @@ public class PlayerTableConnector {
 	}
 
 	/**
-	 * Edits the money of a player 
+	 * Edits the money of a player in the table
+	 * Also sets the money variable of the Player instance
 	 * 
 	 * @param player - the player to edit
 	 * @param amount - the amount to edit by
@@ -132,6 +135,8 @@ public class PlayerTableConnector {
 			
 					statement.executeUpdate(sql);
 
+					player.money = newMoney;
+					
 					break;
 				}
 				
