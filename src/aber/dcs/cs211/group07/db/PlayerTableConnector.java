@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import aber.dcs.cs211.group07.data.Monster;
 
 import aber.dcs.cs211.group07.data.Player;
 
@@ -16,6 +20,8 @@ public class PlayerTableConnector {
 	private ResultSet results = null;
 	//SQL statement to read from the player table
 	private String playerTable = "SELECT * FROM PLAYER";
+	
+	private MonsterTableConnector monTable = new MonsterTableConnector();
 
 
 	public PlayerTableConnector() {
@@ -49,7 +55,7 @@ public class PlayerTableConnector {
 		try {
 			results = statement.executeQuery(playerTable);
 
-			//need to set ID and serverID here as they will probably be null at constuction
+			//need to set ID and serverID here as they will probably be null at construction
 
 			statement.executeUpdate("INSERT INTO PLAYER" + 
 					" VALUES ('"+newPlayer.id+"','"+newPlayer.serverID+
@@ -73,6 +79,8 @@ public class PlayerTableConnector {
 			results = statement.executeQuery(playerTable);
 			statement.executeUpdate("DELETE FROM PLAYER" + 
 					" WHERE ID="+newPlayer.id);
+			monTable.deleteMonster(newPlayer.email);
+			
 		} 
 		catch (SQLException error) {
 			//report error
@@ -134,7 +142,8 @@ public class PlayerTableConnector {
 							" WHERE ID="+id;
 			
 					statement.executeUpdate(sql);
-
+					
+					//saves getting the updated player
 					player.money = newMoney;
 					
 					break;
@@ -146,5 +155,43 @@ public class PlayerTableConnector {
 		}
 
 	}
+	
+	/**
+	 * Simple code for login validation. If the username exists in the database
+	 * and the password is correct for the username return the user else 
+	 * return null
+	 * 
+	 * @param username - for account
+	 * @param password - for account
+	 * @return a user
+	 */
+	public Player login(String username,String password) {
+		
+		try {
+			results = statement.executeQuery(playerTable);
+			while(results.next()) {
+				
+				if(results.getString("email").equals(username)) {
+				
+					if(results.getString("password").equals(password)) {
+						
+						Player p = new Player();
+						//create a player with a constructor using table row
+						return p;
+					}
+				}
+				
+			}
+		} catch (SQLException error) {
+			// report error	
+		}
+		return null;
+	}
 
+	public List<Monster> getMonsters(Player owner) {
+		
+		return monTable.getMonster(owner.email);
+		
+	}
+	
 }
