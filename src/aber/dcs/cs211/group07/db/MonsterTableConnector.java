@@ -198,15 +198,15 @@ public class MonsterTableConnector {
 	 * @param mon - monster to be edited 
 	 * @param amount - amount to subtract from the health
 	 */
-	public void editHealthLost(Monster mon, int amount) {
+	public void editHealthLost(Monster mon, double amount) {
 
 		try {
 			results = statement.executeQuery(monsterTable);
 			while(results.next()) {
 
-				if(results.getInt("ID")==mon.id) {
+				if(results.getDouble("ID")==mon.id) {
 
-					int newHealth = mon.health_lost+amount;
+					double newHealth = mon.health_lost+amount;
 
 					String sql = "UPDATE MONSTER SET HEALTH_LOST="+newHealth+
 							" WHERE ID="+mon.id;
