@@ -26,7 +26,7 @@ CREATE  TABLE IF NOT EXISTS `monster_mash`.`monster` (
   `name` VARCHAR(45) NULL ,
   `birth` DATE NULL ,
   `sex` TINYINT(1) NULL ,
-  `healthLost` INT NULL ,
+  `healthLost` DOUBLE NULL ,
   `age` TIME NULL ,
   PRIMARY KEY (`owner`) ,
   INDEX `owner_idx` (`owner` ASC) ,
