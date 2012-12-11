@@ -5,21 +5,34 @@ body{
 	margin: -75px;
 	padding: 0;
 }
-
+/*Scroll*/
+#panel,#flip
+{
+padding:5px;
+width:190px;
+text-align:center;
+background-color:#e5eecc;
+border:solid 1px #c3c3c3;
+}
+#panel
+{
+width:190px;
+padding:0;
+display:none;
+}
 
 /*Login page*/
 
 #login-container{
-	width: 400px;
-	height: 200px;
-	padding: 15px;
+	width: 250px;
+	height: 250px;
+	padding: 5px;
 	margin: 0 auto;
-	background-image:url('login-background.jpg');
-	background-repeat:no-repeat;
+	background-color:#C0C0C0;
 	border: 2px solid #000000;
 	-moz-border-radius:6px;
 	border-radius:6px 5px;
-	
+
 
 }
 /*Rest of pages*/
@@ -35,9 +48,6 @@ body{
 	border-radius:6px 5px;
 }
 /*TABLE*/
-
-
-
 /*Top menu*/
 #container-menu{
  	width: 825px;

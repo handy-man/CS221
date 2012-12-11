@@ -17,7 +17,7 @@
 			<ul>
 				<li><a href="MyProfile.html">MyProfile</a></li>
 				<li><a href="notification.html">Notofication</a></li>
-				<li><a href="">Monsters</a></li>
+				<li><a href="monsters.html">Monsters</a></li>
 				<li><a href="highscores.html">Highscores</a></li>
 				<li class="logout"><a href="index.html">Log out</a></li>
 			</ul>
@@ -25,39 +25,51 @@
 <div style="clear:both"><p>&nbsp;</p></div>
 <div id="container">
 		<p>MONEY: $$$</p><hr />
+		<!--Freinds pan
+		-->
 		<p><table style="float:right; border: 1px solid #000;height:300px;width:215px;">
 		<tr>
-		<th style="text-align:top; height:40px; border-bottom: 1px solid #000;">FRIENDS:
+		<td colspan="2" style="text-align:top; height:40px; border-bottom: 1px solid #000;">FRIENDS: <span style="float:right;width:50px;">$</span></td>
 		</tr>
-		<tr style="height: 180px;">
-		</tr>
+		<tr><td colspan="2">Player 1<span style="width:50px;float:right;">$50</span></td></tr>
+		<tr><td colspan="2">Player 2<span style="width:50px;float:right;">$150</span></td></tr>
+		<tr><td colspan="2">Player 3<span style="width:50px;float:right;">$250</span></td></tr>
+		<tr><td colspan="2">Player 4<span style="width:50px;float:right;">$350</span></td></tr>
+		<tr><td colspan="2">Player 5<span style="width:50px;float:right;">$450</span></td></tr>
+		<tr><td colspan="2">Player 6<span style="width:50px;float:right;">$550</span></td></tr>
 		<tr>
-		<td  style="height: 40px; border-top: 1px solid #000;">
+		<td  style="height: 40px; border-top: 1px solid #000;" colspan="2">
 		<input class="textfield" type="text" name="username" maxlength="20"/>
 		<input type="submit" value="Add" />
 		</td>
 		</tr>
-		
-		
 		</table>
+		<!--Notofication pan 
+		-->
 		<table style="float:left; border: 1px solid #000; border-collapse:collapse; height:300px;width:570px;">
 		<tr style="border: 1px solid #000; border-collapse:collapse; height:150px">
 		<td style="border: 1px solid #000; border-collapse:collapse; text-align:center; width:190px"">Friend X <br/>Wants Fight<br/>
-		<p><input type="submit" value="View" style="float:center"/></p>
+		<form action="view_offer.html">
+	<p><button style="height:25px;width:100px;text-align:center;">View offer</button></p>
+		</form>
 		</td>
 		<td style="border: 1px solid #000; border-collapse:collapse; text-align:center; width:190px""> Freind 2 <br/>Breed
-		<p><input type="submit" value="View" style="float:center"/></p>
+		<form action="view_offer.html">
+		<p><button style="height:25px;width:100px;text-align:center;">View offer</button></p>
+		</form>
 		</td>
 		<td style="border: 1px solid #000; border-collapse:collapse; text-align:center; width:190px"">Trade <br/>[]--[]
-		<p><input type="submit" value="View" style="float:center"/></p>
+		<form action="view_offer.html">
+		<p><button style="height:25px;width:100px;text-align:center;">View offer</button></p>
+		</form>
 		</td>
 		</tr>
 		<tr style="border: 1px solid #000;border-collapse:collapse; height:150px"">
 		<td style="border: 1px solid #000;border-collapse:collapse; text-align:center; width:190px"">You Won <br/>Fight vs Friend X
-		<p><input type="submit" value="Display report" style="float:center"/></p>
+		<p><button style="height:25px;width:100px;text-align:center;">Show report</button></p>
 		</td>
 		<td style="border: 1px solid #000;border-collapse:collapse; text-align:center; width:190px"">You Lost<br/> Fight vs Friend X
-		<p><input type="submit" value="Display report" style="float:center"/></p>
+		<p><button style="height:25px;width:100px;text-align:center;">Show report</button></p>
 		</td>
 		<td style="border: 1px solid #000; border-collapse:collapse; text-align:center; width:190px"">Friends X <br/>Accepted</td>
 		</tr>
