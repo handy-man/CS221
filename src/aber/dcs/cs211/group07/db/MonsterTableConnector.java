@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -56,9 +58,9 @@ public class MonsterTableConnector {
 			//need to set ID here as they will probably be null at construction
 
 			statement.executeUpdate("INSERT INTO MONSTER" + 
-					" VALUES ('"+mon.player+"','"+mon.name+
+					" VALUES ('"+mon.player.email+"','"+mon.name+
 					"','"+mon.birth+"','"+mon.gender+
-					"','"+mon.health_lost+"')");
+					"',"+mon.health_lost+")");
 		} 
 		catch (SQLException error) {
 			//report error
@@ -118,7 +120,15 @@ public class MonsterTableConnector {
 
 				if(results.getInt("ID")==monID)
 				{
-					//create a monster with some constructor
+					int id = results.getInt("id");
+					String player = results.getString("owner");
+					String name = results.getString("name");
+					Date birth = results.getDate("birth");
+					boolean sex = results.getBoolean("gender");
+					Double health_Lost = results.getDouble("health_Lost");
+					Monster newMon = new Monster(id,player,name,birth,sex,health_Lost);
+					
+					foundMonster=newMon;
 				}
 
 			}
@@ -130,14 +140,14 @@ public class MonsterTableConnector {
 	}
 
 	/**
-	 * Returns a monster from the table
+	 * Returns a list of monster id's from the table
 	 * 
 	 * @param owner - name of the player
-	 * @return a monster instance
+	 * @return list of monster id's
 	 */
-	public List<Monster> getMonster(String owner) {
+	public List<Integer> getMonster(String owner) {
 
-		List<Monster> monList = new ArrayList<Monster>();
+		List<Integer> monList = new ArrayList<Integer>();
 
 		try {
 			results = statement.executeQuery(monsterTable);
@@ -145,9 +155,9 @@ public class MonsterTableConnector {
 
 				if(results.getString("OWNER")==owner)
 				{	
-					Monster newMon = null;
-					//create a monster with some constructor
-					monList.add(newMon);
+					int id = results.getInt("id");
+				
+					monList.add(id);
 				}
 
 			}

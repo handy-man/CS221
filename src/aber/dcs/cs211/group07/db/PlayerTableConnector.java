@@ -19,7 +19,7 @@ public class PlayerTableConnector {
 	//Results from the player table. Initialized at the begin on methods
 	private ResultSet results = null;
 	//SQL statement to read from the player table
-	private String playerTable = "SELECT * FROM PLAYER";
+	private String playerTable = "SELECT * FROM PLAYER_TEST";
 	
 	private MonsterTableConnector monTable = new MonsterTableConnector();
 
@@ -27,21 +27,26 @@ public class PlayerTableConnector {
 	public PlayerTableConnector() {
 
 		//Enter address of database being used
-		String host = "database/address";
+		//Below is my local database
+		String host = "jdbc:derby:/Users/dannyboi/MyDB;create=true";
 		//Enter name of the actual database
-		String databaseName = "name of the database";
+		String databaseName = "MONSTER_MASH_TEST";
 		//Enter password
-		String password = "password";
+		String password = "admin";
 		
 		try {
 			//Creates a connection to the database and a statement
 			Connection connection = DriverManager.getConnection(host,databaseName,password);
 			statement = connection.createStatement();
+			System.out.println("connection made");
 		
 		}
 
 		catch(SQLException error) {
 			//do something with error
+			System.out.println("connection not made");
+			error.printStackTrace();
+
 		}
 	}
 
@@ -57,13 +62,14 @@ public class PlayerTableConnector {
 
 			//need to set ID and serverID here as they will probably be null at construction
 
-			statement.executeUpdate("INSERT INTO PLAYER" + 
-					" VALUES ('"+newPlayer.id+"','"+newPlayer.serverID+
-					"','"+newPlayer.email+"','"+newPlayer.password+
-					"','"+newPlayer.money+"')");
+			statement.executeUpdate("INSERT INTO PLAYER_TEST(serverID,email,password,money)" + 
+					" VALUES ("+newPlayer.serverID+
+					",'"+newPlayer.email+"','"+newPlayer.password+
+					"',"+newPlayer.money+")");
+			
 		} 
 		catch (SQLException error) {
-			//report error
+			error.printStackTrace();
 		}
 
 	}
@@ -88,10 +94,43 @@ public class PlayerTableConnector {
 
 	}
 
+
 	/**
 	 * Returns a player instance from the table 
 	 * 
-	 * UNFINISHED
+	 * @param name - name of the player to get
+	 * @return a player instance
+	 */
+	public Player getPlayer(String name) {
+
+		Player foundPlayer = null;
+
+		try {
+			results = statement.executeQuery(playerTable);
+			while(results.next()) {
+
+				if((results.getString("email")==name)) {
+					int id = results.getInt("id");
+					int serverID = results.getInt("serverID");
+					String email = results.getString("email");
+					String pass = results.getString("password");
+					int money = results.getInt("money");
+					Player p = new Player(id,serverID,email,pass,money);
+					//create a player with a constructor using table row
+					foundPlayer=p;
+				}
+
+			}
+		} catch (SQLException error) {
+			// report error	
+		}
+
+		return foundPlayer;
+
+	}
+	
+	/**
+	 * Returns a player instance from the table 
 	 * 
 	 * @param playerID - id of the player we want to get
 	 * @return a player instance
@@ -105,7 +144,12 @@ public class PlayerTableConnector {
 			while(results.next()) {
 
 				if((results.getInt("ID")==playerID)) {
-					Player p = new Player();
+					int id = results.getInt("id");
+					int serverID = results.getInt("serverID");
+					String email = results.getString("email");
+					String pass = results.getString("password");
+					int money = results.getInt("money");
+					Player p = new Player(id,serverID,email,pass,money);
 					//create a player with a constructor using table row
 					foundPlayer=p;
 				}
@@ -134,12 +178,12 @@ public class PlayerTableConnector {
 			results = statement.executeQuery(playerTable);
 			while(results.next()) {
 				
-				if(results.getInt("ID")==id) {
+				if(results.getInt("id")==id) {
 				
 					int newMoney = player.money+amount;
 				
 					String sql = "UPDATE PLAYER SET MONEY="+newMoney+
-							" WHERE ID="+id;
+							" WHERE id="+id;
 			
 					statement.executeUpdate(sql);
 					
@@ -157,8 +201,8 @@ public class PlayerTableConnector {
 	}
 	
 	/**
-	 * Simple code for login validation. If the username exists in the database
-	 * and the password is correct for the username return the user else 
+	 * Simple code for login validation. If the user name exists in the database
+	 * and the password is correct for the user name return the user else 
 	 * return null
 	 * 
 	 * @param username - for account
@@ -175,7 +219,12 @@ public class PlayerTableConnector {
 				
 					if(results.getString("password").equals(password)) {
 						
-						Player p = new Player();
+						int id = results.getInt("id");
+						int serverID = results.getInt("serverID");
+						String email = results.getString("email");
+						String pass = results.getString("password");
+						int money = results.getInt("money");
+						Player p = new Player(id,serverID,email,pass,money);
 						//create a player with a constructor using table row
 						return p;
 					}
@@ -187,8 +236,14 @@ public class PlayerTableConnector {
 		}
 		return null;
 	}
-
-	public List<Monster> getMonsters(Player owner) {
+	
+	/**
+	 * Returns a list of id's of the player's monsters
+	 * 
+	 * @param owner - owner of monsters
+	 * @return list of monster id's
+	 */
+	public List<Integer> getMonsters(Player owner) {
 		
 		return monTable.getMonster(owner.email);
 		
