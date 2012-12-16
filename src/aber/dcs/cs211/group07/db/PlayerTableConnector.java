@@ -12,6 +12,13 @@ import aber.dcs.cs211.group07.data.Monster;
 
 import aber.dcs.cs211.group07.data.Player;
 
+
+/**
+ * Codes for connecting to the player table in the database
+ * 
+ * @author Daniel Cornwell
+ *
+ */
 public class PlayerTableConnector {
 
 	//A statement from the connection, used to get result sets
@@ -51,45 +58,50 @@ public class PlayerTableConnector {
 	}
 
 	/**
-	 * Creates a new row in the table the corresponds to a player
+	 * Creates a new player in the table given a player instance
 	 * 
-	 * @param newPlayer - a player instance that needs to be added to the database
+	 * @param newPlayer - instance of player to be added
+	 * @return true if player was created, false otherwise
 	 */
-	public void createPlayer(Player newPlayer) {
+	public boolean createPlayer(Player newPlayer) {
 
 		try {
 			results = statement.executeQuery(playerTable);
 
-			//need to set ID and serverID here as they will probably be null at construction
-
+			//creates a player in the table, requires serverID, email, password and money
 			statement.executeUpdate("INSERT INTO PLAYER_TEST(serverID,email,password,money)" + 
 					" VALUES ("+newPlayer.serverID+
 					",'"+newPlayer.email+"','"+newPlayer.password+
 					"',"+newPlayer.money+")");
+			return true;
 			
 		} 
 		catch (SQLException error) {
-			error.printStackTrace();
+			//report error
+			return false;
 		}
-
+		
 	}
 
 	/**
-	 * Deletes a player via the id
+	 * Deletes a player from the table
 	 * 
-	 * @param newPlayer
+	 * @param newPlayer - player to be deleted
+	 * @return true if deleted, false otherwise
 	 */
-	public void deletePlayer(Player newPlayer) {
+	public boolean deletePlayer(Player newPlayer) {
 
 		try {
 			results = statement.executeQuery(playerTable);
 			statement.executeUpdate("DELETE FROM PLAYER" + 
 					" WHERE ID="+newPlayer.id);
 			monTable.deleteMonster(newPlayer.email);
+			return true;
 			
 		} 
 		catch (SQLException error) {
 			//report error
+			return false;
 		}
 
 	}
@@ -99,11 +111,9 @@ public class PlayerTableConnector {
 	 * Returns a player instance from the table 
 	 * 
 	 * @param name - name of the player to get
-	 * @return a player instance
+	 * @return a player instance, or null
 	 */
 	public Player getPlayer(String name) {
-
-		Player foundPlayer = null;
 
 		try {
 			results = statement.executeQuery(playerTable);
@@ -117,15 +127,15 @@ public class PlayerTableConnector {
 					int money = results.getInt("money");
 					Player p = new Player(id,serverID,email,pass,money);
 					//create a player with a constructor using table row
-					foundPlayer=p;
+					return p;
 				}
 
 			}
+			
 		} catch (SQLException error) {
 			// report error	
 		}
-
-		return foundPlayer;
+		return null;
 
 	}
 	
@@ -133,11 +143,9 @@ public class PlayerTableConnector {
 	 * Returns a player instance from the table 
 	 * 
 	 * @param playerID - id of the player we want to get
-	 * @return a player instance
+	 * @return a player instance, or null
 	 */
 	public Player getPlayer(int playerID) {
-
-		Player foundPlayer = null;
 
 		try {
 			results = statement.executeQuery(playerTable);
@@ -151,7 +159,7 @@ public class PlayerTableConnector {
 					int money = results.getInt("money");
 					Player p = new Player(id,serverID,email,pass,money);
 					//create a player with a constructor using table row
-					foundPlayer=p;
+					return p;
 				}
 
 			}
@@ -159,7 +167,7 @@ public class PlayerTableConnector {
 			// report error	
 		}
 
-		return foundPlayer;
+		return null;
 
 	}
 
@@ -167,10 +175,11 @@ public class PlayerTableConnector {
 	 * Edits the money of a player in the table
 	 * Also sets the money variable of the Player instance
 	 * 
-	 * @param player - the player to edit
-	 * @param amount - the amount to edit by
+	 * @param player - player to edit
+	 * @param amount - amount to edit by
+	 * @return true if edited, false otherwise
 	 */
-	public void editMoney(Player player,int amount) {
+	public boolean editMoney(Player player,int amount) {
 
 		int id = player.id;
 
@@ -190,24 +199,23 @@ public class PlayerTableConnector {
 					//saves getting the updated player
 					player.money = newMoney;
 					
-					break;
+					return true;
 				}
 				
 			}
 		} catch (SQLException error) {
 			// report error	
 		}
-
+		return false;
 	}
 	
 	/**
-	 * Simple code for login validation. If the user name exists in the database
-	 * and the password is correct for the user name return the user else 
-	 * return null
+	 * Simple code for login validation. checks whether the user
+	 * exists in the table 
 	 * 
 	 * @param username - for account
 	 * @param password - for account
-	 * @return a user
+	 * @return a user, or null
 	 */
 	public Player login(String username,String password) {
 		
@@ -235,6 +243,36 @@ public class PlayerTableConnector {
 			// report error	
 		}
 		return null;
+	}
+	
+	/**
+	 * Checks whether the email already exists,
+	 * if not then create a new player and add them
+	 * 
+	 * @param username - email of the new user
+	 * @param password - password of the user
+	 * @return true if the player email doesn't exist in the table and is added, false otherwise
+	 */
+	public boolean registerPlayer(String username,String password) {
+		
+		try {
+			results = statement.executeQuery(playerTable);
+			while(results.next()) {
+				
+				if(results.getString("email").equals(username)) {
+					return false;
+				}
+			}
+			//enter whatever the serverID is
+			int serverID = 0;
+			Player newPlayer = new Player(0, serverID, username, password, 500);
+			return createPlayer(newPlayer);
+		} 
+		catch (SQLException error) {
+			// report error	
+			return false;
+		}
+		
 	}
 	
 	/**

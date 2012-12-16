@@ -13,6 +13,12 @@ import java.util.ArrayList;
 import aber.dcs.cs211.group07.data.Monster;
 import aber.dcs.cs211.group07.data.Player;
 
+/**
+ * Codes for connecting to the monster table in the database
+ * 
+ * @author Daniel Cornwell
+ *
+ */
 public class MonsterTableConnector {
 
 	//A statement from the connection, used to get result sets
@@ -27,7 +33,7 @@ public class MonsterTableConnector {
 
 		//Enter address of database being used
 		String host = "database/address";
-		//Enter name of the actual datbase
+		//Enter name of the actual database
 		String userName = "name of the database";
 		//Enter password for the database (unsure if necessary)
 		String password = "password";
@@ -49,8 +55,9 @@ public class MonsterTableConnector {
 	 * Creates a new monster in the table
 	 * 
 	 * @param mon - monster instance needing to be added
+	 * @return true if the monster is added, false otherwise
 	 */
-	public void createMonster(Monster mon) {
+	public boolean createMonster(Monster mon) {
 
 		try {
 			results = statement.executeQuery(monsterTable);
@@ -61,9 +68,11 @@ public class MonsterTableConnector {
 					" VALUES ('"+mon.player.email+"','"+mon.name+
 					"','"+mon.birth+"','"+mon.gender+
 					"',"+mon.health_lost+")");
+			return true;
 		} 
 		catch (SQLException error) {
 			//report error
+			return false;
 		}
 
 	}
@@ -72,16 +81,19 @@ public class MonsterTableConnector {
 	 * Deletes a monster using its id
 	 * 
 	 * @param mon - monster to be deleted
+	 * @return true if monster deleted, false otherwise
 	 */
-	public void deleteMonster(Monster mon) {
-		//need to add an id variable to monster
+	public boolean deleteMonster(Monster mon) {
+	
 		try {
 			results = statement.executeQuery(monsterTable);
 			statement.executeUpdate("DELETE FROM MONSTER" + 
 					" WHERE ID="+mon.id);
+			return true;
 		} 
 		catch (SQLException error) {
 			//report error
+			return false;
 		}
 
 	}
@@ -90,16 +102,19 @@ public class MonsterTableConnector {
 	 * Deletes a monster using its owner name
 	 * 
 	 * @param owner - name of the owner of the monster
+	 * @return true if monster deleted, false otherwise
 	 */
-	public void deleteMonster(String owner) {
+	public boolean deleteMonster(String owner) {
 		//need to add an id variable to monster
 		try {
 			results = statement.executeQuery(monsterTable);
 			statement.executeUpdate("DELETE FROM MONSTER" + 
-					" WHERE PLAYER="+owner);
+					" WHERE PLAYER='"+owner+"'");
+			return true;
 		} 
 		catch (SQLException error) {
 			//report error
+			return false;
 		}
 
 	}
@@ -108,11 +123,10 @@ public class MonsterTableConnector {
 	 * Returns a monster from the table
 	 * 
 	 * @param monID - id of the monster
-	 * @return a monster instance
+	 * @return a monster instance, or null
 	 */
 	public Monster getMonster(int monID) {
 
-		Monster foundMonster = null;
 
 		try {
 			results = statement.executeQuery(monsterTable);
@@ -127,8 +141,7 @@ public class MonsterTableConnector {
 					boolean sex = results.getBoolean("gender");
 					Double health_Lost = results.getDouble("health_Lost");
 					Monster newMon = new Monster(id,player,name,birth,sex,health_Lost);
-					
-					foundMonster=newMon;
+					return newMon;
 				}
 
 			}
@@ -136,7 +149,7 @@ public class MonsterTableConnector {
 			// report error	
 		}
 
-		return foundMonster;
+		return null;
 	}
 
 	/**
@@ -175,8 +188,9 @@ public class MonsterTableConnector {
 	 * 
 	 * @param mon - the monster to be edited
 	 * @param newOwner - the new owner of the monster
+	 * @return true if edited, false otherwise
 	 */
-	public void editOwner(Monster mon,Player newOwner) {
+	public boolean editOwner(Monster mon,Player newOwner) {
 
 		try {
 			results = statement.executeQuery(monsterTable);
@@ -192,14 +206,14 @@ public class MonsterTableConnector {
 					//saves getting the updated monster
 					mon.player=newOwner;
 
-					break;
+					return true;
 				}
 
 			}
 		} catch (SQLException error) {
 			// report error	
 		}
-
+		return false;
 	}
 
 	/**
@@ -207,8 +221,9 @@ public class MonsterTableConnector {
 	 * 
 	 * @param mon - monster to be edited 
 	 * @param amount - amount to subtract from the health
+	 * @return true if edited, false otherwise
 	 */
-	public void editHealthLost(Monster mon, double amount) {
+	public boolean editHealthLost(Monster mon, double amount) {
 
 		try {
 			results = statement.executeQuery(monsterTable);
@@ -226,18 +241,18 @@ public class MonsterTableConnector {
 					//saves getting the updated monster
 					mon.health_lost = newHealth;
 
-					break;
+					return true;
 				}
 
 			}
 		} catch (SQLException error) {
 			// report error	
 		}
-
+		return false;
 	}
 
 	/**
-	 * Returns the sex of the monster
+	 * Returns the sex of the monster - unsure about workings of this
 	 * 
 	 * @param mon - monster to check
 	 * @return true is female, false if male
