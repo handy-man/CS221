@@ -1,4 +1,5 @@
 # Compiled Java files
+bin/
 *.class
 *.jar
 
