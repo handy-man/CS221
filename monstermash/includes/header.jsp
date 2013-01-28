@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%!
+    String base_url = "http://tomcat.thehiddennation.com/monstermash";
+%>
 <html>
   <head>
     <title>Monster Mash</title>
@@ -13,6 +16,10 @@
   <div id="page">
     <div id="header" class="container">
         <h1>Monster Mash</h1>
+        <ul>
+            <li><a href="${base_url}/">Home</a></li>
+            <li><a href="${base_url}/register">Register</a></li>
+        </ul>
     </div>
     <div id="main" class="container"><!-- start:div#main -->
 <!-- end:includes/header.jsp -->

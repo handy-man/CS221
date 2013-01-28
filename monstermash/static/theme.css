@@ -1,56 +1,98 @@
 body {
-    background: black;
+    background: url("images/pw_maze_black.png") black;
 }
 
 #page {
-    margin: 5em auto;
-    max-width: 1024px;
-    background: url("images/scare.jpg") no-repeat center 0 grey;
+    margin: 2.5em auto;
+    max-width: 1022px;
+    background: url("images/scare.jpg") no-repeat -1px -1px black;
     -webkit-border-radius: 10px;
     border-radius: 10px;
 }
 
 .container {
-    background-color: rgba(150, 150, 150, 0.5);
-    padding: 1em;
-    border: 2px solid #151515;
+    padding: 2em;
 }
 
-.container:first-of-type {
-    -webkit-border-radius: 10px 10px 0 0;
-    border-radius: 10px 10px 0 0;
-}
-
-.container:not(:last-of-type) {
-    border-bottom: none;
-}
-
-.container:last-of-type {
-    -webkit-border-radius: 0 0 10px 10px;
-    border-radius: 0 0 10px 10px;
-}
-
-#header, #footer {
-    text-align: center;
-    background: none;
-    color: white;
-}
+/*
+ * Header
+ */
 
 #header {
-    height: 180px;
+    height: 150px;
+    color: white;
+    text-align: left;
+    padding-left: 0;
 }
 
 #header h1 {
     display: none;
 }
 
-#main { }
+#header ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    display: inline-block;
+}
+
+#header ul li {
+    margin: 0.5em 0;
+    padding: 0.2em 2em;
+    min-width: 5em;
+    background: rgba(100, 100, 100, 0.75);
+    -webkit-border-radius: 0 5px 5px 0;
+    border-radius: 0 5px 5px 0;
+}
+
+#header ul li:hover {
+    background: rgba(150, 150, 150, 0.75);
+}
+
+#header a {
+    color: white;
+    text-decoration: none;
+}
+
+#header a:hover {
+    color: red;
+    text-decoration: underline;
+}
+
+/*
+ * Main
+ */
+
+#main {
+    margin: 0 1em;
+    background-color: rgba(150, 150, 150, 0.5);
+    -webkit-border-radius: 7.5px;
+    border-radius: 7.5px;
+}
+
+/*
+ * Headers
+ */
+
+h2:first-child {
+    margin-top: 0;
+}
 
 /*
  * Login form
  */
 
 #login { text-align: center; }
-#login form { display: inline-block; margin: 2em; }
+#login form { display: inline-block; }
 #login form p { margin: 0; }
 #login form input[type=submit] { width: 100%; }
+
+/*
+ * Footer
+ */
+
+#footer {
+    text-align: center;
+    font-size: 0.75em;
+    color: white;
+}
