@@ -13,6 +13,15 @@ public class Player {
 	public String password;
 	public int money;
 	
+	public Player(int id, int serverID, String email, String password, int money) {
+		//constructor for a player retrieved from database
+		this.id = id;
+		this.serverID = serverID;
+		this.email = email;
+		this.password = password;
+		this.money = money;
+	}
+
 	public List<Player> getFriends(){
 		return null;
 	}
@@ -30,11 +39,11 @@ public class Player {
 	}
 	
 	public void debit(int amount){
-		
+		money = money - amount;
 	}
 	
 	public void credit(int amount){
-		
+		money = money + amount;
 	}
 	
 }

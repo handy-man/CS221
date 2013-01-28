@@ -66,8 +66,7 @@ public class MonsterTableConnector {
 
 			statement.executeUpdate("INSERT INTO MONSTER" + 
 					" VALUES ('"+mon.player.email+"','"+mon.name+
-					"','"+mon.birth+"','"+mon.gender+
-					"',"+mon.health_lost+")");
+					"','"+mon.birth+"','"+mon.health_lost+")");
 			return true;
 		} 
 		catch (SQLException error) {
@@ -127,7 +126,6 @@ public class MonsterTableConnector {
 	 */
 	public Monster getMonster(int monID) {
 
-
 		try {
 			results = statement.executeQuery(monsterTable);
 			while(results.next()) {
@@ -138,9 +136,8 @@ public class MonsterTableConnector {
 					String player = results.getString("owner");
 					String name = results.getString("name");
 					Date birth = results.getDate("birth");
-					boolean sex = results.getBoolean("gender");
 					Double health_Lost = results.getDouble("health_Lost");
-					Monster newMon = new Monster(id,player,name,birth,sex,health_Lost);
+					Monster newMon = new Monster(id,player,name,birth,health_Lost);
 					return newMon;
 				}
 
@@ -251,34 +248,5 @@ public class MonsterTableConnector {
 		return false;
 	}
 
-	/**
-	 * Returns the sex of the monster - unsure about workings of this
-	 * 
-	 * @param mon - monster to check
-	 * @return true is female, false if male
-	 */
-	public boolean getSex(Monster mon) {
-
-		boolean sex = false;
-
-		try {
-			results = statement.executeQuery(monsterTable);
-			while(results.next()) {
-
-				if(results.getInt("ID")==mon.id) {
-
-					sex = results.getBoolean("SEX");
-
-					break;
-				}
-
-			}
-
-		} catch (SQLException error) {
-			// report error	
-		}
-
-		return sex;
-	}
 
 }
