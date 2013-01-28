@@ -76,12 +76,12 @@ body {
 
 h1, h2, h3, h4 {
     font-family: 'Finger Paint', cursive;
-    color: #500000;
+    color: #200000;
 }
 
 h2 {
-    font-size: 2.5em;
-    margin: 0 0 0.5em;
+    font-size: 2em;
+    margin: -0.5em 0 0.5em;
 }
 
 
@@ -96,8 +96,8 @@ form.login {
     max-width: 25%;
     min-width: 200px;
 }
-form.login p { margin: 0; }
-form.login input[type=submit] { width: 100%; }
+form.login p { margin: 0; text-align: center; width: 100%; }
+form.login input[type=submit] { width: inherit; }
 
 /*
  * Footer
@@ -107,4 +107,8 @@ form.login input[type=submit] { width: 100%; }
     text-align: center;
     font-size: 0.75em;
     color: white;
+}
+
+#footer a {
+    color: inherit;
 }
