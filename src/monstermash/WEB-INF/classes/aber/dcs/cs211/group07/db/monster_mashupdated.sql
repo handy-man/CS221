@@ -7,7 +7,7 @@ USE `monster_mash` ;
 
 -- -----------------------------------------------------
 -- Table `monster_mash`.`player`
--- -----------------------------------------------------
+-- -----------------------------------------	------------
 CREATE  TABLE IF NOT EXISTS `monster_mash`.`player` (
   `id` INT NOT NULL ,
   `serverID` INT NULL ,
