@@ -19,6 +19,17 @@ public class Monster {
 	
 	public double health_lost = 0;
 
+	public Monster(){
+		//get name of monster from somewhere
+		this.birth = new Date();
+		Random r = new Random();
+		// is health random or calculated from toughness ?
+		this.health = r.nextDouble();
+		this.strength = r.nextDouble();
+		this.toughness = r.nextDouble();
+		this.evasion = r.nextDouble();
+	}
+	
 	public Monster(String name, Date birth){
 		this.name = name;
 		this.birth = birth == null ? birth : new Date();
