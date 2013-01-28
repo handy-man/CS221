@@ -14,10 +14,8 @@ public class Monster {
 	
 	private double health;
 	private double strength;
-	private double speed;
-	private double accuracy;
-	private double armour;
-	private double dodge;
+	private double toughness;
+	private double evasion;
 	
 	public double health_lost = 0;
 
@@ -30,10 +28,8 @@ public class Monster {
 		this(name, birth);		
 		this.health   = random(mother.health, father.health);
 		this.strength = random(mother.strength, father.strength);
-		this.speed    = random(mother.speed, father.speed);
-		this.accuracy = random(mother.accuracy, father.accuracy);
-		this.armour   = random(mother.armour, father.armour);
-		this.dodge    = random(mother.dodge, father.dodge);
+		this.toughness   = random(mother.toughness, father.toughness);
+		this.evasion    = random(mother.evasion, father.evasion);
 	}
 	
 	private double random(double mother, double father) {
@@ -50,10 +46,8 @@ public class Monster {
 	
 	public double getHealth()   { return 2 - expAge(); }
 	public double getStrength() { return expValue(this.strength); }
-	public double getSpeed()    { return expValue(this.speed); }
-	public double getAccuracy() { return expValue(this.accuracy); }
-	public double getArmour()   { return expValue(this.armour); }
-	public double getDodge()    { return expValue(this.dodge); }
+	public double getToughness()   { return expValue(this.toughness); }
+	public double getEvasion()    { return expValue(this.evasion); }
 	
 	public double getCurrentHealth(){
 		return this.getHealth() - this.health_lost;
