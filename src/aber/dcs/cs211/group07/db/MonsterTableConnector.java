@@ -5,13 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
 import aber.dcs.cs211.group07.data.Monster;
-import aber.dcs.cs211.group07.data.Player;
 
 /**
  * Codes for connecting to the monster table in the database
@@ -61,8 +59,6 @@ public class MonsterTableConnector {
 
 		try {
 			results = statement.executeQuery(monsterTable);
-
-			//need to set ID here as they will probably be null at construction
 
 			statement.executeUpdate("INSERT INTO monsters " + 
 					" VALUES ("+mon.ownerID+",'"+mon.name+
