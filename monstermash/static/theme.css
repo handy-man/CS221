@@ -1,0 +1,56 @@
+body {
+    background: black;
+}
+
+#page {
+    margin: 5em auto;
+    max-width: 1024px;
+    background: url("images/scare.jpg") no-repeat center 0 grey;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.container {
+    background-color: rgba(150, 150, 150, 0.5);
+    padding: 1em;
+    border: 2px solid #151515;
+}
+
+.container:first-of-type {
+    -webkit-border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.container:not(:last-of-type) {
+    border-bottom: none;
+}
+
+.container:last-of-type {
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+}
+
+#header, #footer {
+    text-align: center;
+    background: none;
+    color: white;
+}
+
+#header {
+    height: 180px;
+}
+
+#header h1 {
+    display: none;
+}
+
+#main { }
+
+/*
+ * Login form
+ */
+
+#login { text-align: center; }
+#login form { display: inline-block; margin: 2em; }
+#login form p { margin: 0; }
+#login form input[type=submit] { width: 100%; }
