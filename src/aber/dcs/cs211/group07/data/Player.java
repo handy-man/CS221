@@ -38,16 +38,4 @@ public class Player {
 		return null;
 	}
 	
-	public void debit(int amount){
-		money = money - amount;
-	}
-	
-	public void credit(int amount){
-		money = money + amount;
-	}
-
-	public int getMoney() {
-		return money;
-	}
-	
 }

@@ -65,8 +65,9 @@ public class MonsterTableConnector {
 			//need to set ID here as they will probably be null at construction
 
 			statement.executeUpdate("INSERT INTO MONSTER" + 
-					" VALUES ('"+mon.player.email+"','"+mon.name+
-					"','"+mon.birth+"','"+mon.health_lost+")");
+					" VALUES ('"+mon.player.id+"','"+mon.name+
+					"','"+mon.birth+"','"+mon.health_lost+"','"+mon.health+"','"
+					+mon.strength+"','"+mon.toughness+"','"+mon.evasion+")");
 			return true;
 		} 
 		catch (SQLException error) {
@@ -137,6 +138,10 @@ public class MonsterTableConnector {
 					String name = results.getString("name");
 					Date birth = results.getDate("birth");
 					Double health_Lost = results.getDouble("health_Lost");
+					Double health = results.getDouble("base_health");
+					Double strength = results.getDouble("genetic_strength");
+					Double toughness = results.getDouble("genetic_toughness");
+					Double evasion = results.getDouble("genetic_evasion");
 					Monster newMon = new Monster(id,player,name,birth,health_Lost);
 					return newMon;
 				}

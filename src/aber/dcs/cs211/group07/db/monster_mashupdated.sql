@@ -25,7 +25,7 @@ CREATE  TABLE IF NOT EXISTS `monster_mash`.`monster` (
   `owner` INT NOT NULL ,
   `name` VARCHAR(45) NULL ,
   `birth` DATE NULL ,
-  `healthLost` DOUBLE NULL ,
+  `health_Lost` DOUBLE NULL ,
   'base_health' DOUBLE NULL,
   'genetic_strength', DOUBLE NULL,
   'genetic_toughness', DOUBLE NULL,
