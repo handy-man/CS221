@@ -5,10 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
-
-import aber.dcs.cs211.group07.data.Monster;
 
 import aber.dcs.cs211.group07.data.Player;
 

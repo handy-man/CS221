@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class Monster {
 
+	public int id;
 	public Player player;
 	public String name;
 	
@@ -30,13 +31,21 @@ public class Monster {
 		this.evasion = r.nextDouble();
 	}
 	
-	public Monster(String name, Date birth){
+	public Monster(Player player, int id, String name, Date birth){
+		this.player = player;
+		this.id = id;
 		this.name = name;
 		this.birth = birth == null ? birth : new Date();
 	}
 	
-	public Monster(String name, Date birth, Monster mother, Monster father) {
-		this(name, birth);		
+	public Monster(Player player, int id, String name, Date birth, double health_lost){
+		this(player, id, name, birth);
+		this.health_lost = health_lost;
+	}
+	
+	// Breeding constructor
+	public Monster(Player player, int id,  String name, Date birth, Monster mother, Monster father) {
+		this(player, id, name, birth);
 		this.health   = random(mother.health, father.health);
 		this.strength = random(mother.strength, father.strength);
 		this.toughness   = random(mother.toughness, father.toughness);

@@ -7,7 +7,6 @@ import java.sql.Time;
 import org.junit.Test;
 
 import aber.dcs.cs211.group07.data.Monster;
-import aber.dcs.cs211.group07.data.Player;
 
 public class DataTests {
 
@@ -17,7 +16,7 @@ public class DataTests {
 	public void testMonsterHealth() {
 		Monster monster = new Monster();
 		Time age = monster.getAge();
-		double calculatedHealth;
+		double calculatedHealth = 0;
 		double health = monster.getHealth();
 		//Calculate health
 		assertEquals(calculatedHealth, health, DELTA) ;
@@ -27,17 +26,17 @@ public class DataTests {
 	public void testMonsterStrength() {
 		Monster monster = new Monster();
 		Time age = monster.getAge();
-		double calculatedHealth;
+		double calculatedStrength = 0;
 		double health = monster.getHealth();
 		//Calculate strength
-		assertEquals(calculatedHealth, health, DELTA);
+		assertEquals(calculatedStrength, health, DELTA);
 	}
 	
 	@Test
 	public void testMonsterToughness() {
 		Monster monster = new Monster();
 		Time age = monster.getAge();
-		double calculatedHealth;
+		double calculatedHealth = 0;
 		double health = monster.getHealth();
 		//Calculate toughness
 		assertEquals(calculatedHealth, health, DELTA);
@@ -47,10 +46,9 @@ public class DataTests {
 	public void testMonsterEvasion() {
 		Monster monster = new Monster();
 		Time age = monster.getAge();
-		double calculatedHealth;
+		double calculatedEvasion = 0;
 		double health = monster.getHealth();
-		//Calculate evasion
-		assertEquals(calculatedHealth, health, DELTA);
+		assertEquals(calculatedEvasion, health, DELTA);
 	}
 	
 }

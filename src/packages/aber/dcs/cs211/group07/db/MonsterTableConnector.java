@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
@@ -134,7 +133,8 @@ public class MonsterTableConnector {
 				if(results.getInt("ID")==monID)
 				{
 					int id = results.getInt("id");
-					String player = results.getString("owner");
+					String player_name = results.getString("owner");
+					Player player = null;
 					String name = results.getString("name");
 					Date birth = results.getDate("birth");
 					Double health_Lost = results.getDouble("health_Lost");
@@ -142,7 +142,7 @@ public class MonsterTableConnector {
 					Double strength = results.getDouble("genetic_strength");
 					Double toughness = results.getDouble("genetic_toughness");
 					Double evasion = results.getDouble("genetic_evasion");
-					Monster newMon = new Monster(id,player,name,birth,health_Lost);
+					Monster newMon = new Monster(player, id, name, birth, health_Lost);
 					return newMon;
 				}
 
