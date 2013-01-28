@@ -12,10 +12,10 @@ public class Monster {
 	public final Date birth;
 	static final double AGE_RATE = 0.1;
 	
-	private double health;
-	private double strength;
-	private double toughness;
-	private double evasion;
+	public double health;
+	public double strength;
+	public double toughness;
+	public double evasion;
 	
 	public double health_lost = 0;
 

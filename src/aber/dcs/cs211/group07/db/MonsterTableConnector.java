@@ -65,8 +65,9 @@ public class MonsterTableConnector {
 			//need to set ID here as they will probably be null at construction
 
 			statement.executeUpdate("INSERT INTO MONSTER" + 
-					" VALUES ('"+mon.player.email+"','"+mon.name+
-					"','"+mon.birth+"','"+mon.health_lost+")");
+					" VALUES ('"+mon.player.id+"','"+mon.name+
+					"','"+mon.birth+"','"+mon.health_lost+"','"+mon.health+"','"
+					+mon.strength+"','"+mon.toughness+"','"+mon.evasion+")");
 			return true;
 		} 
 		catch (SQLException error) {
