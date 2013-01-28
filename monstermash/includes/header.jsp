@@ -9,4 +9,6 @@
     <link rel="stylesheet" href="static/style.css" type="text/css" media="screen" />
   </head>
   <body>
+    <div id="header"></div>
+    <div id="main"><!-- start:div#main -->
 <!-- end:includes/header.jsp -->
