@@ -95,5 +95,5 @@ public class Monster {
 	public Time getAge(){
 		return new Time(new Date().getTime() - this.birth.getTime());
 	}
-
+	
 }

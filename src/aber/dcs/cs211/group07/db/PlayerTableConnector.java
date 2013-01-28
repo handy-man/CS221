@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
+import aber.dcs.cs211.group07.data.Monster;
 import aber.dcs.cs211.group07.data.Player;
 
 
@@ -264,9 +265,9 @@ public class PlayerTableConnector {
 	 * @param owner - owner of monsters
 	 * @return list of monster id's
 	 */
-	public List<Integer> getMonsters(Player owner) {
+	public List<Monster> getMonsters(int ownerID) {
 		
-		return monTable.getMonster(owner.email);
+		return monTable.getMonsters(ownerID);
 		
 	}
 	

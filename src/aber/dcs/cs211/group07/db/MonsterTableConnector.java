@@ -52,7 +52,7 @@ public class MonsterTableConnector {
 	/**
 	 * Creates a new monster in the table
 	 * 
-	 * @param mon - monster instance needing to be added
+	 * @param mon - monster instance to be added
 	 * @return true if the monster is added, false otherwise
 	 */
 	public boolean createMonster(Monster mon) {
@@ -74,7 +74,7 @@ public class MonsterTableConnector {
 	}
 
 	/**
-	 * Deletes a monster using its id
+	 * Deletes a monster using it's id
 	 * 
 	 * @param mon - monster to be deleted
 	 * @return true if monster deleted, false otherwise
@@ -96,12 +96,13 @@ public class MonsterTableConnector {
 
 	/**
 	 * Deletes a monster using its owner's ID
+	 * Used when a player unregisters
 	 * 
 	 * @param ownerID - ID of the owner of the monster
 	 * @return true if monster deleted, false otherwise
 	 */
 	public boolean deleteAllMonsters(int ownerID) {
-		//need to add an id variable to monster
+
 		try {
 			results = statement.executeQuery(monsterTable);
 			statement.executeUpdate("DELETE FROM monsters" + 
@@ -119,7 +120,7 @@ public class MonsterTableConnector {
 	 * Returns a monster from the table
 	 * 
 	 * @param monID - id of the monster
-	 * @return a monster instance, or null
+	 * @return a monster instance, or null if monster wasn't found
 	 */
 	public Monster getMonster(int monID) {
 
@@ -133,7 +134,7 @@ public class MonsterTableConnector {
 					int ownerID = results.getInt("ownerID");
 					String name = results.getString("name");
 					Date birth = results.getDate("birth");
-					Double health_Lost = results.getDouble("health_Lost");
+					Double health_Lost = results.getDouble("health_lost");
 					Double health = results.getDouble("base_health");
 					Double strength = results.getDouble("genetic_strength");
 					Double toughness = results.getDouble("genetic_toughness");
@@ -150,26 +151,28 @@ public class MonsterTableConnector {
 
 		return null;
 	}
-
+	
 	/**
-	 * Returns a list of monster id's from the table
+	 * Finds all the monsters of a player and returns them in a list
 	 * 
-	 * @param owner - name of the player
-	 * @return list of monster id's
+	 * @param ownerID - owner ID of the player
+	 * @return - a list of all their monsters
 	 */
-	public List<Integer> getMonster(String owner) {
-
-		List<Integer> monList = new ArrayList<Integer>();
-
+	public List<Monster> getMonsters(int ownerID) {
+		
+		List<Monster> monList = new ArrayList<Monster>();
+		
 		try {
 			results = statement.executeQuery(monsterTable);
 			while(results.next()) {
 
-				if(results.getString("OWNER")==owner)
+				if(results.getInt("ownerID")==ownerID)
 				{	
-					int id = results.getInt("id");
-				
-					monList.add(id);
+					int id = results.getInt("ID");
+
+					Monster mon = getMonster(id);
+					
+					monList.add(mon);
 				}
 
 			}
@@ -178,7 +181,7 @@ public class MonsterTableConnector {
 		}
 
 		return monList;
-	}
+	}	
 
 	/**
 	 * Gives a monster to a player without any alive monsters
@@ -201,6 +204,7 @@ public class MonsterTableConnector {
 			Monster newMon = new Monster(ownerID);
 			createMonster(newMon);
 			return true;
+			
 		} catch (SQLException error) {
 			// report error	
 			return false;
@@ -213,7 +217,7 @@ public class MonsterTableConnector {
 	 * also sets the instance of monster's player variable
 	 * 
 	 * @param mon - the monster to be edited
-	 * @param newOwner - the new owner of the monster
+	 * @param newOwner - ID of the new owner of the monster
 	 * @return true if edited, false otherwise
 	 */
 	public boolean editOwner(Monster mon,int newOwnerID) {
