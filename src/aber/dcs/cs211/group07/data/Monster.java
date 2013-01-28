@@ -9,9 +9,6 @@ public class Monster {
 	public Player player;
 	public String name;
 	
-	public enum Gender {MALE, FEMALE}
-	public final Gender gender;
-	
 	public final Date birth;
 	static final double AGE_RATE = 0.1;
 	
@@ -24,14 +21,13 @@ public class Monster {
 	
 	public double health_lost = 0;
 
-	public Monster(String name, Date birth, Monster.Gender gender){
+	public Monster(String name, Date birth){
 		this.name = name;
 		this.birth = birth == null ? birth : new Date();
-		this.gender = gender;
 	}
 	
-	public Monster(String name, Date birth, Monster.Gender gender, Monster mother, Monster father) {
-		this(name, birth, gender);		
+	public Monster(String name, Date birth, Monster mother, Monster father) {
+		this(name, birth);		
 		this.health   = random(mother.health, father.health);
 		this.strength = random(mother.strength, father.strength);
 		this.speed    = random(mother.speed, father.speed);
