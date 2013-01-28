@@ -53,37 +53,4 @@ public class DataTests {
 		assertEquals(calculatedHealth, health, DELTA);
 	}
 	
-	@Test
-	public void testDebit(){
-		Player player = new Player();
-		int money = player.getMoney();
-		player.debit(500);
-		assertEquals(money - 500, player.getMoney());
-	}
-	
-	@Test
-	public void testDebitFalse(){
-		Player player = new Player();
-		int money = player.getMoney();
-		player.debit(400);
-		assertFalse(money - 500 == player.getMoney());
-	}
-	
-	@Test
-	public void testCredit(){
-		Player player = new Player();
-		int money = player.getMoney();
-		player.credit(500);
-		assertEquals(money + 500, player.getMoney());
-	}
-	
-	@Test
-	public void testCreditFalse(){
-		Player player = new Player();
-		int money = player.getMoney();
-		player.credit(400);
-		assertFalse(money + 500 == player.getMoney());
-	}
-	
-	
 }
