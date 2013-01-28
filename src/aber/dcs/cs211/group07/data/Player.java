@@ -45,5 +45,9 @@ public class Player {
 	public void credit(int amount){
 		money = money + amount;
 	}
+
+	public int getMoney() {
+		return money;
+	}
 	
 }
