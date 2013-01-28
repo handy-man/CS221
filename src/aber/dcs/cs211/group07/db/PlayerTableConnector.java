@@ -26,7 +26,7 @@ public class PlayerTableConnector {
 	//Results from the player table. Initialized at the begin on methods
 	private ResultSet results = null;
 	//SQL statement to read from the player table
-	private String playerTable = "SELECT * FROM PLAYER_TEST";
+	private String playerTable = "SELECT * FROM player";
 	
 	private MonsterTableConnector monTable = new MonsterTableConnector();
 
@@ -69,9 +69,8 @@ public class PlayerTableConnector {
 			results = statement.executeQuery(playerTable);
 
 			//creates a player in the table, requires serverID, email, password and money
-			statement.executeUpdate("INSERT INTO PLAYER_TEST(serverID,email,password,money)" + 
-					" VALUES ("+newPlayer.serverID+
-					",'"+newPlayer.email+"','"+newPlayer.password+
+			statement.executeUpdate("INSERT INTO player(email,password,money)" + 
+					" VALUES ("+newPlayer.email+"','"+newPlayer.password+
 					"',"+newPlayer.money+")");
 			return true;
 			
@@ -86,16 +85,16 @@ public class PlayerTableConnector {
 	/**
 	 * Deletes a player from the table
 	 * 
-	 * @param newPlayer - player to be deleted
+	 * @param delPlayer - player to be deleted
 	 * @return true if deleted, false otherwise
 	 */
-	public boolean deletePlayer(Player newPlayer) {
+	public boolean deletePlayer(Player delPlayer) {
 
 		try {
 			results = statement.executeQuery(playerTable);
-			statement.executeUpdate("DELETE FROM PLAYER" + 
-					" WHERE ID="+newPlayer.id);
-			monTable.deleteMonster(newPlayer.email);
+			statement.executeUpdate("DELETE FROM player" + 
+					" WHERE ID="+delPlayer.id);
+			monTable.deleteAllMonsters(delPlayer.id);
 			return true;
 			
 		} 
@@ -120,12 +119,11 @@ public class PlayerTableConnector {
 			while(results.next()) {
 
 				if((results.getString("email")==name)) {
-					int id = results.getInt("id");
-					int serverID = results.getInt("serverID");
+					int id = results.getInt("ID");
 					String email = results.getString("email");
 					String pass = results.getString("password");
 					int money = results.getInt("money");
-					Player p = new Player(id,serverID,email,pass,money);
+					Player p = new Player(id,email,pass,money);
 					//create a player with a constructor using table row
 					return p;
 				}
@@ -153,11 +151,10 @@ public class PlayerTableConnector {
 
 				if((results.getInt("ID")==playerID)) {
 					int id = results.getInt("id");
-					int serverID = results.getInt("serverID");
 					String email = results.getString("email");
 					String pass = results.getString("password");
 					int money = results.getInt("money");
-					Player p = new Player(id,serverID,email,pass,money);
+					Player p = new Player(id,email,pass,money);
 					//create a player with a constructor using table row
 					return p;
 				}
@@ -187,17 +184,14 @@ public class PlayerTableConnector {
 			results = statement.executeQuery(playerTable);
 			while(results.next()) {
 				
-				if(results.getInt("id")==id) {
+				if(results.getInt("ID")==id) {
 				
 					int newMoney = player.money+amount;
 				
-					String sql = "UPDATE PLAYER SET MONEY="+newMoney+
-							" WHERE id="+id;
+					String sql = "UPDATE player SET money="+newMoney+
+							" WHERE ID="+id;
 			
 					statement.executeUpdate(sql);
-					
-					//saves getting the updated player
-					player.money = newMoney;
 					
 					return true;
 				}
@@ -227,14 +221,7 @@ public class PlayerTableConnector {
 				
 					if(results.getString("password").equals(password)) {
 						
-						int id = results.getInt("id");
-						int serverID = results.getInt("serverID");
-						String email = results.getString("email");
-						String pass = results.getString("password");
-						int money = results.getInt("money");
-						Player p = new Player(id,serverID,email,pass,money);
-						//create a player with a constructor using table row
-						return p;
+						return getPlayer(username);
 					}
 				}
 				
@@ -263,9 +250,8 @@ public class PlayerTableConnector {
 					return false;
 				}
 			}
-			//enter whatever the serverID is
-			int serverID = 0;
-			Player newPlayer = new Player(0, serverID, username, password, 500);
+			int startMoney = 500;
+			Player newPlayer = new Player(0,username, password, startMoney);
 			return createPlayer(newPlayer);
 		} 
 		catch (SQLException error) {
@@ -286,5 +272,6 @@ public class PlayerTableConnector {
 		return monTable.getMonster(owner.email);
 		
 	}
+	
 	
 }

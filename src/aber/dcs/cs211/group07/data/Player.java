@@ -13,10 +13,10 @@ public class Player {
 	public String password;
 	public int money;
 	
-	public Player(int id, int serverID, String email, String password, int money) {
+	public Player(int id, String email, String password, int money) {
 		//constructor for a player retrieved from database
 		this.id = id;
-		this.serverID = serverID;
+	//	this.serverID = serverID;
 		this.email = email;
 		this.password = password;
 		this.money = money;
