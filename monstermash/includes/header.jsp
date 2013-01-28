@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%!
-    String base_url = "http://tomcat.thehiddennation.com/monstermash";
+    String base_url = "/monstermash";
 %>
 <html>
   <head>
@@ -9,8 +9,9 @@
     <meta name="description" content="MonsterMash - Group project" />
     <meta name="keywords" content="MonsterMash, games, gamer, gamming" />
     <meta name="author" content="Group 7" />
-    <link rel="stylesheet" href="static/normalize.css" type="text/css" />
-    <link rel="stylesheet" href="static/theme.css" type="text/css" />
+    <link rel="stylesheet" href="${base_url}static/normalize.css" type="text/css" />
+    <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="${base_url}static/theme.css" type="text/css" />
   </head>
   <body>
   <div id="page">
