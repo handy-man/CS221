@@ -10,8 +10,8 @@ public class Monster {
 	
 	public final Date birth;
 	static final double AGE_RATE = 0.1;
+	public double health = 1.0;
 	
-	public double health;
 	public double strength;
 	public double toughness;
 	public double evasion;
@@ -59,7 +59,7 @@ public class Monster {
 	
 	public Monster(String name, Date birth){
 		this.name = name;
-		this.birth = birth == null ? birth : new Date();
+		this.birth = birth;;
 	}
 	
 	//constructor for breeding monster
@@ -99,6 +99,19 @@ public class Monster {
 	
 	public Time getAge(){
 		return new Time(new Date().getTime() - this.birth.getTime());
+	}
+	
+	/**
+	 * Calculates the death due to old age when a monster is born
+	 * Currently calculating in days
+	 * 
+	 * @return a date which the monster will die
+	 */
+	public Date calculateDeath() {
+		
+		long timeTillDeath = (long) Math.round(Math.log(2) / AGE_RATE) * 86400000;
+		Date deathDate = new Date((birth.getTime()+ timeTillDeath));
+		return deathDate;
 	}
 	
 	/**
