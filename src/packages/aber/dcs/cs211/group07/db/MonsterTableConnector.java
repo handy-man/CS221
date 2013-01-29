@@ -32,11 +32,11 @@ public class MonsterTableConnector {
 	public MonsterTableConnector() {
 
 		//Enter address of database being used
-		String host = "database/address";
+		String host = "thehiddennation.com";
 		//Enter username (usually root?)
-		String userName = "root";
+		String userName = "handyman_group07";
 		//Enter password
-		String password = "root";
+		String password = "3213560921*+*";
 
 		try {
 			// Load JBBC driver "com.mysql.jdbc.Driver" unsure if needed .
