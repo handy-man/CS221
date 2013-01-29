@@ -19,7 +19,7 @@ function validateForm()
 
 </script>
 <h2 class="login">Login</h2>
-<form name="form" class="login" action="#" onsubmit="return validateForm();" method="POST" >
+<form name="form" class="login" action="/login" onsubmit="return validateForm();" method="POST" >
     <p><input name="email" type="text" placeholder="email"/></p>
     <p><input name="password" type="text" placeholder="password"/></p>
     <p><input name="login" type="submit" value="Login"/></p>
