@@ -1,5 +1,6 @@
 # Compiled Java files
 src/monstermash/WEB-INF/classes
+bin
 *.class
 *.jar
 
