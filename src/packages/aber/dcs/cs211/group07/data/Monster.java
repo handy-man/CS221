@@ -46,7 +46,11 @@ public class Monster {
 		
 	}
 	
-	//constructor for random monster
+	/**
+	 * Constructor for random monster
+	 * 
+	 * @param ownerID
+	 */
 	public Monster(int ownerID){
 		this.ownerID = ownerID;
 		this.name = generateName();
@@ -60,14 +64,10 @@ public class Monster {
 		this.age_rate=generateAgeRate();
 	}
 	
-	public Monster(String name, Date birth){
-		this.name = name;
-		this.birth = birth;;
-	}
-	
 	//constructor for breeding monster
-	public Monster(String name, Date birth, Monster mother, Monster father,int newOwnerID) {
-		this(name, birth);
+	public Monster(Monster mother, Monster father,int newOwnerID) {
+		this.name = generateName();
+		this.birth = new Date();
 		this.strength = random(mother.strength, father.strength);
 		this.toughness   = random(mother.toughness, father.toughness);
 		this.evasion    = random(mother.evasion, father.evasion);
@@ -170,5 +170,70 @@ public class Monster {
 		Random random = new Random();
 		return random.nextInt(lastIndex-startIndex)+startIndex;
 	}
+	
+	/** 
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public int getID(){
+		return id;
+	}
+	
+	/** 
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public int getOwnerID(){
+		return ownerID;
+	}
+	
+	/** 
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public String getName(){
+		return name;
+	}
+	
+	/** 
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public  double getHealthLost(){
+		return health_lost;
+	}
+	
+	/** 
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public double getGStrength(){
+		return strength;
+	}
+	
+	/** 
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public double getGToughness(){
+		return toughness;
+	}
+	
+	/** 
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public double getGEvasion(){
+		return evasion;
+	}
+	
+	
 	
 }
