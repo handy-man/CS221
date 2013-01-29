@@ -12,6 +12,8 @@ public class FriendsTableConnector {
 		private Statement statement = null;
 		//Results from the player table. Initialized at the begin on methods
 		private ResultSet results = null;
+		//A connection to the database
+		private Connection connection=null;
 		//SQL statement to read from the player table
 		private String friendsTable = "SELECT * FROM player_friend";;
 
@@ -20,20 +22,22 @@ public class FriendsTableConnector {
 
 			//Enter address of database being used
 			String host = "database/address";
-			//Enter name of the actual database
-			String userName = "name of the database";
-			//Enter password for the database (unsure if necessary)
-			String password = "password";
-
-
+			//Enter username (usually root?)
+			String userName = "root";
+			//Enter password
+			String password = "root";
+			
 			try {
+				// Load JBBC driver "com.mysql.jdbc.Driver" unsure if needed .
+				Class.forName("com.mysql.jdbc.Driver").newInstance();
+				
 				//Creates a connection to the database and a statement
-				Connection connection = DriverManager.getConnection(host,userName,password);
+				connection = DriverManager.getConnection(host,userName,password);
 				statement = connection.createStatement();
 
 			}
 
-			catch(SQLException error) {
+			catch(SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException error) {
 				//do something with error
 			}
 		}
@@ -49,7 +53,7 @@ public class FriendsTableConnector {
 		public boolean addFriend(int userID,int friendServerID,int friendID) {
 			
 			try {
-				results = statement.executeQuery(friendsTable);
+			//	results = statement.executeQuery(friendsTable);
 
 				statement.executeUpdate("INSERT INTO player_friend " + 
 						" VALUES ("+userID+","+friendServerID+","+friendID+")");
@@ -61,4 +65,16 @@ public class FriendsTableConnector {
 			}
 		}
 	
+		/**
+		 * Closes the connection to the database
+		 * 
+		 */
+		public void close() {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 }

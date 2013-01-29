@@ -52,7 +52,9 @@ public class Monster {
 		this.toughness = randomToughness.nextDouble();
 		this.evasion = randomEvasion.nextDouble();
 		
-		this.ownerID=ownerID;
+		this.ownerID = ownerID;
+		
+		this.name = generateName();
 	}
 	
 	public Monster(String name, Date birth){
@@ -69,6 +71,9 @@ public class Monster {
 		this.evasion    = random(mother.evasion, father.evasion);
 		
 		this.ownerID=newOwnerID;
+		
+		this.name = generateName();
+
 	}
 	
 	private double random(double mother, double father) {
@@ -95,5 +100,40 @@ public class Monster {
 	public Time getAge(){
 		return new Time(new Date().getTime() - this.birth.getTime());
 	}
-
+	
+	/**
+	 * Generates a random 5 letter name 
+	 * 
+	 * @return a 5 letter string 
+	 */
+	public String generateName() {
+		
+		String constants = "bcdfghjklmnpqrstvwxyz";
+		String vowels = "aeiou";
+		
+		char one = constants.charAt(randomInt(0,20));
+		char two = vowels.charAt(randomInt(0,4));
+		char three = constants.charAt(randomInt(0,20));
+		char four = vowels.charAt(randomInt(0,4));
+		char five = constants.charAt(randomInt(0,20));		
+		
+		String monName = ""+one+two+three+four+five;
+		
+		return monName;
+		
+	}
+	
+	/**
+	 * Randomises a number between the two given integers
+	 * The given integers can also be included
+	 * 
+	 * @param startIndex - lowest number
+	 * @param lastIndex - highest number
+	 * @return
+	 */
+	public int randomInt(int startIndex,int lastIndex) {
+		Random random = new Random();
+		return random.nextInt(lastIndex-startIndex)+startIndex;
+	}
+	
 }

@@ -23,6 +23,8 @@ public class PlayerTableConnector {
 	private Statement statement = null;
 	//Results from the player table. Initialized at the begin on methods
 	private ResultSet results = null;
+	//A connection to the database
+	private Connection connection=null;
 	//SQL statement to read from the player table
 	private String playerTable = "SELECT * FROM player";
 	
@@ -34,22 +36,23 @@ public class PlayerTableConnector {
 		//Enter address of database being used
 		//Below is my local database
 		String host = "jdbc:derby:/Users/dannyboi/MyDB;create=true";
-		//Enter name of the actual database
-		String databaseName = "MONSTER_MASH_TEST";
+		//Enter username (usually root?)
+		String userName = "root";
 		//Enter password
-		String password = "admin";
+		String password = "root";
 		
 		try {
+			// Load JBBC driver "com.mysql.jdbc.Driver" unsure if needed .
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+						
 			//Creates a connection to the database and a statement
-			Connection connection = DriverManager.getConnection(host,databaseName,password);
+			connection = DriverManager.getConnection(host,userName,password);
 			statement = connection.createStatement();
-			System.out.println("connection made");
 		
 		}
 
-		catch(SQLException error) {
+		catch(SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException error) {
 			//do something with error
-			System.out.println("connection not made");
 			error.printStackTrace();
 
 		}
@@ -64,7 +67,7 @@ public class PlayerTableConnector {
 	public boolean createPlayer(Player newPlayer) {
 
 		try {
-			results = statement.executeQuery(playerTable);
+		//	results = statement.executeQuery(playerTable);
 
 			//creates a player in the table, requires serverID, email, password and money
 			statement.executeUpdate("INSERT INTO player(email,password,money)" + 
@@ -89,7 +92,7 @@ public class PlayerTableConnector {
 	public boolean deletePlayer(Player delPlayer) {
 
 		try {
-			results = statement.executeQuery(playerTable);
+		//	results = statement.executeQuery(playerTable);
 			statement.executeUpdate("DELETE FROM player" + 
 					" WHERE ID="+delPlayer.id);
 			monTable.deleteAllMonsters(delPlayer.id);
@@ -271,5 +274,17 @@ public class PlayerTableConnector {
 		
 	}
 	
+	/**
+	 * Closes the connection to the database
+	 * 
+	 */
+	public void close() {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 }

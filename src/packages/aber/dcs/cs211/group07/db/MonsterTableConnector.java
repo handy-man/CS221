@@ -5,13 +5,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
 import aber.dcs.cs211.group07.data.Monster;
-import aber.dcs.cs211.group07.data.Player;
 
 /**
  * Codes for connecting to the monster table in the database
@@ -25,6 +23,8 @@ public class MonsterTableConnector {
 	private Statement statement = null;
 	//Results from the player table. Initialized at the begin on methods
 	private ResultSet results = null;
+	//A connection to the database
+	private Connection connection=null;
 	//SQL statement to read from the player table
 	private String monsterTable = "SELECT * FROM monsters";;
 
@@ -33,20 +33,22 @@ public class MonsterTableConnector {
 
 		//Enter address of database being used
 		String host = "database/address";
-		//Enter name of the actual database
-		String userName = "name of the database";
-		//Enter password for the database (unsure if necessary)
-		String password = "password";
-
+		//Enter username (usually root?)
+		String userName = "root";
+		//Enter password
+		String password = "root";
 
 		try {
+			// Load JBBC driver "com.mysql.jdbc.Driver" unsure if needed .
+			Class.forName("com.mysql.jdbc.Driver").newInstance();
+						
 			//Creates a connection to the database and a statement
-			Connection connection = DriverManager.getConnection(host,userName,password);
+		    connection = DriverManager.getConnection(host,userName,password);
 			statement = connection.createStatement();
 
 		}
 
-		catch(SQLException error) {
+		catch(SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException error) {
 			//do something with error
 		}
 	}
@@ -60,7 +62,7 @@ public class MonsterTableConnector {
 	public boolean createMonster(Monster mon) {
 
 		try {
-			results = statement.executeQuery(monsterTable);
+		//	results = statement.executeQuery(monsterTable);
 
 			statement.executeUpdate("INSERT INTO monsters " + 
 					" VALUES ("+mon.ownerID+",'"+mon.name+
@@ -84,7 +86,7 @@ public class MonsterTableConnector {
 	public boolean deleteMonster(Monster mon) {
 	
 		try {
-			results = statement.executeQuery(monsterTable);
+		//	results = statement.executeQuery(monsterTable);
 			statement.executeUpdate("DELETE FROM monsters" + 
 					" WHERE ID="+mon.id);
 			return true;
@@ -106,7 +108,7 @@ public class MonsterTableConnector {
 	public boolean deleteAllMonsters(int ownerID) {
 
 		try {
-			results = statement.executeQuery(monsterTable);
+		//	results = statement.executeQuery(monsterTable);
 			statement.executeUpdate("DELETE FROM monsters" + 
 					" WHERE ownerID="+ownerID+")");
 			return true;
@@ -277,5 +279,17 @@ public class MonsterTableConnector {
 		return false;
 	}
 
+	/**
+	 * Closes the connection to the database
+	 * 
+	 */
+	public void close() {
+		try {
+			connection.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
