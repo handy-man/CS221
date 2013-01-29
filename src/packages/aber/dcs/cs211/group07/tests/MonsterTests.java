@@ -46,6 +46,32 @@ public class MonsterTests {
 		assertEquals(calculatedToughness, toughness, DELTA);
 	}
 	
+	@Test 
+	public void testRandomMonsterID() {
+		Monster monster = new Monster(0);
+		if(monster.ownerID != 0){
+			fail("Incorrect owner ID");
+		}
+		
+		if(monster.strength > 1 || monster.strength < 0){
+			fail("Incorrect strength");
+		}
+		if(monster.toughness > 1 || monster.toughness < 0){
+			fail("Incorrect toughness");
+		}
+	}
+	
+	@Test
+	public void testRandomMonsterEvasion() {
+		Monster monster = new Monster(0);
+		if(monster.evasion > 1 || monster.evasion < 0){
+			fail("Incorrect evasion");
+		}
+		else{
+			assertTrue(true);
+		}
+	}
+	
 	/*@Test
 	public void testMonsterEvasion() {
 		Monster monster = new Monster(0);
