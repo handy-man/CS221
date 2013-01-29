@@ -66,8 +66,10 @@ public class MonsterTableConnector {
 
 			statement.executeUpdate("INSERT INTO monsters " + 
 					" VALUES ("+mon.ownerID+",'"+mon.name+
-					"',"+mon.birth+","+mon.health_lost+","+mon.health+","
-					+mon.strength+","+mon.toughness+","+mon.evasion+")");
+					"',"+mon.birth+","+mon.death_date+","+mon.age_rate
+					+","+mon.health_lost+","+mon.health+","
+					+mon.strength+","+mon.toughness+","+mon.evasion+","
+					+mon.breed_offer+","+mon.sale_offer+")");
 			return true;
 		} 
 		catch (SQLException error) {
@@ -138,13 +140,18 @@ public class MonsterTableConnector {
 					int ownerID = results.getInt("ownerID");
 					String name = results.getString("name");
 					Date birth = results.getDate("birth");
-					Double health_Lost = results.getDouble("health_lost");
-					Double health = results.getDouble("base_health");
-					Double strength = results.getDouble("genetic_strength");
-					Double toughness = results.getDouble("genetic_toughness");
-					Double evasion = results.getDouble("genetic_evasion");
-					Monster newMon = new Monster(id,ownerID,name,birth,health_Lost,
-							health,strength,toughness,evasion);
+					Date death = results.getDate("death_rate");
+					double age_rate = results.getDouble("age_rate");
+					double health_Lost = results.getDouble("health_lost");
+					double health = results.getDouble("base_health");
+					double strength = results.getDouble("genetic_strength");
+					double toughness = results.getDouble("genetic_toughness");
+					int breed_offer = results.getInt("breed_offer");
+					int sale_offer = results.getInt("breed_offer");
+//	Double evasion = results.getDouble("genetic_evasion");
+					Monster newMon = new Monster(id,ownerID,name,birth,death,age_rate,
+							health_Lost,health,strength,toughness,
+							breed_offer, sale_offer);
 					return newMon;
 				}
 
