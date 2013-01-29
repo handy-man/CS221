@@ -10,8 +10,8 @@ public class Monster {
 	
 	public final Date birth;
 	static final double AGE_RATE = 0.1;
-	public double health = 1.0;
 	
+	public double health = 1.0;
 	public double strength;
 	public double toughness;
 	public double evasion;
@@ -23,7 +23,7 @@ public class Monster {
 
 	// monster constructor from database
 	public Monster(int id,int ownerID,String name,Date date,
-			double health_lost,double base_health,double g_strength,
+			double health_lost,double g_strength,
 			double g_toughness,double g_evasion) {
 		
 		this.id=id;
@@ -31,7 +31,6 @@ public class Monster {
 		this.name=name;
 		this.birth=date;
 		this.health_lost=health_lost;
-		this.health=base_health;
 		this.strength=g_strength;
 		this.toughness=g_toughness;
 		this.evasion=g_evasion;
@@ -40,21 +39,16 @@ public class Monster {
 	
 	//constructor for random monster
 	public Monster(int ownerID){
-		//get name of monster from somewhere
+		this.ownerID = ownerID;
+		this.name = generateName();
 		this.birth = new Date();
-		Random randomHealth = new Random();
 		Random randomStrength = new Random();
 		Random randomToughness = new Random();
 		Random randomEvasion = new Random();
-		// is health random or calculated from toughness ?
-		this.health = randomHealth.nextDouble();
 		this.strength = randomStrength.nextDouble();
 		this.toughness = randomToughness.nextDouble();
 		this.evasion = randomEvasion.nextDouble();
 		
-		this.ownerID = ownerID;
-		
-		this.name = generateName();
 	}
 	
 	public Monster(String name, Date birth){
@@ -64,8 +58,7 @@ public class Monster {
 	
 	//constructor for breeding monster
 	public Monster(String name, Date birth, Monster mother, Monster father,int newOwnerID) {
-		this(name, birth);		
-		this.health   = random(mother.health, father.health);
+		this(name, birth);
 		this.strength = random(mother.strength, father.strength);
 		this.toughness   = random(mother.toughness, father.toughness);
 		this.evasion    = random(mother.evasion, father.evasion);
@@ -95,6 +88,13 @@ public class Monster {
 	
 	public double getCurrentHealth(){
 		return this.getHealth() - this.health_lost;
+	}
+	
+	public void increaseHealthLost(double amount){
+		this.health_lost = this.health_lost + amount;
+		if(this.health_lost >= 1.0){
+			this.health_lost = 1.0;
+		}
 	}
 	
 	public Time getAge(){
