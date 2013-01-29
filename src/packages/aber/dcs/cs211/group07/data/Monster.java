@@ -8,32 +8,41 @@ public class Monster {
 
 	public String name;
 	
-	public final Date birth;
-	static final double AGE_RATE = 0.1;
+	public Date birth;
+	public Date death_date;
 	
 	public double health = 1.0;
+	
+	public double age_rate;
 	public double strength;
 	public double toughness;
 	public double evasion;
 	
-	public double health_lost = 0;
+	public double health_lost;
 	
 	public int id;
 	public int ownerID;
+	
+	int breed_offer;
+	int sale_offer;
 
 	// monster constructor from database
-	public Monster(int id,int ownerID,String name,Date date,
-			double health_lost,double g_strength,
-			double g_toughness,double g_evasion) {
+	public Monster(int id,int ownerID,String name,Date date,Date death_date,
+			double age_rate,double health_lost,double base_health,double g_strength,
+			double g_toughness,double g_evasion,int breed_offer,int sale_offer) {
 		
 		this.id=id;
 		this.ownerID=ownerID;
 		this.name=name;
 		this.birth=date;
+		this.death_date=death_date;
+		this.age_rate=age_rate;
 		this.health_lost=health_lost;
 		this.strength=g_strength;
 		this.toughness=g_toughness;
 		this.evasion=g_evasion;
+		this.breed_offer=breed_offer;
+		this.sale_offer=breed_offer;
 		
 	}
 	
@@ -49,6 +58,10 @@ public class Monster {
 		this.toughness = randomToughness.nextDouble();
 		this.evasion = randomEvasion.nextDouble();
 		
+		this.ownerID = ownerID;
+		
+		this.name = generateName();
+		this.age_rate=generateAgeRate();
 	}
 	
 	public Monster(String name, Date birth){
@@ -62,6 +75,7 @@ public class Monster {
 		this.strength = random(mother.strength, father.strength);
 		this.toughness   = random(mother.toughness, father.toughness);
 		this.evasion    = random(mother.evasion, father.evasion);
+		this.age_rate = random(mother.age_rate,father.age_rate);
 		
 		this.ownerID=newOwnerID;
 		
@@ -78,7 +92,7 @@ public class Monster {
 		}
 	}
 
-	private double expAge() { return Math.exp(this.getAge().getTime() * Monster.AGE_RATE); }
+	private double expAge() { return Math.exp(this.getAge().getTime() * this.age_rate); }
 	private double expValue(double value) { return value * (expAge()-1) * (2-expAge()); }
 	
 	public double getHealth()   { return 2 - expAge(); }
@@ -102,6 +116,18 @@ public class Monster {
 	}
 	
 	/**
+	 * Gives a random double between 00.5 and 0.1
+	 * 
+	 * @return double that becomes the age rate of the monster
+	 */
+	public double generateAgeRate() {
+		double randomInt = randomInt(5,10);
+		double age_rate = randomInt/100;
+		return age_rate;
+		
+	}
+	
+	/**
 	 * Calculates the death due to old age when a monster is born
 	 * Currently calculating in days
 	 * 
@@ -109,7 +135,7 @@ public class Monster {
 	 */
 	public Date calculateDeath() {
 		
-		long timeTillDeath = (long) Math.round(Math.log(2) / AGE_RATE) * 86400000;
+		long timeTillDeath = (long) Math.round(Math.log(2) / age_rate) * 86400000;
 		Date deathDate = new Date((birth.getTime()+ timeTillDeath));
 		return deathDate;
 	}
