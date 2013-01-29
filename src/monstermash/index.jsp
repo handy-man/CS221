@@ -15,6 +15,12 @@ function validateForm()
 		return false;
 		}
 
+	var x=document.forms["form"]["password"].value;
+	if (x==null || x=="") {
+	
+		alert("Please enter your password");
+		return false;
+	}
 }
 
 </script>
