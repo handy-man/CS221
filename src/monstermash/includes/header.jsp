@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<% String base_url= "http://tomcat.thehiddennation.com/monstermash"; %>
-<html>
+<%
+	String base_url= "http://tomcat.thehiddennation.com/monstermash";
+%><html>
   <head>
     <title>Monster Mash</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
