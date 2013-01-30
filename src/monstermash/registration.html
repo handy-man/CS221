@@ -8,11 +8,27 @@
 	<meta name="keywords" content="MonsterMash, games, gamer, gamming" />
 		<meta name="author" content="Adrian Gawryszewski adg13" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		
+		<script type="text/javascript" language="JavaScript">
+		<!--
+		function checkEmail(registrationForm) {
+			if (registrationForm.username.value != registrationForm.repeatusername.value)
+			{
+				alert('Those emails don\'t match!');
+				return false;
+			}
+			else
+				{
+					return true;
+				}	
+			}
+    //-->
+		</script>
 	</head>
 	<body>
 		<div style="margin-top:70px;height:250px;"></div>
 			<div style="width: 280px;height: 300px;padding: 15px;margin: 0 auto;padding-top:25px;background-color:#C0C0C0;border: 2px solid #000000;	border-radius:6px 5px;">
-			<form action="monsters.html" method="post" >
+			<form name="registrationForm" action="monsters.html" method="post" onsubmit="return checkEmail(this);">
 			<p style="font-size:20px;color:#790000;margin-top:-15px;text-align:center;">Register: </p>
 			<hr />
 			<p style="color:#790000;float:right;">Email:<input class="textfield" type="text" name="username" maxlength="20" value="Example@monstermash.com"/> </p>
