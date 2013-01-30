@@ -1,0 +1,3 @@
+This document just shows on GIT changes made to the SQL table structures, the current sql structure can be viewed on phpmyadmin.
+
+1) Removed base_health from the monsters table (always set to 1) - Nathan Hand
