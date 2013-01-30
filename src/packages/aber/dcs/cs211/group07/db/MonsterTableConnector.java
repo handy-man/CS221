@@ -66,7 +66,7 @@ public class MonsterTableConnector {
 
 			statement.executeUpdate("INSERT INTO monsters " + 
 					" VALUES ("+mon.ownerID+",'"+mon.name+
-					"',"+mon.birth+","+mon.death_date+","+mon.age_rate
+					"',"+mon.birth_date+","+mon.death_date+","+mon.age_rate
 					+","+mon.health_lost+","+mon.health+","
 					+mon.strength+","+mon.toughness+","+mon.evasion+","
 					+mon.breed_offer+","+mon.sale_offer+")");

@@ -8,7 +8,7 @@ import aber.dcs.cs211.group07.data.requests.Request;
 public class Player {
 
 	public int id;
-	public int serverID;
+	public int server = 0;
 	public String email;
 	public String password;
 	public int money;
@@ -23,10 +23,14 @@ public class Player {
 	 */
 	public Player(int id, String email, String password, int money) {
 		this.id = id;
-	//	this.serverID = serverID;
 		this.email = email;
 		this.password = password;
 		this.money = money;
+	}
+	
+	public Player(int id, int server, String email, String password, int money) {
+		this(id, email, password, money);
+		this.server = server;
 	}
 
 	public List<Player> getFriends(){

@@ -1,101 +1,112 @@
 package aber.dcs.cs211.group07.tests;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertTrue;
+
 import java.util.Date;
 
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import aber.dcs.cs211.group07.data.Monster;
+import aber.dcs.cs211.group07.data.Player;
 
 public class MonsterTest {
-
-	private Monster monsterDatabase;
-	private Monster monsterRandom;
-	private Monster monsterMother;
-	private Monster monsterFather;
-	private Monster child;
+	private Player owner;
+	private Monster monster;
 	
-	@Before
-	public void setup(){
+	@BeforeClass
+	public void setupClass(){
 		final Date date = new Date();
-		monsterDatabase = new Monster(1, 1, "John", date, date,
-				0.1, 0.0, 0.3, 0.5, 0.7, 1, 1);
-		monsterRandom = new Monster(1);
-		monsterMother = new Monster(1, 1, "Kate", date, date,
-				0.1, 0.0, 0.5, 0.5, 0.5, 1, 1);
-		monsterFather = new Monster(1,1,"John", date, date,
-				0.1, 0.0, 1.0, 1.0, 1.0, 1, 1);
+		
+		owner = new Player(1, "player@example.com", "password", 0);
+		monster = new Monster(1, owner, "John", date, date, 0.1, 0.0, 0.3, 0.5, 0.7, 1, 1);
 	}
 	
 	@Test
 	public void testMonsterStrength() {
-		double calculatedStrength = monsterDatabase.getGStrength() *
-				( Math.exp(monsterDatabase.getAge().getTime() * monsterDatabase.getAgeRate()) -1) *
-				( 2 - Math.exp(monsterDatabase.getAge().getTime() * monsterDatabase.getAgeRate()));
-		assertTrue("Testing calculations for monster current strenght",
-				calculatedStrength == monsterDatabase.getStrength());
+		double calculatedStrength = monster.getGStrength() *
+				( Math.exp(monster.getAge().getTime() * monster.getAgeRate()) -1) *
+				( 2 - Math.exp(monster.getAge().getTime() * monster.getAgeRate()));
+		
+		assertTrue("Monster has correct strength", calculatedStrength == monster.strength);
 	}
 	
 	@Test
 	public void testMonsterToughness() {
-		double calculatedToughness = monsterDatabase.getGToughness() *
-				( Math.exp(monsterDatabase.getAge().getTime() * monsterDatabase.getAgeRate()) -1) *
-				( 2 - Math.exp(monsterDatabase.getAge().getTime() * monsterDatabase.getAgeRate()));
-		assertTrue("Testing calculations for monster current toughness",
-				calculatedToughness == monsterDatabase.getToughness());
+		double calculatedToughness = monster.getGToughness() *
+				( Math.exp(monster.getAge().getTime() * monster.getAgeRate()) -1) *
+				( 2 - Math.exp(monster.getAge().getTime() * monster.getAgeRate()));
+		
+		assertTrue("Monster has correct toughness", calculatedToughness == monster.toughness);
 	}
 	
 	@Test
 	public void testMonsterEvasion() {
-		double calculatedEvasion = monsterDatabase.getGEvasion() *
-				( Math.exp(monsterDatabase.getAge().getTime() * monsterDatabase.getAgeRate()) -1) *
-				( 2 - Math.exp(monsterDatabase.getAge().getTime() * monsterDatabase.getAgeRate()));
-		assertTrue("Testing calculations for monster current evasion",
-				calculatedEvasion == monsterDatabase.getEvasion());
+		double calculatedEvasion = monster.getGEvasion() *
+				( Math.exp(monster.getAge().getTime() * monster.getAgeRate()) -1) *
+				( 2 - Math.exp(monster.getAge().getTime() * monster.getAgeRate()));
+		
+		assertTrue("Monster has correct evasion", calculatedEvasion == monster.evasion);
 	}
 	
-	@Test
-	public void monsterDatabaseTest() {
-		assertEquals("Testing monsterDatabase's ID",monsterDatabase.getID(), 1);
-		assertEquals("Testing monsterDatabase's owner ID",monsterDatabase.getOwnerID(), 1);
-		assertEquals("Testing monsterDatabase's name",monsterDatabase.getName(),"John");
-		assertTrue("Testing monsterDatabase's health lost",monsterDatabase.getHealthLost() == 0.0);
-		assertTrue("Testing monsterDatabase's GStrength",monsterDatabase.getGStrength() == 0.3);
-		assertTrue("Testing monsterDatabase's GToughness",monsterDatabase.getGToughness() == 0.5);
-		assertTrue("Testing monsterDatabase's GEvasion",monsterDatabase.getGEvasion() == 0.7);
-	}
-	
-	@Test
-	public void monsterRandomTest(){
-		assertEquals("Testing monsterRandom's owner ID",monsterRandom.getOwnerID(), 1);
-		assertEquals("Testing the random name generator used in the random monster constructor",
-				monsterRandom.getName().length(), 5);
-		assertTrue("Testing monsterRandom's health lost",monsterRandom.getHealthLost() == 0.0);
-		assertTrue("Testing monsterRandom's GStrength",monsterRandom.getGStrength() >= 0.0 && 
-				monsterRandom.getGStrength() <= 1.0);
-		assertTrue("Testing monsterRandom's GToughness",monsterRandom.getGToughness() >= 0.0 && 
-				monsterRandom.getGToughness() <= 1.0);
-		assertTrue("Testing monsterRandom's GEvasion",monsterRandom.getGEvasion() >= 0.0 && 
-				monsterRandom.getGEvasion() <= 1.0);
-	}
-	
-	@Test
-	public void monsterBreedingTest(){
-		child = new Monster(monsterMother, monsterFather, 1);
-		assertEquals("Testing monsterBreeding's owner ID",child.getOwnerID(), 1);
-		assertTrue("Testing monsterBreeding's GStrength",child.getGStrength() >= monsterMother.getGStrength() && 
-				monsterRandom.getGStrength() <= monsterFather.getGStrength());
-		assertTrue("Testing monsterBreeding's GToughness",child.getGToughness() >= monsterMother.getGToughness() && 
-				monsterRandom.getGToughness() <= monsterFather.getGToughness());
-		assertTrue("Testing monsterBreeding's GEvasion",child.getGEvasion() >= monsterMother.getGEvasion() && 
-				monsterRandom.getGEvasion() <= monsterFather.getGEvasion());
-	}
-
 	@Test
 	public void getCurrentHealthAndIncreaseHealthLostTest(){
-		monsterRandom.increaseHealthLost(0.5);
-		assertTrue("Testing current health of monsters calculation",monsterRandom.getHealthLost() == 0.5);
+		monster.increaseHealthLost(0.5);
+		assertTrue("Monster has lost health", monster.health_lost == 0.5);
+		
+		monster.increaseHealthLost(1.0);
+		assertTrue("Monster has lost all health and stopped at 1.0", monster.health_lost == 1.0);
 	}
 	
+	/**
+	 * Test that the monster has been constructed with the given values
+	 */
+	@Test
+	public void monsterDatabaseTest() {
+		assertTrue(monster.id == 1);
+		assertTrue(monster.owner.id == 1);
+		assertTrue(monster.name.equals("John"));
+		assertTrue(monster.health_lost == 0.0);
+		assertTrue(monster.strength == 0.3);
+		assertTrue(monster.toughness == 0.5);
+		assertTrue(monster.evasion == 0.7);
+	}
+	
+	/**
+	 * Test that randomly generating a monster works correctly
+	 */
+	@Test
+	public void monsterRandomTest(){
+		Monster randomMonster = new Monster(owner);
+		
+		assertTrue("Monster has correct owner", randomMonster.owner.id == 1);
+		assertTrue("Monster has a randomly generated name", randomMonster.name.length() == 5);
+		assertTrue("Monster will die in the future", randomMonster.death_date.after(randomMonster.birth_date));
+		assertTrue("Monster has an age rate", 0.0 <= randomMonster.age_rate && randomMonster.age_rate <= 1.0);
+		assertTrue("Monster has a strength attribute", 0.0 <= randomMonster.strength && randomMonster.strength <= 1.0);
+		assertTrue("Monster has a toughness attribute", 0.0 <= randomMonster.toughness && randomMonster.toughness <= 1.0);
+		assertTrue("Monster has a evasion attribute", 0.0 <= randomMonster.evasion && randomMonster.evasion <= 1.0);
+	}
+	
+	/**
+	 * Test that breeding works correctly
+	 */
+	@Test
+	public void monsterBreedingTest(){
+		Date birth_date = new Date();
+		Date death_date = new Date();
+		
+		Monster monsterMother = new Monster(1, owner, "Kate", birth_date, death_date, 0.1, 0.0, 0.5, 0.5, 0.5, 1, 1);
+		Monster monsterFather = new Monster(1, owner,"John", birth_date, death_date, 0.1, 0.0, 1.0, 1.0, 1.0, 1, 1);
+		Monster child = new Monster(owner, monsterMother, monsterFather);
+		
+		assertTrue("Child has correct owner", child.owner.id == 1);
+		assertTrue("Child has a randomly generated name", child.name.length() == 5);
+		assertTrue("Child will die in the future", child.death_date.after(child.birth_date));
+		assertTrue("Child has an age rate", 0.0 <= child.age_rate && child.age_rate <= 1.0);
+		assertTrue("Child has a strength attribute", 0.0 <= child.strength && child.strength <= 1.0);
+		assertTrue("Child has a toughness attribute", 0.0 <= child.toughness && child.toughness <= 1.0);
+		assertTrue("Child has a evasion attribute", 0.0 <= child.evasion && child.evasion <= 1.0);
+	}	
 }

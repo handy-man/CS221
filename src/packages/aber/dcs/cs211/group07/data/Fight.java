@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Fight {
 
-	public double  calculateMonsterPower(Monster monster){
+	public double calculateMonsterPower(Monster monster){
 		Random r = new Random();
 		
 		double mStr,mDef;

@@ -6,160 +6,195 @@ import java.util.Random;
 
 public class Monster {
 
+	public int id;
+	public Player owner;
+	
+	/** The monsters name */
 	public String name;
 	
-	public Date birth;
+	/** The date the monster was born **/
+	public Date birth_date;
+	
+	/** The date the monster will die **/
 	public Date death_date;
 	
+	/** The rate at which the monster ages */
+	public double age_rate;
+	
+	/** The monsters health */
 	public double health = 1.0;
 	
-	public double age_rate;
+	/** The amount of health the monster has lost */
+	public double health_lost = 0;
+	
+	/* The monsters attributes */
+	
 	public double strength;
 	public double toughness;
 	public double evasion;
-	
-	public double health_lost;
-	
-	public int id;
-	public int ownerID;
-	
-	public int breed_offer;
-	public int sale_offer;
 
-	/**
-	 * Constructor for a monster coming out of the database
-	 * 
-	 * @param id
-	 * @param ownerID
-	 * @param name
-	 * @param date
-	 * @param death_date
-	 * @param age_rate
-	 * @param health_lost
-	 * @param base_health
-	 * @param g_strength
-	 * @param g_toughness
-	 * @param breed_offer
-	 * @param sale_offer
-	 */
+	/* The cost to breed or buy the monster? */
 	
-	public Monster(int id,int ownerID,String name,Date date,Date death_date,
-			double age_rate,double health_lost,double g_strength,double g_toughness,
-			double g_evasion, int breed_offer,int sale_offer) {
-		
-		this.id=id;
-		this.ownerID=ownerID;
-		this.name=name;
-		this.birth=date;
-		this.death_date=death_date;
-		this.age_rate=age_rate;
-		this.health_lost=health_lost;
-		this.strength=g_strength;
-		this.toughness=g_toughness;
-		this.evasion=g_evasion;
-		this.breed_offer=breed_offer;
-		this.sale_offer=sale_offer;
-		
-	}
+	public int breed_offer = 0;
+	public int sale_offer = 0;
 	
 	/**
-	 * Constructor for random monster, defining only a owner ID
+	 * Constructor for a new random monster
 	 * 
-	 * @param ownerID
+	 * @param owner The player that will own the monster
 	 */
-	public Monster(int ownerID){
-		this.ownerID = ownerID;
-		this.name = generateName();
-		this.birth = new Date();
-		Random randomStrength = new Random();
-		Random randomToughness = new Random();
-		//Random randomEvasion = new Random();
-		this.strength = randomStrength.nextDouble();
-		this.toughness = randomToughness.nextDouble();
-		//this.evasion = randomEvasion.nextDouble();		
-		this.age_rate=generateAgeRate();
-		this.breed_offer=0;
-		this.sale_offer=0;
-		this.health_lost=0;
+	public Monster(Player owner){
+		this.owner      = owner;
+		this.name       = randomName();
+		
+		this.birth_date = new Date();
 		this.death_date = calculateDeath();
+		
+		this.strength   = random();
+		this.toughness  = random();
+		this.evasion    = random();		
+		this.age_rate   = randomAgeRate();
 	}
 	
 	/**
-	 * Constructor for a monster received from breeding
-	 * Insert into the database and then pull it out to get unique ID.
+	 * Constructor for a monster being retrieved from the database
+	 */
+	public Monster(int id, Player owner, String name, Date birth_date, Date death_date,
+			double age_rate, double health_lost, double strength, double toughness,
+			double evasion, int breed_offer, int sale_offer) {
+		
+		this.id          = id;
+		this.owner       = owner;
+		this.name        = name;
+		
+		this.birth_date  = birth_date;
+		this.death_date  = death_date;
+		this.age_rate    = age_rate;
+		
+		this.health_lost = health_lost;
+		
+		this.strength    = strength;
+		this.toughness   = toughness;
+		this.evasion     = evasion;
+		
+		this.breed_offer = breed_offer;
+		this.sale_offer  = sale_offer;
+	}
+	
+	/**
+	 * Constructor for a new monster bred from two parent monsters
 	 * 
+	 * @param owner The Player that will own the monster
 	 * @param mother
 	 * @param father
-	 * @param newOwnerID
 	 */
-	public Monster(Monster mother, Monster father,int newOwnerID) {
-		this.name = generateName();
-		this.birth = new Date();
-		this.strength = random(mother.strength, father.strength);
-		this.toughness   = random(mother.toughness, father.toughness);
-		this.evasion    = random(mother.evasion, father.evasion);
-		this.age_rate = random(mother.age_rate,father.age_rate);
+	public Monster(Player owner, Monster mother, Monster father) {
+		this.owner      = owner;
+		this.name       = randomName();
 		
-		this.ownerID=newOwnerID;
-		this.death_date=calculateDeath();
-		this.name = generateName();
-
+		this.birth_date = new Date();
+		this.death_date = calculateDeath();
+		this.age_rate   = randomInheritance(mother.age_rate,  father.age_rate);
+		this.strength   = randomInheritance(mother.strength,  father.strength);
+		this.toughness  = randomInheritance(mother.toughness, father.toughness);
+		this.evasion    = randomInheritance(mother.evasion,   father.evasion);
+	}
+	
+	/* Functions that return random numbers to be used as attributes */
+	
+	/**
+	 * @return A random number between 0.0 and 1.0
+	 */
+	private static double random() {
+		return new Random().nextDouble();
 	}
 	
 	/**
-	 * Constructor for a monster received from trading
-	 * Insert into the database and then pull it out to get unique ID.
-	 * 
-	 * @param ownerID
-	 * @param date
-	 * @param death_date
-	 * @param health_lost
-	 * @param base_health
-	 * @param g_strength
-	 * @param g_toughness
-	 * @param breed_offer
-	 * @param sale_offer
+	 * Randomly inherits from one of the parent attributes,
+	 * with a small chance of returning a completely random number
 	 */
-	public Monster(int monID,int ownerID,Date date,Date deatdate,
-			double currentHealth,double g_strength,
-			double g_toughness,int breed_offer,int sale_offer) {
-		
-		this.id=monID;
-		this.ownerID=ownerID;
-		this.name=generateName();
-		this.birth=date;
-		this.death_date=calculateDeath();
-		this.age_rate=generateAgeRate();
-		this.health_lost=health-currentHealth;
-		this.strength=g_strength;
-		this.toughness=g_toughness;
-		//this.evasion=g_evasion;
-		this.breed_offer=breed_offer;
-		this.sale_offer=sale_offer;
-		
-	}
-	
-	private double random(double mother, double father) {
-		Random r = new Random();
-		if (r.nextDouble() > 0.05) {
-			return r.nextDouble() > 0.5 ? mother : father;
+	private static double randomInheritance(double mother, double father) {
+		if (random() > 0.05) {
+			return random() > 0.5 ? mother : father;
 		} else {
-			return r.nextDouble();
+			return random();
 		}
 	}
-
+	
+	/**
+	 * Gives a random double between 00.5 and 0.1
+	 * 
+	 * @return double A number suitable for use as a monsters age rate.
+	 */
+	public static double randomAgeRate() {
+		double randomInt = randomInt(5,10);
+		double age_rate = randomInt/100;
+		return age_rate;
+	}
+	
+	private final static String CONSTANTS = "bcdfghjklmnpqrstvwxyz";
+	private final static String VOWELS = "aeiou";
+	
+	/**
+	 * Returns a random character from a string
+	 */
+	private static char randomChar(String chars) {
+		Random r = new Random();
+		return chars.charAt(r.nextInt(chars.length()));
+	}
+	
+	/**
+	 * Generates a random 5 letter name 
+	 * 
+	 * @return a 5 letter string 
+	 */
+	private static String randomName() {
+		char[] name = new char[5];
+		
+		name[1] = randomChar(CONSTANTS);
+		name[2] = randomChar(VOWELS);
+		name[3] = randomChar(CONSTANTS);
+		name[4] = randomChar(VOWELS);
+		name[5] = randomChar(CONSTANTS);
+		
+		return name.toString();
+	}
+	
+	/* Used to calculate attributes */
+	
 	private double expAge() { return Math.exp(this.getAge().getTime() * this.age_rate); }
 	private double expValue(double value) { return value * (expAge()-1) * (2-expAge()); }
 	
-	public double getHealth()   { return 2 - expAge(); }
-	public double getStrength() { return expValue(this.strength); }
-	public double getToughness()   { return expValue(this.toughness); }
-	public double getEvasion()    { return expValue(this.evasion); }
+	/* Getters for the calculated attributes */
+	
+	public double getHealth() {
+		return 2 - expAge();
+	}
+	
+	public double getStrength() {
+		return expValue(this.strength);
+	}
+	
+	public double getToughness() {
+		return expValue(this.toughness);
+	}
+	
+	public double getEvasion() {
+		return expValue(this.evasion);
+	}
 	
 	public double getCurrentHealth(){
 		return this.getHealth() - this.health_lost;
 	}
 	
+	/* Other functions */
+	
+	/**
+	 * Increase the amount of health the monster has lost, 
+	 * stopping at the maximum of 1.0.
+	 *  
+	 * @param amount The amount of health the monster will lose
+	 */
 	public void increaseHealthLost(double amount){
 		this.health_lost = this.health_lost + amount;
 		if(this.health_lost >= 1.0){
@@ -167,20 +202,11 @@ public class Monster {
 		}
 	}
 	
-	public Time getAge(){
-		return new Time(new Date().getTime() - this.birth.getTime());
-	}
-	
 	/**
-	 * Gives a random double between 00.5 and 0.1
-	 * 
-	 * @return double that becomes the age rate of the monster
+	 * Returns the age of the monster
 	 */
-	public double generateAgeRate() {
-		double randomInt = randomInt(5,10);
-		double age_rate = randomInt/100;
-		return age_rate;
-		
+	public Time getAge(){
+		return new Time(new Date().getTime() - this.birth_date.getTime());
 	}
 	
 	/**
@@ -190,121 +216,8 @@ public class Monster {
 	 * @return a date which the monster will die
 	 */
 	public Date calculateDeath() {
-		
 		long timeTillDeath = (long) Math.round(Math.log(2) / age_rate) * 86400000;
-		Date deathDate = new Date((birth.getTime()+ timeTillDeath));
+		Date deathDate = new Date((birth_date.getTime()+ timeTillDeath));
 		return deathDate;
 	}
-	
-	/**
-	 * Generates a random 5 letter name 
-	 * 
-	 * @return a 5 letter string 
-	 */
-	public String generateName() {
-		
-		String constants = "bcdfghjklmnpqrstvwxyz";
-		String vowels = "aeiou";
-		
-		char one = constants.charAt(randomInt(0,20));
-		char two = vowels.charAt(randomInt(0,4));
-		char three = constants.charAt(randomInt(0,20));
-		char four = vowels.charAt(randomInt(0,4));
-		char five = constants.charAt(randomInt(0,20));		
-		
-		String monName = ""+one+two+three+four+five;
-		
-		return monName;
-		
-	}
-	
-	/**
-	 * Randomises a number between the two given integers
-	 * The given integers can also be included
-	 * 
-	 * @param startIndex - lowest number
-	 * @param lastIndex - highest number
-	 * @return
-	 */
-	public int randomInt(int startIndex,int lastIndex) {
-		Random random = new Random();
-		return random.nextInt(lastIndex-startIndex)+startIndex;
-	}
-	
-	
-	// DONT NOT NEED METHODS BELOW. Variables above are public and hence can be accessed
-	// like this. int monsterID=mon.id
-	
-	/** 
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public int getID(){
-		return id;
-	}
-	
-	/** 
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public int getOwnerID(){
-		return ownerID;
-	}
-	
-	/** 
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public String getName(){
-		return name;
-	}
-	
-	/** 
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public  double getHealthLost(){
-		return health_lost;
-	}
-	
-	/** 
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public double getGStrength(){
-		return strength;
-	}
-	
-	/** 
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public double getGToughness(){
-		return toughness;
-	}
-	
-	/** 
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public double getGEvasion(){
-		return evasion;
-	}
-	
-	/**
-	 * Used in JUnit testing
-	 * 
-	 * @return
-	 */
-	public double getAgeRate(){
-		return age_rate;
-	}
-	
 }
