@@ -28,16 +28,32 @@ public class UsersClient {
 		serverDirectoryClient = new ServerDirectoryClient();
 	}
 
+	/**
+	 * Returns the service url of a specified server
+	 * 
+	 * @param serverNumber - the number of the server
+	 * @return service url
+	 * @throws UniformInterfaceException
+	 */
 	private WebResource getServerResource(Integer serverNumber)
 			throws UniformInterfaceException {
-		return client.resource(serverDirectoryClient.getServiceUriRoot(serverNumber));
+		return client.resource(serverDirectoryClient.getServiceUrlRoot(serverNumber));
 	}
 
-	public Player getUser(String userId, Integer serverNumber)
+	/**
+	 * Gets a user from another server using their unique id and server number
+	 * 
+	 * @param userId - id unique to the user on their server
+	 * @param serverNumber - the server number
+	 * @return a instance of player that represent the user
+	 * @throws JSONException
+	 * @throws UniformInterfaceException
+	 */
+	public Player getUser(String userID, Integer serverNumber)
 			throws JSONException, UniformInterfaceException {
 		WebResource resource = getServerResource(serverNumber);
 
-		String body = resource.path("users").queryParam("userID", userId).get(String.class);
+		String body = resource.path("users").queryParam("userID", userID).get(String.class);
 		JSONObject json = new JSONObject(body);
 
 		Player user = new Player(0,null,null,0);
@@ -48,6 +64,14 @@ public class UsersClient {
 		return user;
 	}
 
+	/**
+	 * Gets a list of all users on a specified server
+	 * 
+	 * @param serverNumber - the server's number
+	 * @return an ArrayList of players
+	 * @throws JSONException
+	 * @throws UniformInterfaceException
+	 */
 	public ArrayList<Player> getUsers(Integer serverNumber)
 			throws JSONException, UniformInterfaceException {
 		WebResource resource = getServerResource(serverNumber);
@@ -68,6 +92,29 @@ public class UsersClient {
 		return users;
 	}
 
+	/**
+	 * Returns the friend that matches the exact search
+	 * 
+	 * @param friendName - exact name of the friend
+	 * @return an instance of player that represents the friend
+	 * @throws JSONException
+	 */
+	public Player getFriend(String friendName) throws JSONException {
+		
+		ArrayList<Servers> serverList = serverDirectoryClient.getAllServers();
+		
+		for(int i=0;i<serverList.size();i++) {
+			ArrayList<Player> userList = getUsers(serverList.get(i).serverNumber);
+			for(int j=0;j<userList.size();j++) {
+				if(friendName.equals(userList.get(j).email)) {
+					return userList.get(j);
+				}
+			}
+		}
+		
+		return null;
+	}
+	
 	public void close() {
 		client.destroy();
 	}

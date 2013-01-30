@@ -18,5 +18,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="lib/jersey-client-1.17.jar"/>
+	<classpathentry kind="lib" path="lib/asm-3.3.1.jar"/>
+	<classpathentry kind="lib" path="lib/jersey-bundle-1.17.jar"/>
 	<classpathentry kind="output" path="src/monstermash/WEB-INF/classes"/>
 </classpath>

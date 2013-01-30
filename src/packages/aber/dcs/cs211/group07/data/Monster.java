@@ -26,7 +26,23 @@ public class Monster {
 	public int breed_offer;
 	public int sale_offer;
 
-	// monster constructor from database
+	/**
+	 * Constructor for a monster coming out of the database
+	 * 
+	 * @param id
+	 * @param ownerID
+	 * @param name
+	 * @param date
+	 * @param death_date
+	 * @param age_rate
+	 * @param health_lost
+	 * @param base_health
+	 * @param g_strength
+	 * @param g_toughness
+	 * @param breed_offer
+	 * @param sale_offer
+	 */
+	
 	public Monster(int id,int ownerID,String name,Date date,Date death_date,
 			double age_rate,double health_lost,double g_strength,double g_toughness,
 			double g_evasion, int breed_offer,int sale_offer) {
@@ -42,12 +58,12 @@ public class Monster {
 		this.toughness=g_toughness;
 		this.evasion=g_evasion;
 		this.breed_offer=breed_offer;
-		this.sale_offer=breed_offer;
+		this.sale_offer=sale_offer;
 		
 	}
 	
 	/**
-	 * Constructor for random monster
+	 * Constructor for random monster, defining only a owner ID
 	 * 
 	 * @param ownerID
 	 */
@@ -57,14 +73,25 @@ public class Monster {
 		this.birth = new Date();
 		Random randomStrength = new Random();
 		Random randomToughness = new Random();
-		Random randomEvasion = new Random();
+		//Random randomEvasion = new Random();
 		this.strength = randomStrength.nextDouble();
 		this.toughness = randomToughness.nextDouble();
-		this.evasion = randomEvasion.nextDouble();		
+		//this.evasion = randomEvasion.nextDouble();		
 		this.age_rate=generateAgeRate();
+		this.breed_offer=0;
+		this.sale_offer=0;
+		this.health_lost=0;
+		this.death_date = calculateDeath();
 	}
 	
-	//constructor for breeding monster
+	/**
+	 * Constructor for a monster received from breeding
+	 * Insert into the database and then pull it out to get unique ID.
+	 * 
+	 * @param mother
+	 * @param father
+	 * @param newOwnerID
+	 */
 	public Monster(Monster mother, Monster father,int newOwnerID) {
 		this.name = generateName();
 		this.birth = new Date();
@@ -74,9 +101,42 @@ public class Monster {
 		this.age_rate = random(mother.age_rate,father.age_rate);
 		
 		this.ownerID=newOwnerID;
-		
+		this.death_date=calculateDeath();
 		this.name = generateName();
 
+	}
+	
+	/**
+	 * Constructor for a monster received from trading
+	 * Insert into the database and then pull it out to get unique ID.
+	 * 
+	 * @param ownerID
+	 * @param date
+	 * @param death_date
+	 * @param health_lost
+	 * @param base_health
+	 * @param g_strength
+	 * @param g_toughness
+	 * @param breed_offer
+	 * @param sale_offer
+	 */
+	public Monster(int monID,int ownerID,Date date,Date deatdate,
+			double currentHealth,double g_strength,
+			double g_toughness,int breed_offer,int sale_offer) {
+		
+		this.id=monID;
+		this.ownerID=ownerID;
+		this.name=generateName();
+		this.birth=date;
+		this.death_date=calculateDeath();
+		this.age_rate=generateAgeRate();
+		this.health_lost=health-currentHealth;
+		this.strength=g_strength;
+		this.toughness=g_toughness;
+		//this.evasion=g_evasion;
+		this.breed_offer=breed_offer;
+		this.sale_offer=sale_offer;
+		
 	}
 	
 	private double random(double mother, double father) {
@@ -170,6 +230,10 @@ public class Monster {
 		Random random = new Random();
 		return random.nextInt(lastIndex-startIndex)+startIndex;
 	}
+	
+	
+	// DONT NOT NEED METHODS BELOW. Variables above are public and hence can be accessed
+	// like this. int monsterID=mon.id
 	
 	/** 
 	 * Used in JUnit testing
