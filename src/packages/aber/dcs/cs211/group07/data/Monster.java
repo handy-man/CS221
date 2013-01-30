@@ -28,8 +28,8 @@ public class Monster {
 
 	// monster constructor from database
 	public Monster(int id,int ownerID,String name,Date date,Date death_date,
-			double age_rate,double health_lost,double base_health,double g_strength,
-			double g_toughness,int breed_offer,int sale_offer) {
+			double age_rate,double health_lost,double g_strength,double g_toughness,
+			double g_evasion, int breed_offer,int sale_offer) {
 		
 		this.id=id;
 		this.ownerID=ownerID;
@@ -40,7 +40,7 @@ public class Monster {
 		this.health_lost=health_lost;
 		this.strength=g_strength;
 		this.toughness=g_toughness;
-		//this.evasion=g_evasion;
+		this.evasion=g_evasion;
 		this.breed_offer=breed_offer;
 		this.sale_offer=breed_offer;
 		
@@ -234,6 +234,13 @@ public class Monster {
 		return evasion;
 	}
 	
-	
+	/**
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public double getAgeRate(){
+		return age_rate;
+	}
 	
 }

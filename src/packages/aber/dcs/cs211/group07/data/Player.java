@@ -13,8 +13,15 @@ public class Player {
 	public String password;
 	public int money;
 	
+	/**
+	 * Constructor for a player retrieved from database
+	 * 
+	 * @param id
+	 * @param email
+	 * @param password
+	 * @param money
+	 */
 	public Player(int id, String email, String password, int money) {
-		//constructor for a player retrieved from database
 		this.id = id;
 	//	this.serverID = serverID;
 		this.email = email;
@@ -36,6 +43,42 @@ public class Player {
 	
 	public List<Monster> getMonsters(){
 		return null;
+	}
+	
+	/**
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public int getPlayerID(){
+		return id;
+	}
+	
+	/**
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public String getPlayerEmail(){
+		return email;
+	}
+	
+	/**
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public String getPlayerPassword(){
+		return password;
+	}
+	
+	/**
+	 * Used in JUnit testing
+	 * 
+	 * @return
+	 */
+	public int getPlayerMoney(){
+		return money;
 	}
 	
 }

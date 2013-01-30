@@ -4,21 +4,24 @@ import java.util.Random;
 
 public class Fight {
 
-	public void fight(Monster m1, Monster m2){
+	public double  calculateMonsterPower(Monster monster){
 		Random r = new Random();
-		//Monster winner = null;
 		
-		double m1Str,m1Def;
-		m1Str = m1.getStrength();
-		m1Def = m1.getToughness();
+		double mStr,mDef;
+		mStr = monster.getStrength();
+		mDef = monster.getToughness();
 		
-		double m2Str,m2Def;
-		m2Str = m2.getStrength();
-		m2Def = m2.getToughness();
+		double mPower;
+		mPower = mStr + mDef + r.nextDouble();
+		
+		return mPower;
+	}
+	
+	public void fight(Monster m1, Monster m2){
 		
 		double mPower1,mPower2;
-		mPower1 = m1Str + m1Def + r.nextDouble();
-		mPower2 = m2Str + m2Def + r.nextDouble();
+		mPower1 = this.calculateMonsterPower(m1);
+		mPower2 = this.calculateMonsterPower(m2);
 		
 		if(mPower1 > mPower2){
 			double test = 1.0;
@@ -42,9 +45,6 @@ public class Fight {
 			m1.increaseHealthLost(1.0);
 			m2.increaseHealthLost(1.0);
 		}
-		
-		
-		//return winner;
 	}
 	
 	
