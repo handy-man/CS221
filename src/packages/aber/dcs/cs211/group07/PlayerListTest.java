@@ -6,19 +6,8 @@
 	public class PlayerListTest{
 
 	public static void main(String[] args) {
-	/*
-	 *
-	 * Refuses to connect to the database server
-	 * doesn't like it when I extend servlet, even after importing the relavent
-	 * imports.
-	 *
-	 * Requires an external jar file to connect to the database.
-	 * going to work on this tonight
-	 *
-	 *
-	 *
-	 *
-	 */
+
+
 		PrintWriter out;
 		String host = "jdbc:mysql://74.53.183.226/handyman_monster";
 		String uName = "handyman_group07";
