@@ -158,15 +158,18 @@ public class Monster {
 		name[3] = randomChar(VOWELS);
 		name[4] = randomChar(CONSTANTS);
 		
-		String monName = new String(name);
-		
-		return monName;
+		return new String(name);
 	}
 	
 	/* Used to calculate attributes */
 	
-	private double expAge() { return Math.exp(this.getAge().getTime() * this.age_rate); }
-	private double expValue(double value) { return value * (expAge()-1) * (2-expAge()); }
+	private double expAge() {
+		return Math.exp(this.getAge().getTime() * this.age_rate);
+	}
+	
+	private double expValue(double value) {
+		return value * (expAge()-1) * (2-expAge());
+	}
 	
 	/* Getters for the calculated attributes */
 	
