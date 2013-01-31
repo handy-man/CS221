@@ -21,8 +21,8 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import aber.dcs.cs211.group07.data.Monster;
-import aber.dcs.cs211.group07.data.Player;
+import aber.dcs.cs211.group07.data.*;
+
 
 /**
 * Codes for connecting to the player table in the database
@@ -77,7 +77,7 @@ public PlayerTableConnector() {
 public boolean deletePlayer(Object id) {
 	try {
 		results = statement.executeQuery(playerTable);
-		statement.executeUpdate("DELETE FROM 'player'" + " WHERE ID=" + id);
+		statement.executeUpdate("DELETE FROM 'player' WHERE ID='" + id + "'");
 		//monTable.deleteMonster(newPlayer.email);
 		return true;
 	} 
