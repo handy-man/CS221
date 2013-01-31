@@ -23,7 +23,7 @@ import aber.dcs.cs211.group07.db.PlayerTableConnector;
  * @author James Bowcott
  *
  */
-@WebServlet(name = "FriendshipRequest", urlPatterns = {"/friends/request"})
+@WebServlet(name = "FriendshipRequestServlet", urlPatterns = {"/friends/request"})
 public class FriendshipRequestServlet extends HttpServlet {
  
     @EJB
@@ -53,10 +53,9 @@ public class FriendshipRequestServlet extends HttpServlet {
 	    	
 	    	FriendsTableConnector friendTable = new FriendsTableConnector();
 	    	if(friendTable.addFriend((String)params.get("friendID"),(String) params.get("localUserID"),(String) params.get("remoteUserID"),(String) params.get("removeServerID"))==true) {
-	    		//some sort of good response
-	    		JSONObject accept = new JSONObject();
-	    		accept.put("friendID", params.get("friendID"));
-	    		accept.write(out);
+
+	    	//	request.setAttribute("friendID",(String)params.get("friendID"));
+	    		
 	    	}
 	    	else {
 			    HttpServletResponse.SC_BAD_REQUEST,
