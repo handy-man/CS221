@@ -37,12 +37,14 @@ public class FightServlet extends HttpServlet {
 		    HttpServletResponse.SC_BAD_REQUEST,
 		    "Parameter set incorrect");
 	} else {
+		
+		//add to fight database
+		/*
 		MonsterTableConnector monsterTable = new MonsterTableConnector();
 		PlayerTableConnector ptc = new PlayerTableConnector();
 		MonsterClient mon = new MonsterClient();
 		Monster ourMon = monsterTable.getMonster((int) params.get("localMonsterID"));
 		Monster theirMon = mon.getMonster((String)params.get("remoteMonsterID"), (int)params.get("remoteServerNumber"));
-		
 	    // Check that the localUserId actually exists on our server
 	    if (ourMon!=null && theirMon!=null) {
 	    	Fight fight = new Fight();
@@ -58,6 +60,7 @@ public class FightServlet extends HttpServlet {
 	    		playerTable.editMoney(ptc.getPlayer(ourMon.ownerID), -100);
 	    		monsterTable.deleteMonster(ourMon);
 	    	}
+	    	*/
 	    } 
 	    
 	    else {

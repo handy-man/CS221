@@ -47,6 +47,8 @@ public class FriendshipRequestServlet extends HttpServlet {
 		    HttpServletResponse.SC_BAD_REQUEST,
 		    "Parameter set incorrect");
 	} else {
+		//add to friend database
+		/*
 		PlayerTableConnector playerTable = new PlayerTableConnector();
 	    // Check that the localUserId actually exists on our server
 	    if (playerTable.getPlayer(Integer.parseInt((String) params.get("localUserID")))!=null) {
@@ -71,7 +73,7 @@ public class FriendshipRequestServlet extends HttpServlet {
 	    }
 	    playerTable.close();
 	}
-	
+	*/
     }
  
 }
