@@ -61,6 +61,7 @@ public class FriendshipRequestServlet extends HttpServlet {
 			    HttpServletResponse.SC_BAD_REQUEST,
 			    "Parameter set incorrect");
 	    	}
+	    	friendTable.close();
 	    } 
 	    
 	    else {
@@ -68,8 +69,9 @@ public class FriendshipRequestServlet extends HttpServlet {
 			HttpServletResponse.SC_BAD_REQUEST,
 			"Local user ID does not exist");
 	    }
+	    playerTable.close();
 	}
- 
+	
     }
  
 }

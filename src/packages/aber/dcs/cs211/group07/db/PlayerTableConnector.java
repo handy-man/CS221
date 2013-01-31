@@ -43,7 +43,7 @@ private Statement statement = null;
 private ResultSet results = null;
 //SQL statement to read from the player table
 private String playerTable = "SELECT * FROM 'player'";
-//private MonsterTableConnector monTable = new MonsterTableConnector();
+private MonsterTableConnector monTable = new MonsterTableConnector();
 public PlayerTableConnector() {
 //Enter address of database being used
 //Below is my local database
@@ -74,11 +74,11 @@ public PlayerTableConnector() {
 * @param newPlayer - player to be deleted
 * @return true if deleted, false otherwise
 */
-public boolean deletePlayer(Object id) {
+public boolean deletePlayer(Player player) {
 	try {
 		results = statement.executeQuery(playerTable);
-		statement.executeUpdate("DELETE FROM 'player' WHERE ID='" + id + "'");
-		//monTable.deleteMonster(newPlayer.email);
+		statement.executeUpdate("DELETE FROM 'player' WHERE ID='" + player.id + "'");
+		monTable.deleteAllMonsters(player.id);
 		return true;
 	} 
 	catch (SQLException error) {
@@ -274,8 +274,9 @@ public boolean createPlayer(String name2, String password2) throws SQLException 
 			return true;
 		}
 		else{
-				return false;
-			}
+			s.close();
+			return false;
+		}
 }
 		
 
@@ -287,7 +288,7 @@ public boolean createPlayer(String name2, String password2) throws SQLException 
  */
 public List<Monster> getMonsters(int ownerID) {
 	
-	//return monTable.getMonsters(ownerID);
+	return monTable.getMonsters(ownerID);
 	
 }
 
