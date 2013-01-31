@@ -41,16 +41,7 @@ public class MonsterTest {
 		
 		assertTrue("Monster has correct toughness", calculatedToughness == monster.getToughness());
 	}
-	
-	@Test
-	public void testMonsterEvasion() {
-		double calculatedEvasion = monster.evasion *
-				( Math.exp(monster.getAge().getTime() * monster.age_rate) -1) *
-				( 2 - Math.exp(monster.getAge().getTime() * monster.age_rate));
-		
-		assertTrue("Monster has correct evasion", calculatedEvasion == monster.getEvasion());
-	}
-	
+
 	@Test
 	public void getCurrentHealthAndIncreaseHealthLostTest(){
 		monster.increaseHealthLost(0.5);
@@ -86,7 +77,6 @@ public class MonsterTest {
 		assertTrue("Monster has an age rate", 0.0 <= randomMonster.age_rate && randomMonster.age_rate <= 1.0);
 		assertTrue("Monster has a strength attribute", 0.0 <= randomMonster.strength && randomMonster.strength <= 1.0);
 		assertTrue("Monster has a toughness attribute", 0.0 <= randomMonster.toughness && randomMonster.toughness <= 1.0);
-		assertTrue("Monster has a evasion attribute", 0.0 <= randomMonster.evasion && randomMonster.evasion <= 1.0);
 	}
 	
 	/**
@@ -106,6 +96,5 @@ public class MonsterTest {
 		assertTrue("Child has an age rate", 0.0 <= child.age_rate && child.age_rate <= 1.0);
 		assertTrue("Child has a strength attribute", 0.0 <= child.strength && child.strength <= 1.0);
 		assertTrue("Child has a toughness attribute", 0.0 <= child.toughness && child.toughness <= 1.0);
-		assertTrue("Child has a evasion attribute", 0.0 <= child.evasion && child.evasion <= 1.0);
 	}	
 }

@@ -31,7 +31,6 @@ public class Monster {
 	
 	public double strength;
 	public double toughness;
-	public double evasion;
 
 	/* The cost to breed or buy the monster? */
 	
@@ -51,8 +50,7 @@ public class Monster {
 		this.death_date = calculateDeath();
 		
 		this.strength   = random();
-		this.toughness  = random();
-		this.evasion    = random();		
+		this.toughness  = random();	
 		this.age_rate   = randomAgeRate();
 	}
 	
@@ -74,7 +72,6 @@ public class Monster {
 		
 		this.strength    = strength;
 		this.toughness   = toughness;
-		this.evasion     = 0;
 		
 		this.breed_offer = breed_offer;
 		this.sale_offer  = sale_offer;
@@ -96,7 +93,6 @@ public class Monster {
 		this.age_rate   = randomInheritance(mother.age_rate,  father.age_rate);
 		this.strength   = randomInheritance(mother.strength,  father.strength);
 		this.toughness  = randomInheritance(mother.toughness, father.toughness);
-		this.evasion    = randomInheritance(mother.evasion,   father.evasion);
 	}
 	
 	/* Functions that return random numbers to be used as attributes */
@@ -182,10 +178,6 @@ public class Monster {
 	
 	public double getToughness() {
 		return expValue(this.toughness);
-	}
-	
-	public double getEvasion() {
-		return expValue(this.evasion);
 	}
 	
 	public double getCurrentHealth(){

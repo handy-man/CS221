@@ -67,7 +67,7 @@ public class MonsterTableConnector {
 					" VALUES ("+mon.ownerID+",'"+mon.name+
 					"',"+mon.birth_date+","+mon.death_date+","+mon.age_rate
 					+","+mon.health_lost+","+mon.health+","
-					+mon.strength+","+mon.toughness+","+mon.evasion+","
+					+mon.strength+","+mon.toughness+","
 					+mon.breed_offer+","+mon.sale_offer+")");
 			return true;
 		} 
