@@ -68,7 +68,6 @@ public class Monster {
 		this.name        = name;
 		
 		this.birth_date  = birth_date;
-		this.death_date  = death_date;
 		this.age_rate    = age_rate;
 		
 		this.health_lost = health_lost;

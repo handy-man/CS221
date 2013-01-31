@@ -43,14 +43,11 @@ public class MonsterClient extends GeneralClient {
 			int monID = Integer.parseInt(jsonObject.getString("monsterID"));
 			int ownerID = Integer.parseInt(jsonObject.getString("userID"));
 			Date birth_date = new Date(jsonObject.getInt("birthDate"));
-			// Date death_date = new Date(jsonObject.getInt("lifespan"));
-			Date death_date = null;
 			double currentStrength = jsonObject.getDouble("currentStrength");
 			double currentDefence = jsonObject.getDouble("currentDefence");
 			double currentHealth = jsonObject.getDouble("currentDefence");
 
-			Monster mon = new Monster(monID, ownerID, null,
-					birth_date, death_date,
+			Monster mon = new Monster(monID, ownerID, null, birth_date,
 					0.0, currentHealth, currentStrength, currentDefence, 0, 0);
 			monsterList.add(mon);
 		}
@@ -81,7 +78,7 @@ public class MonsterClient extends GeneralClient {
 		double currentDefence = jsonObject.getDouble("currentDefence");
 		double currentHealth = jsonObject.getDouble("currentDefence");
 
-		return new Monster(monsterID, ownerID, name, null, null,
+		return new Monster(monsterID, ownerID, name, null,
 				currentAgeRate, currentHealth, currentStrength, currentDefence, 0, 0);
 	}
 }

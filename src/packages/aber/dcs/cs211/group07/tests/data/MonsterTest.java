@@ -95,10 +95,9 @@ public class MonsterTest {
 	@Test
 	public void monsterBreedingTest(){
 		Date birth_date = new Date();
-		Date death_date = new Date();
 		
-		Monster monsterMother = new Monster(1, owner.id, "Kate", birth_date,  0.1, 0.0, 0.5, 0.5, 1, 1);
-		Monster monsterFather = new Monster(1, owner.id, "John", birth_date,  0.1, 0.0, 1.0, 1.0, 1, 1);
+		Monster monsterMother = new Monster(1, owner.id, "Kate", birth_date, 0.1, 0.0, 0.5, 0.5, 1, 1);
+		Monster monsterFather = new Monster(1, owner.id, "John", birth_date, 0.1, 0.0, 1.0, 1.0, 1, 1);
 		Monster child = new Monster(owner.id, monsterMother, monsterFather);
 		
 		assertTrue("Child has correct owner", child.ownerID == 1);

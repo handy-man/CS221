@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
@@ -16,13 +15,12 @@ import aber.dcs.cs211.group07.data.Monster;
  * Codes for connecting to the monster table in the database
  * 
  * @author Daniel Cornwell
- *
  */
 public class MonsterTableConnector {
 
 	//A statement from the connection, used to get result sets
 	private Statement statement = null;
-	//Results from the player table. Initialized at the begin on methods
+	//Results from the player table. Initialised at the begin on methods
 	private ResultSet results = null;
 	//A connection to the database
 	private Connection connection=null;
@@ -143,8 +141,7 @@ public class MonsterTableConnector {
 					int id = results.getInt("ID");
 					int ownerID = results.getInt("ownerID");
 					String name = results.getString("name");
-					Timestamp timestamp = results.getTimestamp("birth");
-					Date birth_date = new Date();
+					Date birth_date = new Date(results.getTimestamp("birth").getTime());
 					double age_rate = results.getDouble("age_rate");
 					double health_lost = results.getDouble("health_lost");
 					double strength = results.getDouble("genetic_strength");
