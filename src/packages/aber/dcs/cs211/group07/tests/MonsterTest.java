@@ -71,7 +71,6 @@ public class MonsterTest {
 		assertTrue(monster.health_lost == 0.0);
 		assertTrue(monster.strength == 0.3);
 		assertTrue(monster.toughness == 0.5);
-		assertTrue(monster.evasion == 0.7);
 	}
 	
 	/**
