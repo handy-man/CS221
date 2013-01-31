@@ -127,7 +127,8 @@ public class Monster {
 	 * @return double A number suitable for use as a monsters age rate.
 	 */
 	public static double randomAgeRate() {
-		double randomInt = randomInt(5,10);
+		Random r = new Random();
+		double randomInt = r.nextInt(10-5)+5;
 		double age_rate = randomInt/100;
 		return age_rate;
 	}
@@ -151,13 +152,15 @@ public class Monster {
 	private static String randomName() {
 		char[] name = new char[5];
 		
-		name[1] = randomChar(CONSTANTS);
-		name[2] = randomChar(VOWELS);
-		name[3] = randomChar(CONSTANTS);
-		name[4] = randomChar(VOWELS);
-		name[5] = randomChar(CONSTANTS);
+		name[0] = randomChar(CONSTANTS);
+		name[1] = randomChar(VOWELS);
+		name[2] = randomChar(CONSTANTS);
+		name[3] = randomChar(VOWELS);
+		name[4] = randomChar(CONSTANTS);
 		
-		return name.toString();
+		String monName = new String(name);
+		
+		return monName;
 	}
 	
 	/* Used to calculate attributes */
