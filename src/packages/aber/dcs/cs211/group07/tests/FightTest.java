@@ -4,7 +4,6 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import aber.dcs.cs211.group07.actions.Fight;
@@ -16,15 +15,15 @@ public class FightTest {
 	
 	@Test
 	public void monsterPowerCalculationTest(){
-		Monster m = new Monster(1, player,"John", new Date(), new Date(), 0.1, 0.0, 1.0, 1.0, 1.0, 1, 1);
+		Monster m = new Monster(1, player.id, "John", new Date(), new Date(), 0.1, 0.0, 1.0, 1.0, 0, 0);
 		double monsterPower = Fight.monsterPower(m);
 		assertTrue("The monster power is in within bounds", monsterPower >= 0.0 && monsterPower <= 3.0 );
 	}
 	
 	@Test
 	public void fightTest() {
-		Monster monster1 = new Monster(player);
-		Monster monster2 = new Monster(player);
+		Monster monster1 = new Monster(player.id);
+		Monster monster2 = new Monster(player.id);
 		
 		assertTrue("Both monsters are on full health", monster1.health_lost == 0.0 && monster2.health_lost == 0.0);
 		

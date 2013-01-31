@@ -55,8 +55,8 @@ public class UsersClient {
 
 		String body = resource.path("users").queryParam("userID", userID).get(String.class);
 		JSONObject json = new JSONObject(body);
-
-		Player user = new Player(0,null,null,0);
+		
+		Player user = new Player(null, null, 0);
 		user.id=Integer.parseInt((json.getString("userID")));
 		user.email=(json.getString("name"));
 		user.money=(json.getInt("money"));
@@ -82,10 +82,13 @@ public class UsersClient {
 		ArrayList<Player> users = new ArrayList<Player>();
 		for (int i = 0; i < jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
-			Player user = new Player(0,null,null,0);
-			user.id=Integer.parseInt(jsonObject.getString("userID"));
-			user.email=jsonObject.getString("name");
-			user.money=(jsonObject.getInt("money"));
+			
+			Player user = new Player(
+					Integer.parseInt(jsonObject.getString("userID")),
+					serverNumber,
+					jsonObject.getString("name"),
+					null,
+					jsonObject.getInt("money"));
 			users.add(user);
 		}
 

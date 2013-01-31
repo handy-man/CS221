@@ -8,13 +8,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import aber.dcs.cs211.group07.data.Monster;
-import aber.dcs.cs211.group07.data.Player;
 
-import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
 
 public class MonsterClient extends GeneralClient {
 
@@ -46,14 +42,15 @@ public class MonsterClient extends GeneralClient {
 			
 			int monID = Integer.parseInt(jsonObject.getString("monsterID"));
 			int ownerID = Integer.parseInt(jsonObject.getString("userID"));
-			//Date birth = new Date(jsonObject.getInt("birthDate"));
-			//Date death = new Date(jsonObject.getInt("lifespan"));
+			Date birth_date = new Date(jsonObject.getInt("birthDate"));
+			Date death_date = new Date(jsonObject.getInt("lifespan"));
 			double currentStrength = jsonObject.getDouble("currentStrength");
 			double currentDefence = jsonObject.getDouble("currentDefence");
 			double currentHealth = jsonObject.getDouble("currentDefence");
 
-			Monster mon = new Monster(monID,ownerID,null,null,currentHealth,
-					currentStrength,currentDefence,0,0);
+			Monster mon = new Monster(monID, ownerID, null,
+					birth_date, death_date,
+					0.0, currentHealth, currentStrength, currentDefence, 0, 0);
 			monsterList.add(mon);
 		}
 
@@ -76,16 +73,15 @@ public class MonsterClient extends GeneralClient {
 		JSONObject jsonObject = new JSONObject(body);
 
 		int monsterID = Integer.parseInt(jsonObject.getString("monsterID"));
-		int ownerID = Integer.parseInt(jsonObject.getString("userID"));	
+		int ownerID = Integer.parseInt(jsonObject.getString("userID"));
+		String name = null;
+		double currentAgeRate = 0.0;
 		double currentStrength = jsonObject.getDouble("currentStrength");
 		double currentDefence = jsonObject.getDouble("currentDefence");
 		double currentHealth = jsonObject.getDouble("currentDefence");
 
-		Monster mon = new Monster(monsterID,ownerID,null,null,currentHealth,
-				currentStrength,currentDefence,0,0);
-		
-		return mon;
-		
+		return new Monster(monsterID, ownerID, name, null, null,
+				currentAgeRate, currentHealth, currentStrength, currentDefence, 0, 0);
 	}
 
 	

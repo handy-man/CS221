@@ -15,12 +15,12 @@ import com.sun.jersey.api.client.config.DefaultClientConfig;
 /**
  * This simple HTTP client accesses the Server Directory to obtain the
  * service root URL's for servers.
+ * 
  * @author James Bowcott
  */
 public class ServerDirectoryClient {
 	protected Client client;
 	protected WebResource resource;
-	private Servers server;
 
 	public ServerDirectoryClient() {
 		ClientConfig config = new DefaultClientConfig();

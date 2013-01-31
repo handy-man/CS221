@@ -19,33 +19,34 @@ public class MonsterTest {
 	public void setupClass(){
 		final Date date = new Date();
 		
-		owner = new Player(1, "player@example.com", "password", 0);
-		monster = new Monster(1, owner, "John", date, date, 0.1, 0.0, 0.3, 0.5, 0.7, 1, 1);
+		owner = new Player(1, 0, "player@example.com", "password", 0);
+		monster = new Monster(1, owner.id, "John", date, date,
+				0.1, 0.0, 0.3, 0.5, 1, 1);
 	}
 	
 	@Test
 	public void testMonsterStrength() {
-		double calculatedStrength = monster.getGStrength() *
-				( Math.exp(monster.getAge().getTime() * monster.getAgeRate()) -1) *
-				( 2 - Math.exp(monster.getAge().getTime() * monster.getAgeRate()));
+		double calculatedStrength = monster.strength *
+				( Math.exp(monster.getAge().getTime() * monster.age_rate) -1) *
+				( 2 - Math.exp(monster.getAge().getTime() * monster.age_rate));
 		
 		assertTrue("Monster has correct strength", calculatedStrength == monster.strength);
 	}
 	
 	@Test
 	public void testMonsterToughness() {
-		double calculatedToughness = monster.getGToughness() *
-				( Math.exp(monster.getAge().getTime() * monster.getAgeRate()) -1) *
-				( 2 - Math.exp(monster.getAge().getTime() * monster.getAgeRate()));
+		double calculatedToughness = monster.toughness *
+				( Math.exp(monster.getAge().getTime() * monster.age_rate) -1) *
+				( 2 - Math.exp(monster.getAge().getTime() * monster.age_rate));
 		
 		assertTrue("Monster has correct toughness", calculatedToughness == monster.toughness);
 	}
 	
 	@Test
 	public void testMonsterEvasion() {
-		double calculatedEvasion = monster.getGEvasion() *
-				( Math.exp(monster.getAge().getTime() * monster.getAgeRate()) -1) *
-				( 2 - Math.exp(monster.getAge().getTime() * monster.getAgeRate()));
+		double calculatedEvasion = monster.evasion *
+				( Math.exp(monster.getAge().getTime() * monster.age_rate) -1) *
+				( 2 - Math.exp(monster.getAge().getTime() * monster.age_rate));
 		
 		assertTrue("Monster has correct evasion", calculatedEvasion == monster.evasion);
 	}
@@ -65,7 +66,7 @@ public class MonsterTest {
 	@Test
 	public void monsterDatabaseTest() {
 		assertTrue(monster.id == 1);
-		assertTrue(monster.owner.id == 1);
+		assertTrue(monster.ownerID == 1);
 		assertTrue(monster.name.equals("John"));
 		assertTrue(monster.health_lost == 0.0);
 		assertTrue(monster.strength == 0.3);
@@ -78,9 +79,9 @@ public class MonsterTest {
 	 */
 	@Test
 	public void monsterRandomTest(){
-		Monster randomMonster = new Monster(owner);
+		Monster randomMonster = new Monster(owner.id);
 		
-		assertTrue("Monster has correct owner", randomMonster.owner.id == 1);
+		assertTrue("Monster has correct owner", randomMonster.ownerID == 1);
 		assertTrue("Monster has a randomly generated name", randomMonster.name.length() == 5);
 		assertTrue("Monster will die in the future", randomMonster.death_date.after(randomMonster.birth_date));
 		assertTrue("Monster has an age rate", 0.0 <= randomMonster.age_rate && randomMonster.age_rate <= 1.0);
@@ -97,11 +98,11 @@ public class MonsterTest {
 		Date birth_date = new Date();
 		Date death_date = new Date();
 		
-		Monster monsterMother = new Monster(1, owner, "Kate", birth_date, death_date, 0.1, 0.0, 0.5, 0.5, 0.5, 1, 1);
-		Monster monsterFather = new Monster(1, owner,"John", birth_date, death_date, 0.1, 0.0, 1.0, 1.0, 1.0, 1, 1);
-		Monster child = new Monster(owner, monsterMother, monsterFather);
+		Monster monsterMother = new Monster(1, owner.id, "Kate", birth_date, death_date, 0.1, 0.0, 0.5, 0.5, 1, 1);
+		Monster monsterFather = new Monster(1, owner.id, "John", birth_date, death_date, 0.1, 0.0, 1.0, 1.0, 1, 1);
+		Monster child = new Monster(owner.id, monsterMother, monsterFather);
 		
-		assertTrue("Child has correct owner", child.owner.id == 1);
+		assertTrue("Child has correct owner", child.ownerID == 1);
 		assertTrue("Child has a randomly generated name", child.name.length() == 5);
 		assertTrue("Child will die in the future", child.death_date.after(child.birth_date));
 		assertTrue("Child has an age rate", 0.0 <= child.age_rate && child.age_rate <= 1.0);

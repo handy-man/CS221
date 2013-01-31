@@ -139,20 +139,20 @@ public class MonsterTableConnector {
 					int id = results.getInt("ID");
 					int ownerID = results.getInt("ownerID");
 					String name = results.getString("name");
-					Date birth = results.getDate("birth");
-					Date death = results.getDate("death_rate");
+					Date birth_date = results.getDate("birth");
+					Date death_date = results.getDate("death_rate");
 					double age_rate = results.getDouble("age_rate");
-					double health_Lost = results.getDouble("health_lost");
+					double health_lost = results.getDouble("health_lost");
 					double health = results.getDouble("base_health");
 					double strength = results.getDouble("genetic_strength");
 					double toughness = results.getDouble("genetic_toughness");
 					int breed_offer = results.getInt("breed_offer");
 					int sale_offer = results.getInt("breed_offer");
-//	Double evasion = results.getDouble("genetic_evasion");
-					Monster newMon = new Monster(id,ownerID,name,birth,death,age_rate,
-							health_Lost,health,strength,toughness,
+					Monster monster = new Monster(id, ownerID, name, birth_date, death_date,
+							age_rate, health_lost, strength, toughness,
 							breed_offer, sale_offer);
-					return newMon;
+					monster.health = health;
+					return monster;
 				}
 
 			}
@@ -205,12 +205,7 @@ public class MonsterTableConnector {
 		try {
 			results = statement.executeQuery(monsterTable);
 			while(results.next()) {
-
-				if(results.getInt("ownerID")==ownerID)
-				{	
-					return false;
-				}
-
+				if(results.getInt("ownerID") == ownerID) return false;
 			}
 			Monster newMon = new Monster(ownerID);
 			createMonster(newMon);

@@ -21,10 +21,10 @@ public class PlayerTableConnector {
 
 	//A statement from the connection, used to get result sets
 	private Statement statement = null;
-	//Results from the player table. Initialized at the begin on methods
+	//Results from the player table. Initialised at the begin on methods
 	private ResultSet results = null;
 	//A connection to the database
-	private Connection connection=null;
+	private Connection connection = null;
 	//SQL statement to read from the player table
 	private String playerTable = "SELECT * FROM player";
 	
@@ -32,7 +32,7 @@ public class PlayerTableConnector {
 
 
 	public PlayerTableConnector() {
-
+		// TODO: Fix db information
 		//Enter address of database being used
 		//Below is my local database
 		String host = "jdbc:derby:/Users/dannyboi/MyDB;create=true";
@@ -49,9 +49,7 @@ public class PlayerTableConnector {
 			connection = DriverManager.getConnection(host,userName,password);
 			statement = connection.createStatement();
 		
-		}
-
-		catch(SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException error) {
+		} catch(SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException error) {
 			//do something with error
 			error.printStackTrace();
 
@@ -114,28 +112,21 @@ public class PlayerTableConnector {
 	 * @return a player instance, or null
 	 */
 	public Player getPlayer(String name) {
-
 		try {
 			results = statement.executeQuery(playerTable);
 			while(results.next()) {
-
 				if((results.getString("email")==name)) {
-					int id = results.getInt("ID");
-					String email = results.getString("email");
-					String pass = results.getString("password");
-					int money = results.getInt("money");
-					Player p = new Player(id,email,pass,money);
-					//create a player with a constructor using table row
-					return p;
+					return new Player(
+							results.getInt("ID"),
+							results.getString("email"),
+							results.getString("password"),
+							results.getInt("money"));
 				}
-
 			}
-			
 		} catch (SQLException error) {
-			// report error	
+			// TODO: Catch error	
 		}
 		return null;
-
 	}
 	
 	/**
@@ -145,28 +136,21 @@ public class PlayerTableConnector {
 	 * @return a player instance, or null
 	 */
 	public Player getPlayer(int playerID) {
-
 		try {
 			results = statement.executeQuery(playerTable);
 			while(results.next()) {
-
 				if((results.getInt("ID")==playerID)) {
-					int id = results.getInt("id");
-					String email = results.getString("email");
-					String pass = results.getString("password");
-					int money = results.getInt("money");
-					Player p = new Player(id,email,pass,money);
-					//create a player with a constructor using table row
-					return p;
+					return new Player(
+							results.getInt("id"),
+							results.getString("email"),
+							results.getString("password"),
+							results.getInt("money"));
 				}
-
 			}
 		} catch (SQLException error) {
-			// report error	
+			// TODO: Catch error	
 		}
-
 		return null;
-
 	}
 
 	/**
@@ -177,29 +161,24 @@ public class PlayerTableConnector {
 	 * @param amount - amount to edit by
 	 * @return true if edited, false otherwise
 	 */
-	public boolean editMoney(Player player,int amount) {
-
-		int id = player.id;
-
+	public boolean editMoney(Player player, int amount) {
 		try {
 			results = statement.executeQuery(playerTable);
 			while(results.next()) {
-				
-				if(results.getInt("ID")==id) {
+				if(results.getInt("ID")==player.id) {
 				
 					int newMoney = player.money+amount;
 				
 					String sql = "UPDATE player SET money="+newMoney+
-							" WHERE ID="+id;
+							" WHERE ID="+player.id;
 			
 					statement.executeUpdate(sql);
 					
 					return true;
 				}
-				
 			}
 		} catch (SQLException error) {
-			// report error	
+			// TODO: Catch error	
 		}
 		return false;
 	}

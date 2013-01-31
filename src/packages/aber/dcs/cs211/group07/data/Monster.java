@@ -7,7 +7,7 @@ import java.util.Random;
 public class Monster {
 
 	public int id;
-	public Player owner;
+	public int ownerID;
 	
 	/** The monsters name */
 	public String name;
@@ -43,8 +43,8 @@ public class Monster {
 	 * 
 	 * @param owner The player that will own the monster
 	 */
-	public Monster(Player owner){
-		this.owner      = owner;
+	public Monster(int ownerID){
+		this.ownerID    = ownerID;
 		this.name       = randomName();
 		
 		this.birth_date = new Date();
@@ -59,12 +59,12 @@ public class Monster {
 	/**
 	 * Constructor for a monster being retrieved from the database
 	 */
-	public Monster(int id, Player owner, String name, Date birth_date, Date death_date,
+	public Monster(int id, int ownerID, String name, Date birth_date, Date death_date,
 			double age_rate, double health_lost, double strength, double toughness,
-			double evasion, int breed_offer, int sale_offer) {
+			int breed_offer, int sale_offer) {
 		
 		this.id          = id;
-		this.owner       = owner;
+		this.ownerID     = ownerID;
 		this.name        = name;
 		
 		this.birth_date  = birth_date;
@@ -75,7 +75,7 @@ public class Monster {
 		
 		this.strength    = strength;
 		this.toughness   = toughness;
-		this.evasion     = evasion;
+		this.evasion     = 0;
 		
 		this.breed_offer = breed_offer;
 		this.sale_offer  = sale_offer;
@@ -88,8 +88,8 @@ public class Monster {
 	 * @param mother
 	 * @param father
 	 */
-	public Monster(Player owner, Monster mother, Monster father) {
-		this.owner      = owner;
+	public Monster(int ownerID, Monster mother, Monster father) {
+		this.ownerID    = ownerID;
 		this.name       = randomName();
 		
 		this.birth_date = new Date();

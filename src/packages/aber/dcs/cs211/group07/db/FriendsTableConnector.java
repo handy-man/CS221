@@ -2,7 +2,6 @@ package aber.dcs.cs211.group07.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -10,12 +9,12 @@ public class FriendsTableConnector {
 
 		//A statement from the connection, used to get result sets
 		private Statement statement = null;
-		//Results from the player table. Initialized at the begin on methods
-		private ResultSet results = null;
-		//A connection to the database
+		// Results from the player table. Initialized at the begin on methods
+		// private ResultSet results = null;
+		// A connection to the database
 		private Connection connection=null;
-		//SQL statement to read from the player table
-		private String friendsTable = "SELECT * FROM player_friend";;
+		// SQL statement to read from the player table
+		// private String friendsTable = "SELECT * FROM player_friend";
 
 
 		public FriendsTableConnector() {

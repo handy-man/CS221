@@ -16,7 +16,7 @@ public class Player {
 	 * The server the Player is from
 	 * 0 means the local server
 	 */
-	public int server = 0;
+	public int server;
 	
 	public String email;
 	public String password;
@@ -32,19 +32,21 @@ public class Player {
 	}
 	
 	/**
-	 * Constructor for a local Player
+	 * Full constructor for a player
+	 */
+	public Player(int id, int server, String email, String password, int money) {
+		this(email, password, money);
+		this.id = id;
+		this.server = server;
+	}
+	
+	/**
+	 * Constructor for a local player
 	 */
 	public Player(int id, String email, String password, int money) {
 		this(email, password, money);
 		this.id = id;
-	}
-	
-	/**
-	 * Constructor for a remote Player
-	 */
-	public Player(int id, int server, String email, String password, int money) {
-		this(id, email, password, money);
-		this.server = server;
+		this.server = 0;
 	}
 
 	public List<Player> getFriends(){
