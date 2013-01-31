@@ -3,76 +3,74 @@ package aber.dcs.cs211.group07.api;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.ejb.EJB;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import aber.dcs.cs211.group07.data.Monster;
-import aber.dcs.cs211.group07.data.Player;
 import aber.dcs.cs211.group07.db.MonsterTableConnector;
 
+@SuppressWarnings("serial")
 @WebServlet(name = "Monsters", urlPatterns = {"/monsters"})
 public class GetMonstersServlet extends HttpServlet {
 
-	
 	 @EJB
 	 MonsterTableConnector monsterTable = new MonsterTableConnector();
 	 
-	    @Override
-	    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-		    throws ServletException, IOException {
-	 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	    throws ServletException, IOException {
+ 
 		// Setup what kind of content we are returning and the PrintWriter
 		response.setContentType("text/plain;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 	 
 		try {
-		 
-	 
-		    // Get the value of the 'userID' paramater. 
+		    // Get the value of the 'userID' parameter.
 		    String userID = request.getParameter("userID");
 		    String monsterID = request.getParameter("monsterID");
 		    
 		    if (userID == null && monsterID != null) {
-		    	//we want a single monster
+		    	// We want a single monster
 		    	int monID = Integer.parseInt(monsterID);
 		    	getJsonMonster(monsterTable.getMonster(monID)).write(out);
-		    	
 		    } else if (userID != null && monsterID == null) {
-				//we want all the monsters of this user
+				// We want all the monsters of this user
 		    	int uID = Integer.parseInt(userID);
 		    	getJsonMonsters(uID).write(out);
-		    	
-			
 			} else {
 			    // User was not found. Send a Bad Request HTTP error code.
-			    response.sendError(response.SC_BAD_REQUEST,
-				    "User not found");
+			    response.sendError(HttpServletResponse.SC_BAD_REQUEST, "User not found");
 			}
-		    
-	 
 		} catch (JSONException ex) {
 		    // A JSONException may occur if any malformed data is passed
 		    // to the producers.
 		    System.err.println("JSON Exception:");
 		    System.err.println(ex);
-		    response.sendError(response.SC_SERVICE_UNAVAILABLE);
+		    response.sendError(HttpServletResponse.SC_SERVICE_UNAVAILABLE);
 		} finally {
 		    out.close();
 		}
-	    }
-	 
-	    /**
-	     * Constructs a user as a JSONObject
-	     * 
-	     * @param user - player to get
-	     * @return player as a JSONObject
-	     * @throws JSONException
-	     */
-	    private JSONObject getJsonMonster(Monster mon) throws JSONException {
+    }
+ 
+    /**
+     * Constructs a user as a JSONObject
+     * 
+     * @param user - player to get
+     * @return player as a JSONObject
+     * @throws JSONException
+     */
+    private JSONObject getJsonMonster(Monster mon) throws JSONException {
 		JSONObject jsonUser = new JSONObject();
 		jsonUser.put("monsterID", Integer.toString(mon.id));
-		jsonUser.put("userID", Integer.toString(mon.owner.id));
+		jsonUser.put("userID", Integer.toString(mon.ownerID));
 		jsonUser.put("baseStrength", mon.strength);
 		jsonUser.put("currentStrength",mon.getHealth());
 		jsonUser.put("baseDefence", mon.toughness);
@@ -84,15 +82,15 @@ public class GetMonstersServlet extends HttpServlet {
 		jsonUser.put("breedOffer", mon.breed_offer);
 		jsonUser.put("saleOffer", mon.sale_offer);
 		return jsonUser;
-	    }
-	 
-	    /**
-	     * Returns all the monsters belonging to a user in our database
-	     * 
-	     * @return a JSONArray of monsters
-	     * @throws JSONException
-	     */
-	    private JSONArray getJsonMonsters(int ownerID) throws JSONException {
+    }
+ 
+    /**
+     * Returns all the monsters belonging to a user in our database
+     * 
+     * @return a JSONArray of monsters
+     * @throws JSONException
+     */
+    private JSONArray getJsonMonsters(int ownerID) throws JSONException {
 		JSONArray jsonMonsters = new JSONArray();
 
 		for(Monster mon: monsterTable.getMonsters(ownerID)) {
@@ -100,8 +98,6 @@ public class GetMonstersServlet extends HttpServlet {
 		}
 		
 		return jsonMonsters;
-	    }
-	
-	
+    }
 }
 
