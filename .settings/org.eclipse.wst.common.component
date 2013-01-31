@@ -2,6 +2,12 @@
     <wb-module deploy-name="CS22120">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/packages"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/lib"/>
+        <dependent-module archiveName="lib" deploy-path="/WEB-INF/" handle="module:/classpath/lib/CS22120/lib/jstl.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lib" deploy-path="/WEB-INF" handle="module:/classpath/lib/CS22120/lib/standard.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="CS22120"/>
         <property name="java-output-path" value="/CS22120/build/classes"/>
     </wb-module>
