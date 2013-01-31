@@ -26,19 +26,17 @@ public class Fight {
 		double winnerPower, loserPower;
 		
 		/* Ensure there is a clear loser and winner, not a draw */
-		do {
-			if (monsterPower1 > monsterPower2) {
-				winner = monster1;
-				loser = monster2;
-				winnerPower = monsterPower1;
-				loserPower = monsterPower2;
-			} else {
-				winner = monster2;
-				loser = monster1;
-				winnerPower = monsterPower2;
-				loserPower = monsterPower1;
-			}
-		} while (monsterPower1 == monsterPower2);
+		if (monsterPower1 > monsterPower2) {
+			winner = monster1;
+			loser = monster2;
+			winnerPower = monsterPower1;
+			loserPower = monsterPower2;
+		} else {
+			winner = monster2;
+			loser = monster1;
+			winnerPower = monsterPower2;
+			loserPower = monsterPower1;
+		}
 		
 		double powerDiffrence = 1.0 - (winnerPower - loserPower);
 		

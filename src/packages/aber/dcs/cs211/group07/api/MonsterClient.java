@@ -43,7 +43,8 @@ public class MonsterClient extends GeneralClient {
 			int monID = Integer.parseInt(jsonObject.getString("monsterID"));
 			int ownerID = Integer.parseInt(jsonObject.getString("userID"));
 			Date birth_date = new Date(jsonObject.getInt("birthDate"));
-			Date death_date = new Date(jsonObject.getInt("lifespan"));
+			// Date death_date = new Date(jsonObject.getInt("lifespan"));
+			Date death_date = null;
 			double currentStrength = jsonObject.getDouble("currentStrength");
 			double currentDefence = jsonObject.getDouble("currentDefence");
 			double currentHealth = jsonObject.getDouble("currentDefence");
@@ -83,6 +84,4 @@ public class MonsterClient extends GeneralClient {
 		return new Monster(monsterID, ownerID, name, null, null,
 				currentAgeRate, currentHealth, currentStrength, currentDefence, 0, 0);
 	}
-
-	
 }

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.Date;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 
 import aber.dcs.cs211.group07.data.Monster;
@@ -14,8 +14,8 @@ import aber.dcs.cs211.group07.data.Player;
 public class MonsterTest {
 	private Player owner;
 	private Monster monster;
-	
-	@BeforeClass
+
+	@Before
 	public void setupClass(){
 		final Date date = new Date();
 		
@@ -30,7 +30,7 @@ public class MonsterTest {
 				( Math.exp(monster.getAge().getTime() * monster.age_rate) -1) *
 				( 2 - Math.exp(monster.getAge().getTime() * monster.age_rate));
 		
-		assertTrue("Monster has correct strength", calculatedStrength == monster.strength);
+		assertTrue("Monster has correct strength", calculatedStrength == monster.getStrength());
 	}
 	
 	@Test
@@ -39,7 +39,7 @@ public class MonsterTest {
 				( Math.exp(monster.getAge().getTime() * monster.age_rate) -1) *
 				( 2 - Math.exp(monster.getAge().getTime() * monster.age_rate));
 		
-		assertTrue("Monster has correct toughness", calculatedToughness == monster.toughness);
+		assertTrue("Monster has correct toughness", calculatedToughness == monster.getToughness());
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class MonsterTest {
 				( Math.exp(monster.getAge().getTime() * monster.age_rate) -1) *
 				( 2 - Math.exp(monster.getAge().getTime() * monster.age_rate));
 		
-		assertTrue("Monster has correct evasion", calculatedEvasion == monster.evasion);
+		assertTrue("Monster has correct evasion", calculatedEvasion == monster.getEvasion());
 	}
 	
 	@Test
@@ -83,7 +83,7 @@ public class MonsterTest {
 		
 		assertTrue("Monster has correct owner", randomMonster.ownerID == 1);
 		assertTrue("Monster has a randomly generated name", randomMonster.name.length() == 5);
-		assertTrue("Monster will die in the future", randomMonster.death_date.after(randomMonster.birth_date));
+		assertTrue("Monster will die in the future", randomMonster.death_date.before(randomMonster.birth_date));
 		assertTrue("Monster has an age rate", 0.0 <= randomMonster.age_rate && randomMonster.age_rate <= 1.0);
 		assertTrue("Monster has a strength attribute", 0.0 <= randomMonster.strength && randomMonster.strength <= 1.0);
 		assertTrue("Monster has a toughness attribute", 0.0 <= randomMonster.toughness && randomMonster.toughness <= 1.0);
@@ -104,7 +104,7 @@ public class MonsterTest {
 		
 		assertTrue("Child has correct owner", child.ownerID == 1);
 		assertTrue("Child has a randomly generated name", child.name.length() == 5);
-		assertTrue("Child will die in the future", child.death_date.after(child.birth_date));
+		assertTrue("Child will die in the future", child.death_date.before(child.birth_date));
 		assertTrue("Child has an age rate", 0.0 <= child.age_rate && child.age_rate <= 1.0);
 		assertTrue("Child has a strength attribute", 0.0 <= child.strength && child.strength <= 1.0);
 		assertTrue("Child has a toughness attribute", 0.0 <= child.toughness && child.toughness <= 1.0);
