@@ -26,13 +26,13 @@ public class MonsterTableConnector {
 	//A connection to the database
 	private Connection connection=null;
 	//SQL statement to read from the player table
-	private String monsterTable = "SELECT * FROM monsters";;
+	private String monsterTable = "SELECT * FROM 'monsters'";;
 
 
 	public MonsterTableConnector() {
 
 		//Enter address of database being used
-		String host = "thehiddennation.com";
+		String host = "jdbc:mysql://74.53.183.226/handyman_monster";
 		//Enter username (usually root?)
 		String userName = "handyman_group07";
 		//Enter password
@@ -131,6 +131,9 @@ public class MonsterTableConnector {
 	public Monster getMonster(int monID) {
 
 		try {
+			connection = DriverManager.getConnection("jdbc:mysql://74.53.183.226/handyman_monster",
+					"handyman_group07","3213560921*+*");
+			statement = connection.createStatement();
 			results = statement.executeQuery(monsterTable);
 			while(results.next()) {
 
@@ -140,14 +143,12 @@ public class MonsterTableConnector {
 					int ownerID = results.getInt("ownerID");
 					String name = results.getString("name");
 					Date birth_date = results.getDate("birth");
-					Date death_date = results.getDate("death_rate");
 					double age_rate = results.getDouble("age_rate");
 					double health_lost = results.getDouble("health_lost");
-					double health = results.getDouble("base_health");
 					double strength = results.getDouble("genetic_strength");
-					double toughness = results.getDouble("genetic_toughness");
+					double toughness = results.getDouble("genetic_defence");
 					int breed_offer = results.getInt("breed_offer");
-					int sale_offer = results.getInt("breed_offer");
+					int sale_offer = results.getInt("sale_offer");
 					Monster monster = new Monster(id, ownerID, name, birth_date, death_date,
 							age_rate, health_lost, strength, toughness,
 							breed_offer, sale_offer);
