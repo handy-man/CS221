@@ -50,13 +50,13 @@ public class FriendsTableConnector {
 		 * @param friendID - friend ID of the friend
 		 * @return true if added, false otherwise
 		 */
-		public boolean addFriend(String userID,String friendServerID,String friendID) {
+		public boolean addFriend(String UID, String userID,String friendServerID,String friendID) {
 			
 			try {
 			//	results = statement.executeQuery(friendsTable);
 
 				statement.executeUpdate("INSERT INTO player_friend " + 
-						" VALUES ("+userID+","+friendID+","+friendServerID+","+UUID.randomUUID().toString()+")");
+						" VALUES ("+UID+","+friendID+","+friendServerID+","+userID+")");
 				return true;
 			} 
 			catch (SQLException error) {
