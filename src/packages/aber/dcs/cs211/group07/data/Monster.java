@@ -150,7 +150,7 @@ public class Monster {
 	 * @return a 5 letter string 
 	 */
 	private static String randomName() {
-		char[] name = new char[5];
+		char[] name = new char[4];
 		
 		name[0] = randomChar(CONSTANTS);
 		name[1] = randomChar(VOWELS);

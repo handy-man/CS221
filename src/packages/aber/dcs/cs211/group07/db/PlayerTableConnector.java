@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import aber.dcs.cs211.group07.data.Monster;
@@ -169,6 +170,35 @@ public class PlayerTableConnector {
 
 	}
 
+	/**
+	 * Returns a list of all the player current in the database
+	 * 
+	 * @return ArrayList of players in the database
+	 */
+	public ArrayList<Player> getAllPlayers() {
+		ArrayList<Player> playerList = new ArrayList<Player>();
+		
+		try {
+			results = statement.executeQuery(playerTable);
+			while(results.next()) {
+
+					int id = results.getInt("id");
+					String email = results.getString("email");
+					String pass = results.getString("password");
+					int money = results.getInt("money");
+					Player p = new Player(id,email,pass,money);
+					//create a player with a constructor using table row
+					playerList.add(p);
+
+			}
+		} catch (SQLException error) {
+			// report error	
+		}
+		
+		return playerList;
+		
+	}
+	
 	/**
 	 * Edits the money of a player in the table
 	 * Also sets the money variable of the Player instance
