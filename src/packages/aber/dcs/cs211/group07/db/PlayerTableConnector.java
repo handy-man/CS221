@@ -128,7 +128,7 @@ public Player getPlayer(int playerID) {
 							String email = results.getString("email");
 							String pass = results.getString("password");
 							int money = results.getInt("money");
-							Player p = new Player(email, pass);
+							Player p = new Player(email, pass, money);
 							//create a player with a constructor using table row
 							return p;
 						}
