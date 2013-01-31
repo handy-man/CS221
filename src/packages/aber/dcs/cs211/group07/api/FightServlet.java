@@ -38,6 +38,7 @@ public class FightServlet extends HttpServlet {
 		    "Parameter set incorrect");
 	} else {
 		MonsterTableConnector monsterTable = new MonsterTableConnector();
+		PlayerTableConnector ptc = new PlayerTableConnector();
 		MonsterClient mon = new MonsterClient();
 		Monster ourMon = monsterTable.getMonster((int) params.get("localMonsterID"));
 		Monster theirMon = mon.getMonster((String)params.get("remoteMonsterID"), (int)params.get("remoteServerNumber"));
@@ -51,10 +52,10 @@ public class FightServlet extends HttpServlet {
 	    	
 	    	if(winner==ourMon) {
 	    		//send lost request to them, update our stuff
-	    		playerTable.editMoney(ourMon.owner, 100);
+	    		playerTable.editMoney(ptc.getPlayer(ourMon.ownerID), 100);
 	    	}
 	    	else {
-	    		playerTable.editMoney(ourMon.owner, -100);
+	    		playerTable.editMoney(ptc.getPlayer(ourMon.ownerID), -100);
 	    		monsterTable.deleteMonster(ourMon);
 	    	}
 	    } 
