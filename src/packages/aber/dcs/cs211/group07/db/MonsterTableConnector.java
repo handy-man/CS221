@@ -153,41 +153,7 @@ public class MonsterTableConnector {
     	}
 
 
-    /**
-     * Returns a monster from the table
-     *
-     * @param monID - id of the monster
-     * @return a monster instance, or null
-     *
-     *
-     *
-     * ///// Problem- different constructor is Monster class
-     *
-     * public Monster getMonster(int monID) {
-     *
-     *
-     * try { results = statement.executeQuery(monsterTable);
-     * while(results.next()) {
-     *
-     * if(results.getInt("ID")==monID) { int id = results.getInt("id"); String
-     * player = results.getString("owner"); String name =
-     * results.getString("name"); Date birth = results.getDate("birth"); boolean
-     * sex = results.getBoolean("gender"); Double health_Lost =
-     * results.getDouble("health_Lost"); Monster newMon = new
-     * Monster(id,player,name,birth,sex,health_Lost); return newMon; }
-     *
-     * }
-     * } catch (SQLException error) { // report error }
-     *
-     * return null;
-	}
-     */
-    /**
-     * Returns a list of monster id's from the table
-     *
-     * @param ownerID - id of the player
-     * @return list of monsters 
-     */
+    
     public List<Monster> getMonsters(int ownerID) {
 
         List<Monster> monList = new ArrayList<Monster>();
