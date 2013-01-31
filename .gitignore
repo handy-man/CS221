@@ -3,6 +3,8 @@ src/monstermash/WEB-INF/classes
 bin
 *.class
 *.jar
+!lib/*.jar
+!lib/*.class
 
 # Libreoffice temp files
 \.~lock*
