@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.UUID;
 
 public class FriendsTableConnector {
 
@@ -49,13 +50,13 @@ public class FriendsTableConnector {
 		 * @param friendID - friend ID of the friend
 		 * @return true if added, false otherwise
 		 */
-		public boolean addFriend(int userID,int friendServerID,int friendID) {
+		public boolean addFriend(String userID,String friendServerID,String friendID) {
 			
 			try {
 			//	results = statement.executeQuery(friendsTable);
 
 				statement.executeUpdate("INSERT INTO player_friend " + 
-						" VALUES ("+userID+","+friendServerID+","+friendID+")");
+						" VALUES ("+userID+","+friendID+","+friendServerID+","+UUID.randomUUID().toString()+")");
 				return true;
 			} 
 			catch (SQLException error) {
