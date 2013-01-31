@@ -130,8 +130,8 @@ public class MonsterTableConnector {
 	public Monster getMonster(int monID) {
 
 		try {
-			//connection = DriverManager.getConnection("jdbc:mysql://74.53.183.226/handyman_monster",
-			//		"handyman_group07","3213560921*+*");
+			connection = DriverManager.getConnection("jdbc:mysql://74.53.183.226/handyman_monster",
+					"handyman_group07","3213560921*+*");
 			statement = connection.createStatement();
 			results = statement.executeQuery(monsterTable);
 			while(results.next()) {
