@@ -1,6 +1,6 @@
     </div><!-- end:div#main -->
     <div id="footer" class="container">
-        This is a project by Group 7. <a href="<%= base_url %>"><%= base_url %></a>
+        This is a project by Group 7.
     </div>
   </div>
   </body>
