@@ -78,7 +78,7 @@ public class GetMonstersServlet extends HttpServlet {
 		jsonUser.put("baseHealth", mon.health);
 		jsonUser.put("currentHealth", mon.getHealth());
 		jsonUser.put("birthDate", (int) mon.birth_date.getTime());
-		jsonUser.put("lifespan", (int) (mon.death_date.getTime()-mon.birth_date.getTime()));
+		//jsonUser.put("lifespan", (int) (mon.death_date.getTime()-mon.birth_date.getTime()));
 		jsonUser.put("breedOffer", mon.breed_offer);
 		jsonUser.put("saleOffer", mon.sale_offer);
 		return jsonUser;

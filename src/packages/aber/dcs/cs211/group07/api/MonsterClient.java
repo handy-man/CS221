@@ -43,6 +43,7 @@ public class MonsterClient extends GeneralClient {
 			int monID = Integer.parseInt(jsonObject.getString("monsterID"));
 			int ownerID = Integer.parseInt(jsonObject.getString("userID"));
 			Date birth_date = new Date(jsonObject.getInt("birthDate"));
+
 			double currentStrength = jsonObject.getDouble("currentStrength");
 			double currentDefence = jsonObject.getDouble("currentDefence");
 			double currentHealth = jsonObject.getDouble("currentDefence");

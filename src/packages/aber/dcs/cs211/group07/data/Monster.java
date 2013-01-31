@@ -15,9 +15,6 @@ public class Monster {
 	/** The date the monster was born **/
 	public Date birth_date;
 	
-	/** The date the monster will die **/
-	public Date death_date;
-	
 	/** The rate at which the monster ages */
 	public double age_rate;
 	
@@ -47,7 +44,6 @@ public class Monster {
 		this.name       = randomName();
 		
 		this.birth_date = new Date();
-		this.death_date = calculateDeath();
 		
 		this.strength   = random();
 		this.toughness  = random();	
@@ -89,7 +85,6 @@ public class Monster {
 		this.name       = randomName();
 		
 		this.birth_date = new Date();
-		this.death_date = calculateDeath();
 		this.age_rate   = randomInheritance(mother.age_rate,  father.age_rate);
 		this.strength   = randomInheritance(mother.strength,  father.strength);
 		this.toughness  = randomInheritance(mother.toughness, father.toughness);
