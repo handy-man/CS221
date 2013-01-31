@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
@@ -131,8 +132,8 @@ public class MonsterTableConnector {
 	public Monster getMonster(int monID) {
 
 		try {
-			connection = DriverManager.getConnection("jdbc:mysql://74.53.183.226/handyman_monster",
-					"handyman_group07","3213560921*+*");
+			//connection = DriverManager.getConnection("jdbc:mysql://74.53.183.226/handyman_monster",
+			//		"handyman_group07","3213560921*+*");
 			statement = connection.createStatement();
 			results = statement.executeQuery(monsterTable);
 			while(results.next()) {
@@ -142,17 +143,18 @@ public class MonsterTableConnector {
 					int id = results.getInt("ID");
 					int ownerID = results.getInt("ownerID");
 					String name = results.getString("name");
-					Date birth_date = results.getDate("birth");
+					Timestamp timestamp = results.getTimestamp("birth");
+					Date birth_date = new Date();
 					double age_rate = results.getDouble("age_rate");
 					double health_lost = results.getDouble("health_lost");
 					double strength = results.getDouble("genetic_strength");
 					double toughness = results.getDouble("genetic_defence");
 					int breed_offer = results.getInt("breed_offer");
 					int sale_offer = results.getInt("sale_offer");
-					Monster monster = new Monster(id, ownerID, name, birth_date, death_date,
+					Monster monster = new Monster(id, ownerID, name, birth_date, 
 							age_rate, health_lost, strength, toughness,
 							breed_offer, sale_offer);
-					monster.health = health;
+					monster.health = 1.0;
 					return monster;
 				}
 

@@ -59,7 +59,7 @@ public class Monster {
 	/**
 	 * Constructor for a monster being retrieved from the database
 	 */
-	public Monster(int id, int ownerID, String name, Date birth_date, Date death_date,
+	public Monster(int id, int ownerID, String name, Date birth_date,
 			double age_rate, double health_lost, double strength, double toughness,
 			int breed_offer, int sale_offer) {
 		

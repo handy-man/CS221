@@ -20,7 +20,7 @@ public class MonsterTest {
 		final Date date = new Date();
 		
 		owner = new Player(1, 0, "player@example.com", "password", 0);
-		monster = new Monster(1, owner.id, "John", date, date,
+		monster = new Monster(1, owner.id, "John", date, 
 				0.1, 0.0, 0.3, 0.5, 1, 1);
 	}
 	
@@ -97,8 +97,8 @@ public class MonsterTest {
 		Date birth_date = new Date();
 		Date death_date = new Date();
 		
-		Monster monsterMother = new Monster(1, owner.id, "Kate", birth_date, death_date, 0.1, 0.0, 0.5, 0.5, 1, 1);
-		Monster monsterFather = new Monster(1, owner.id, "John", birth_date, death_date, 0.1, 0.0, 1.0, 1.0, 1, 1);
+		Monster monsterMother = new Monster(1, owner.id, "Kate", birth_date,  0.1, 0.0, 0.5, 0.5, 1, 1);
+		Monster monsterFather = new Monster(1, owner.id, "John", birth_date,  0.1, 0.0, 1.0, 1.0, 1, 1);
 		Monster child = new Monster(owner.id, monsterMother, monsterFather);
 		
 		assertTrue("Child has correct owner", child.ownerID == 1);

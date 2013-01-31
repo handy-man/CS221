@@ -15,7 +15,7 @@ public class FightTest {
 	
 	@Test
 	public void monsterPowerCalculationTest(){
-		Monster m = new Monster(1, player.id, "John", new Date(), new Date(), 0.1, 0.0, 1.0, 1.0, 0, 0);
+		Monster m = new Monster(1, player.id, "John", new Date(),  0.1, 0.0, 1.0, 1.0, 0, 0);
 		double monsterPower = Fight.monsterPower(m);
 		assertTrue("The monster power is in within bounds", monsterPower >= 0.0 && monsterPower <= 3.0 );
 	}
