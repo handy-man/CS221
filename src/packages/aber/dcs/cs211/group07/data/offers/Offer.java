@@ -1,10 +1,10 @@
 package aber.dcs.cs211.group07.data.offers;
 
-import aber.dcs.cs211.group07.data.MonsterRefrence;
-import aber.dcs.cs211.group07.data.PlayerRefrence;
+import aber.dcs.cs211.group07.data.Monster;
+import aber.dcs.cs211.group07.data.Player;
 
 public abstract class Offer {
-	public PlayerRefrence player;
-	public MonsterRefrence monster;
+	public Player player;
+	public Monster monster;
 	public int cost;
 }

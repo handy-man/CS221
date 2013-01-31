@@ -1,10 +1,8 @@
 package aber.dcs.cs211.group07.data.requests;
 
-import aber.dcs.cs211.group07.data.MonsterRefrence;
+import aber.dcs.cs211.group07.data.Monster;
 
 public class FightRequest extends Request {
-
-	public MonsterRefrence toMonster;
-	public MonsterRefrence fromMonster;
-	
+	public Monster toMonster;
+	public Monster fromMonster;
 }

@@ -1,11 +1,11 @@
 package aber.dcs.cs211.group07.data.requests;
 
-import aber.dcs.cs211.group07.data.PlayerRefrence;
+import aber.dcs.cs211.group07.data.Player;
 
 public abstract class Request {
 
-	public PlayerRefrence fromPlayer;
-	public PlayerRefrence toPlayer;
+	public Player fromPlayer;
+	public Player toPlayer;
 	
 	public void accept(){
 		

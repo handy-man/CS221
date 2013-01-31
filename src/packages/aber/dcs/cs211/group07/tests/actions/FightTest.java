@@ -1,4 +1,4 @@
-package aber.dcs.cs211.group07.tests.data;
+package aber.dcs.cs211.group07.tests.actions;
 
 import static org.junit.Assert.*;
 
