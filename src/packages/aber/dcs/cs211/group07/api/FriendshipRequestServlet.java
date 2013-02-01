@@ -20,10 +20,9 @@ import aber.dcs.cs211.group07.db.FriendsTableConnector;
 import aber.dcs.cs211.group07.db.PlayerTableConnector;
  
 /**
- * This is an example of a servlet which serves the /friends/request resource.
- * Feel free to take this example and adapt it to your application's data model.
- *
- * @author James Bowcott
+ * A servlet that handles a friend request from another player
+ * 
+ * @author Dan Cornwell
  *
  */
 @WebServlet(name = "FriendshipRequestServlet", urlPatterns = {"/friends/request"})
@@ -38,12 +37,9 @@ public class FriendshipRequestServlet extends HttpServlet {
     response.setContentType("text/plain;charset=UTF-8");
 	PrintWriter out = response.getWriter();
     	
-	// Get a map of all the parameters set in the URL,
-	// including the parameter names and values
+	//Check url parameters are correct, throw error if they are not
 	Map params = request.getParameterMap();
  
-	// We need to make sure all the parameters we need are set
-	// If not, send a HTTP error code
 	String[] requiredParams = new String[] {"friendID", "localUserID", "remoteUserID", "remoteServerID"};
 	if (!params.keySet().containsAll(Arrays.asList(requiredParams))) {
 	    response.sendError(
@@ -52,11 +48,8 @@ public class FriendshipRequestServlet extends HttpServlet {
 	} else {
 		//add to friend database
 		
-		//Enter address of database being used
 		String host = "jdbc:mysql://74.53.183.226/handyman_monster";
-		//Enter username (usually root?)
 		String userName = "handyman_group07";
-		//Enter password
 		String password = "3213560921*+*";
 		
 		//Creates a connection to the database and a statement

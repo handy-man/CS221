@@ -16,6 +16,13 @@ import aber.dcs.cs211.group07.db.FriendsTableConnector;
 import aber.dcs.cs211.group07.db.MonsterTableConnector;
 import aber.dcs.cs211.group07.db.PlayerTableConnector;
 
+/**
+ * Handles requests from other users to fight
+ * 
+ * @author Dan Cornwell
+ *
+ */
+
 @WebServlet(name = "FriendshipRequest", urlPatterns = {"/fight/request"})
 public class FightServlet extends HttpServlet {
 
@@ -27,13 +34,12 @@ public class FightServlet extends HttpServlet {
  
     response.setContentType("text/plain;charset=UTF-8");
 	PrintWriter out = response.getWriter();
-    	
-	// Get a map of all the parameters set in the URL,
-	// including the parameter names and values
+
+	//Gets a list of the parameters in the url
 	Map params = request.getParameterMap();
  
-	// We need to make sure all the parameters we need are set
-	// If not, send a HTTP error code
+	//Checks that the parameters meet what is required
+	//Throws error if doesn't
 	String[] requiredParams = new String[] {"fightID", "localMonsterID", "remoteMonsterID", "remoteServerNumber"};
 	if (!params.keySet().containsAll(Arrays.asList(requiredParams))) {
 	    response.sendError(
@@ -42,11 +48,8 @@ public class FightServlet extends HttpServlet {
 	} else {
 		
 		//add to fight database
-		//Enter address of database being used
 		String host = "jdbc:mysql://74.53.183.226/handyman_monster";
-		//Enter username (usually root?)
 		String userName = "handyman_group07";
-		//Enter password
 		String password = "3213560921*+*";
 		
 		//Creates a connection to the database and a statement

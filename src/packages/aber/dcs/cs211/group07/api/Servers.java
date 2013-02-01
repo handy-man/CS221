@@ -1,5 +1,12 @@
 package aber.dcs.cs211.group07.api;
 
+/**
+ * Simple class to hold servers
+ * 
+ * @author Dan Cornwell
+ *
+ */
+
 public class Servers {
 
 	public int serverNumber;

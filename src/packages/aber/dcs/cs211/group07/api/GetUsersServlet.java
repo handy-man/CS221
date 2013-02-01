@@ -15,6 +15,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * A servlet that handles a request for our users
+ * 
+ * @author Dan Cornwell
+ *
+ */
+
 @SuppressWarnings("serial")
 @WebServlet(name = "Users", urlPatterns = {"/users"})
 public class GetUsersServlet extends HttpServlet {
@@ -26,22 +33,17 @@ public class GetUsersServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
  
-		// Setup what kind of content we are returning and the PrintWriter
-		response.setContentType("text/plain;charset=UTF-8");
+    	response.setContentType("text/plain;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 	 
 		try {
-		    /*
-		     * This servlet can either produce a list of all users on the server
-		     * or only one user when the 'userID' URL parameter is specified.
-		     * The value will be null if it has not been set.
-		     */
-	 
-		    // Get the value of the 'userID' parameter 
+		
+			// Get the value of the 'userID' parameter 
 		    String userID = request.getParameter("userID");
 		    // Change to an integer as thats what our unique IDs are
 		    int numberUserID = Integer.parseInt(userID);
 		    
+		    // If no user ID specified then reponse with a list of all users
 		    if (userID == null) {
 			getJsonUsers().write(out);
 		    } else {

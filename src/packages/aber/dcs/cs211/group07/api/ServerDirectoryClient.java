@@ -79,12 +79,8 @@ public class ServerDirectoryClient {
 	 */
 	public String getServiceUrlRoot(Integer serverNumber)
 			throws UniformInterfaceException {
-		// For example, this will be http://monstermash.digitdex.com/directory/3/service for server 3
 		return resource.path(serverNumber.toString()).path("service").get(String.class);
 	}
-
-	//there are ways to get http and service root in plain text
-	//also redirect to a servers main page, unsure if usefull
 
 	/**
 	 * Closes the client

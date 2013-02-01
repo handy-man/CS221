@@ -6,11 +6,18 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
+/**
+ * A general client class that creates a server directory 
+ * client and allows another class to connect to the directory
+ * 
+ * @author Dan Cornwell
+ *
+ */
+
 public class GeneralClient {
 
 	protected WebResource webResource;
 	protected Client client;
-	// See the Server Directory Client Example
 	protected ServerDirectoryClient serverDirectoryClient;
 
 	public GeneralClient() {

@@ -17,6 +17,13 @@ import org.json.JSONObject;
 import aber.dcs.cs211.group07.data.Monster;
 import aber.dcs.cs211.group07.db.MonsterTableConnector;
 
+/**
+ * A servlet that handles requests for our monsters
+ * 
+ * @author Dan Cornwell
+ *
+ */
+
 @SuppressWarnings("serial")
 @WebServlet(name = "Monsters", urlPatterns = {"/monsters"})
 public class GetMonstersServlet extends HttpServlet {

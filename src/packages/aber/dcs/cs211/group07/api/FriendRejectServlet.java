@@ -2,6 +2,13 @@ package aber.dcs.cs211.group07.api;
 
 import java.io.PrintWriter;
 
+/**
+ * A servlet to handle friend rejects
+ * 
+ * @author Dan Cornwell
+ *
+ */
+
 @WebServlet(name = "FriendRejectServlet", urlPatterns = {"/friends/reject"})
 public class FriendRejectServlet extends HttpServlet {
 	
