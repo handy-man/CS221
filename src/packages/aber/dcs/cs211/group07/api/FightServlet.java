@@ -2,6 +2,9 @@ package aber.dcs.cs211.group07.api;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -39,6 +42,19 @@ public class FightServlet extends HttpServlet {
 	} else {
 		
 		//add to fight database
+		//Enter address of database being used
+		String host = "jdbc:mysql://74.53.183.226/handyman_monster";
+		//Enter username (usually root?)
+		String userName = "handyman_group07";
+		//Enter password
+		String password = "3213560921*+*";
+		
+		//Creates a connection to the database and a statement
+		Connection connection = DriverManager.getConnection(host,userName,password);
+		Statement statement = connection.createStatement();
+				
+		statement.executeUpdate("INSERT INTO 'fight' VALUES("+params.get("fightID")+ "','" + 
+				params.get("localMonsterID") + "','" + params.get("remoteMonsterID") + "','" + params.get("remoteServerNumber"));
 		/*
 		MonsterTableConnector monsterTable = new MonsterTableConnector();
 		PlayerTableConnector ptc = new PlayerTableConnector();
@@ -60,7 +76,7 @@ public class FightServlet extends HttpServlet {
 	    		playerTable.editMoney(ptc.getPlayer(ourMon.ownerID), -100);
 	    		monsterTable.deleteMonster(ourMon);
 	    	}
-	    	*/
+	    	
 	    } 
 	    
 	    else {
@@ -68,6 +84,7 @@ public class FightServlet extends HttpServlet {
 			HttpServletResponse.SC_BAD_REQUEST,
 			"Local user ID does not exist");
 	    }
+	    */
 	}
 	
 	}

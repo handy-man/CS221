@@ -44,7 +44,9 @@ public class Player {
 	 * Constructor for a local player
 	 */
 	public Player(int id, String email, String password, int money) {
-		this(email, password, money);
+		this.email = email;
+		this.password = password;
+		this.money = money;
 		this.id = id;
 		this.server = 0;
 	}

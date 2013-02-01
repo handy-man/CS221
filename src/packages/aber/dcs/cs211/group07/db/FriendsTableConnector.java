@@ -20,7 +20,7 @@ public class FriendsTableConnector {
 		public FriendsTableConnector() {
 
 			//Enter address of database being used
-			String host = "thehiddennation.com";
+			String host = "jdbc:mysql://74.53.183.226/handyman_monster";
 			//Enter username (usually root?)
 			String userName = "handyman_group07";
 			//Enter password

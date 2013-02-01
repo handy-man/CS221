@@ -157,9 +157,9 @@ public ArrayList<Player> getAllPlayers() {
 				String pass = results.getString("password");
 				int money = results.getInt("money");
 				//Fix below player objects 
-				//Player p = new Player(id,email,pass,money);
+				Player p = new Player(id,email,pass,money);
 				//create a player with a constructor using table row
-				//playerList.add(p);
+				playerList.add(p);
 
 		}
 	} catch (SQLException error) {

@@ -14,5 +14,4 @@ public class FriendRejectServlet extends HttpServlet {
 		
 		
 			  }
-			}
 }
