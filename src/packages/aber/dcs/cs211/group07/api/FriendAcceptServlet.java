@@ -16,6 +16,8 @@ public class FriendAcceptServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		
+		response.write(out);
+		
 }
 	 
 }

@@ -12,6 +12,6 @@ public class FriendRejectServlet extends HttpServlet {
 		response.setContentType("text/plain;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
-		
+		response.write(out);
 			  }
 }

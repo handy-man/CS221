@@ -11,21 +11,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class UsersClient {
-
-	protected WebResource webResource;
-	protected Client client;
-	// See the Server Directory Client Example
-	protected ServerDirectoryClient serverDirectoryClient;
+public class UsersClient extends GeneralClient {
 
 	public UsersClient() {
-		ClientConfig config = new DefaultClientConfig();
-		client = Client.create(config);
-		// Set up some timeouts so the application wont hang if the network
-		// is down or if the other server is unreachable
-		client.setConnectTimeout(5000);
-		client.setReadTimeout(10000);
-		serverDirectoryClient = new ServerDirectoryClient();
+		super();
 	}
 
 	/**
@@ -54,12 +43,12 @@ public class UsersClient {
 		WebResource resource = getServerResource(serverNumber);
 
 		String body = resource.path("users").queryParam("userID", userID).get(String.class);
-		JSONObject json = new JSONObject(body);
+		JSONObject jsonObject = new JSONObject(body);
 		
-		Player user = new Player(null, null, 0);
-		user.id=Integer.parseInt((json.getString("userID")));
-		user.email=(json.getString("name"));
-		user.money=(json.getInt("money"));
+		Player user = new Player(0,serverNumber,
+				jsonObject.getString("userID"),
+				null,
+				jsonObject.getInt("money"));
 
 		return user;
 	}
@@ -83,10 +72,8 @@ public class UsersClient {
 		for (int i = 0; i < jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
 			
-			Player user = new Player(
-					Integer.parseInt(jsonObject.getString("userID")),
-					serverNumber,
-					jsonObject.getString("name"),
+			Player user = new Player(0,serverNumber,
+					jsonObject.getString("userID"),
 					null,
 					jsonObject.getInt("money"));
 			users.add(user);
