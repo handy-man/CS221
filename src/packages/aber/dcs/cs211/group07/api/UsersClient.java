@@ -18,18 +18,6 @@ public class UsersClient extends GeneralClient {
 	}
 
 	/**
-	 * Returns the service url of a specified server
-	 * 
-	 * @param serverNumber - the number of the server
-	 * @return service url
-	 * @throws UniformInterfaceException
-	 */
-	private WebResource getServerResource(Integer serverNumber)
-			throws UniformInterfaceException {
-		return client.resource(serverDirectoryClient.getServiceUrlRoot(serverNumber));
-	}
-
-	/**
 	 * Gets a user from another server using their unique id and server number
 	 * 
 	 * @param userId - id unique to the user on their server

@@ -30,7 +30,7 @@ public class GeneralClient {
 	 * @return service url
 	 * @throws UniformInterfaceException
 	 */
-	private WebResource getServerResource(Integer serverNumber)
+	protected WebResource getServerResource(Integer serverNumber)
 			throws UniformInterfaceException {
 		return client.resource(serverDirectoryClient.getServiceUrlRoot(serverNumber));
 	}
