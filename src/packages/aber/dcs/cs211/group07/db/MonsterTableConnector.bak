@@ -39,7 +39,7 @@ public class MonsterTableConnector {
     public MonsterTableConnector() {
 
    		//Enter address of database being used
-    	String host = "jdbc:mysql://74.53.183.226/handyman_monster";
+    	String host = "thehiddennation.com";
     	//Enter username (usually root?)
     	String userName = "handyman_group07";
     	//Enter password
