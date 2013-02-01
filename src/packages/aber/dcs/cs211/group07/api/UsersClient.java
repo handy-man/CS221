@@ -1,10 +1,7 @@
 package aber.dcs.cs211.group07.api;
 
-import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
-import com.sun.jersey.api.client.config.ClientConfig;
-import com.sun.jersey.api.client.config.DefaultClientConfig;
 import aber.dcs.cs211.group07.data.Player;
 import java.util.ArrayList;
 import org.json.JSONArray;
@@ -12,11 +9,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class UsersClient extends GeneralClient {
-
-	public UsersClient() {
-		super();
-	}
-
 	/**
 	 * Gets a user from another server using their unique id and server number
 	 * 
@@ -32,7 +24,7 @@ public class UsersClient extends GeneralClient {
 
 		String body = resource.path("users").queryParam("userID", userID).get(String.class);
 		JSONObject jsonObject = new JSONObject(body);
-		
+
 		Player user = new Player(0,serverNumber,
 				jsonObject.getString("userID"),
 				null,
@@ -59,7 +51,7 @@ public class UsersClient extends GeneralClient {
 		ArrayList<Player> users = new ArrayList<Player>();
 		for (int i = 0; i < jsonArray.length(); i++) {
 			JSONObject jsonObject = jsonArray.getJSONObject(i);
-			
+
 			Player user = new Player(0,serverNumber,
 					jsonObject.getString("userID"),
 					null,
@@ -78,9 +70,9 @@ public class UsersClient extends GeneralClient {
 	 * @throws JSONException
 	 */
 	public Player getFriend(String friendName) throws JSONException {
-		
+
 		ArrayList<Servers> serverList = serverDirectoryClient.getAllServers();
-		
+
 		for(int i=0;i<serverList.size();i++) {
 			ArrayList<Player> userList = getUsers(serverList.get(i).serverNumber);
 			for(int j=0;j<userList.size();j++) {
@@ -89,10 +81,10 @@ public class UsersClient extends GeneralClient {
 				}
 			}
 		}
-		
+
 		return null;
 	}
-	
+
 	public void close() {
 		client.destroy();
 	}
