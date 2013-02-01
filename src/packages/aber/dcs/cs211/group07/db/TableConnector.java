@@ -10,13 +10,13 @@ import java.sql.Statement;
  * 
  * @author Sam Clements
  */
-public abstract class TableConnector {
+public class TableConnector {
 	protected final String HOSTNAME = "jdbc:mysql://74.53.183.226/handyman_monster";
 	protected final String USERNAME = "handyman_group07";
 	protected final String PASSWORD = "3213560921*+*";
 	
-	protected Connection connection;
-	protected Statement statement;
+	public Connection connection;
+	public Statement statement;
 	
 	public TableConnector () {
 		try {

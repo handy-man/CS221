@@ -1,60 +1,24 @@
-	import java.io.*;
-	import java.sql.*;
-	import java.util.*;
+package aber.dcs.cs211.group07;
 
+import java.sql.*;
 
-	public class PlayerListTest{
+import aber.dcs.cs211.group07.db.TableConnector;
 
+public class PlayerListTest {
 	public static void main(String[] args) {
+		TableConnector db = new TableConnector();
 
-
-		PrintWriter out;
-		String host = "jdbc:mysql://74.53.183.226/handyman_monster";
-		String uName = "handyman_group07";
-		String uPass = "3213560921*+*";
-		Statement statement = null;
-		Connection connection=null;
-		ResultSet rs = null;
-		String userName = new String("");
-
-
-		try{
-
-		Class.forName("com.mysql.jdbc.Driver").newInstance();
-		Connection con = DriverManager.getConnection(host, uName, uPass);
-		statement = connection.createStatement();
-
-	if(statement.execute("select * from player")){
-
-			rs = statement.getResultSet();
-		} else {
-
-			System.err.println("select failed");
-		}
-
+		try {
+			db.statement.execute("select * from player");
+			ResultSet rs = db.statement.getResultSet();
 			while (rs.next()) {
-
-			String entry = rs.getString(1);
-			System.out.println(entry);
-		}
-
-
-		} catch (SQLException | InstantiationException | IllegalAccessException | ClassNotFoundException error){
-
-			error.printStackTrace();
-
-
-		}
-
-
-
-
-
-
-
+				System.out.println(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			TableConnector.complain(e, "Could not fetch players");
+		}		
 	}
-
-	}
+}
 
 
 
