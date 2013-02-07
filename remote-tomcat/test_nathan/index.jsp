@@ -28,6 +28,7 @@
                 <input class="textfield" value="Password" type="text" name="password" maxlength="40" onclick="this.value=''"/>
                 <button class="button">Login</button>
                 <p class="error">${message}</p>
+                <p><%= session.getAttribute("money")%></p>
             </form>
         </div>     
         <div id="register-container">
