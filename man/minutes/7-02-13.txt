@@ -1,0 +1,40 @@
+========================
+Minutes for Feb 7th 2013
+========================
+
+
+Attendance
+==========
+
+Nathan Hand
+James Barnett
+Daniel and other Daniel
+Adrian
+
+
+Minutes
+=======
+
+Document to be split into sections assigned to various people.
+
+Maintance manual to be split between 3 people.
+
+Should make sure stuff goes onto github.
+
+People should be careful when they work on it to avoid rebase errors
+
+Personal reflective report not needed unless we have something to say, according to bernie.
+
+Nathan: We should write one anyway, just in case.
+
+A historical acccount of the project - assigned to James Barnnet
+
+Those people that worked on documents to update them.
+
+Final stage of the project - asssigned to Adrian
+
+Miles assigned Suggestions for Improvements, Physical Limitations
+
+Stoyco: Rebuilting and testing
+
+Sam: Program structure, Main data areas, Files
