@@ -1,0 +1,25 @@
+
+Program structure
+=================
+
+The program, while not fully completed, has several significant components:
+
+- The data structures -- `aber.dcs.cs211.group07.data` -- which contains a large number of classes detailing the various objects that the program uses or had plans to use (for instance, the Request and Offer classes ended up unused).
+
+- The database classes, and the database itself. This includes a few classes designed to make connecting and using the tables easier (MonsterTableConnector, PlayerTableConnector). These were not in the original design, but were created during the project as a quicker way to handle the SQL connections than using individual SQL command accross the codebase -- basically, a very rudimentary ORM (Object-Relational Mapper). The database itself was a MySQL db, with the tables setup manually using PHPMyAdmin. However, the original SQL commands to setup the database can be found in `src/monstermash/WEB-INF/classes/aber/dcs/cs211/group07/db` under the names `monster_mash.sql` and `monster_mashupdated.sql`.
+
+- The JSP/HTML frontend. This includes the various pages that were done as part of the frontend. Multiple versions or styles exist, mostly due to miscommunications or lack of communications in the group. These are found under `src/monstermash`, as well as in the `servlets` package. Due to difficulty understanding and running tomcat -- especially under mixed development envrioments, a lot of this couldn't be tested locally by the authors and so had to be publised to the live server to test this.
+
+- The servlets backend. This includes most of the servlets, which were intended to handle the inter-server API. This was one of the least finished peices of the program, due to having unclear and changing requirements through the project -- it was only during the final weeks that an API standard was finialized. It was also difficult to test without having a clear API or other servers to test against, which resulted in a lot of the code remaining untested.
+
+The main data areas
+===================
+
+The data structures are defined in the Design Specification, under the heading "Monster Mash Significant Classes".
+
+Files
+=====
+
+Our program used no fixed or created files, as all data was stored in an SQL database.
+
+A dump of the SQL database from the instance of our application can be found in `sql/handyman_monster.sql`.
