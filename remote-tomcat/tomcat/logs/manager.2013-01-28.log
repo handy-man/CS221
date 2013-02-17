@@ -1,0 +1,98 @@
+Jan 28, 2013 10:48:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Jan 28, 2013 10:48:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: init: Global resources are available
+Jan 28, 2013 10:48:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:48:36 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/monstermash'
+Jan 28, 2013 10:48:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:51:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/N07'
+Jan 28, 2013 10:51:08 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:51:09 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:51:14 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: stop: Stopping web application '/monstermash'
+Jan 28, 2013 10:51:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:51:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/monstermash'
+Jan 28, 2013 10:51:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:51:51 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/monstermash'
+Jan 28, 2013 10:51:52 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:52:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/N07'
+Jan 28, 2013 10:52:17 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:52:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/N07'
+Jan 28, 2013 10:52:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:52:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/N07'
+Jan 28, 2013 10:52:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:57:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/N07'
+Jan 28, 2013 10:57:20 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:57:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/N07'
+Jan 28, 2013 10:57:28 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:57:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/nathan_test'
+Jan 28, 2013 10:57:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 10:57:47 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: sessions: Session action 'null' for web application '/monstermash'
+Jan 28, 2013 10:58:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/nathan_test'
+Jan 28, 2013 10:58:41 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 11:15:03 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 11:15:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/nathan_test'
+Jan 28, 2013 11:15:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 11:17:13 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/nathan_test'
+Jan 28, 2013 11:17:14 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 11:18:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/nathan_test'
+Jan 28, 2013 11:18:46 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 11:20:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: start: Starting web application '/nathan_test'
+Jan 28, 2013 11:20:01 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 12:03:41 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 12:03:48 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/nathan_test'
+Jan 28, 2013 12:03:49 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 1:06:35 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 1:06:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 1:07:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/monstermash'
+Jan 28, 2013 1:07:06 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 1:08:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/monstermash'
+Jan 28, 2013 1:08:25 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 6:22:37 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 28, 2013 6:31:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'

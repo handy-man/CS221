@@ -1,0 +1,26 @@
+Feb 10, 2013 2:06:14 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "admin"
+Feb 10, 2013 2:06:15 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "admin"
+Feb 10, 2013 2:06:15 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "admin"
+Feb 10, 2013 2:06:15 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "admin"
+Feb 10, 2013 2:06:16 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "tomcat"
+Feb 10, 2013 2:06:17 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "tomcat"
+Feb 10, 2013 2:06:17 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "admin"
+Feb 10, 2013 2:06:18 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "tomcat"
+Feb 10, 2013 2:06:18 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "root"
+Feb 10, 2013 2:06:18 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "admin"
+Feb 10, 2013 2:06:18 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "tomcat"
+Feb 10, 2013 2:06:19 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "admin"
+Feb 10, 2013 2:06:20 PM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "role1"

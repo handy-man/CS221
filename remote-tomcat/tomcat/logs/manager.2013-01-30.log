@@ -1,0 +1,132 @@
+Jan 30, 2013 7:37:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: init: Associated with Deployer 'Catalina:type=Deployer,host=localhost'
+Jan 30, 2013 7:37:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: init: Global resources are available
+Jan 30, 2013 7:37:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 7:37:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/monstermashnew'
+Jan 30, 2013 7:37:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 8:18:30 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 8:18:42 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 8:18:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 10:30:06 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 10:30:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 10:30:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 10:53:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 10:53:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:07:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:07:58 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:15:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:15:16 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:21:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:21:24 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:22:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:27:39 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:27:40 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:33:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:33:37 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:36:44 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:36:45 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:38:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:38:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:40:25 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:40:26 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:45:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:45:32 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:50:10 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:50:11 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:51:56 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:51:57 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:52:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:52:59 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:56:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:56:48 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 11:58:14 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 11:58:15 AM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:00:23 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:00:23 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:04:18 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:04:18 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:06:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:06:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:07:12 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:07:13 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:08:51 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:08:52 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:12:45 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:12:46 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:17:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:17:29 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:18:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:18:53 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:20:01 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:20:02 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:22:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:22:28 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:24:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:24:03 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'
+Jan 30, 2013 12:28:26 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: restart: Reloading web application '/test_nathan'
+Jan 30, 2013 12:28:27 PM org.apache.catalina.core.ApplicationContext log
+INFO: HTMLManager: list: Listing contexts for virtual host 'localhost'

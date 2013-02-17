@@ -1,0 +1,176 @@
+
+2013-01-29 11:49:30 Commons Daemon procrun stderr initialized
+Jan 29, 2013 11:49:31 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: Loaded APR based Apache Tomcat Native library 1.1.24 using APR version 1.4.6.
+Jan 29, 2013 11:49:31 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Jan 29, 2013 11:49:31 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.1c 10 May 2012)
+Jan 29, 2013 11:49:32 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-80"]
+Jan 29, 2013 11:49:32 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Jan 29, 2013 11:49:32 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1244 ms
+Jan 29, 2013 11:49:32 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Jan 29, 2013 11:49:32 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.35
+Jan 29, 2013 11:49:32 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\docs
+Jan 29, 2013 11:49:32 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\examples
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\host-manager
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\manager
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\monstermash
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\MonsterMashGameGlassfish
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\N07
+Jan 29, 2013 11:49:33 AM org.apache.tomcat.util.digester.Digester fatalError
+SEVERE: Parse Fatal Error at line 17 column 19: XML document structures must start and end within the same entity.
+org.xml.sax.SAXParseException: XML document structures must start and end within the same entity.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.peekChar(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1537)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1879)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1259)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:878)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:369)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5179)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:633)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1114)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1673)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Parse error in application web.xml file at jndi:/localhost/N07/WEB-INF/web.xml
+org.xml.sax.SAXParseException: XML document structures must start and end within the same entity.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.peekChar(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1537)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1879)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1259)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:878)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:369)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5179)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:633)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1114)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1673)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Occurred at line 17 column 19
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.ContextConfig configureStart
+SEVERE: Marking this application unavailable due to previous error(s)
+Jan 29, 2013 11:49:33 AM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Error getConfigured
+Jan 29, 2013 11:49:33 AM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Context [/N07] startup failed due to previous errors
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\nathan_test
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\ROOT
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\stuess_test
+Jan 29, 2013 11:49:33 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-80"]
+Jan 29, 2013 11:49:33 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Jan 29, 2013 11:49:33 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1183 ms
+Jan 29, 2013 11:50:08 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 29, 2013 11:50:08 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 29, 2013 11:59:47 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 29, 2013 11:59:47 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 5:44:41 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 5:44:41 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 5:44:41 AM org.apache.catalina.core.StandardWrapper unload
+INFO: Waiting for 1 instance(s) to be deallocated
+Jan 30, 2013 5:44:42 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 5:57:02 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 5:57:02 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 5:57:02 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:07:12 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:07:12 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:07:13 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:17:53 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:17:53 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:17:53 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-80"]
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Jan 30, 2013 6:27:02 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-80"]
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]

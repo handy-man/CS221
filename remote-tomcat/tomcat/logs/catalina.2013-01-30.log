@@ -1,0 +1,382 @@
+Jan 30, 2013 5:44:41 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 5:44:41 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 5:44:41 AM org.apache.catalina.core.StandardWrapper unload
+INFO: Waiting for 1 instance(s) to be deallocated
+Jan 30, 2013 5:44:42 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 5:57:02 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 5:57:02 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 5:57:02 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:07:12 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:07:12 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:07:13 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:17:53 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:17:53 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:17:53 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["http-apr-80"]
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol pause
+INFO: Pausing ProtocolHandler ["ajp-apr-8009"]
+Jan 30, 2013 6:27:02 AM org.apache.catalina.core.StandardService stopInternal
+INFO: Stopping service Catalina
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["http-apr-80"]
+Jan 30, 2013 6:27:02 AM org.apache.coyote.AbstractProtocol stop
+INFO: Stopping ProtocolHandler ["ajp-apr-8009"]
+Jan 30, 2013 6:27:08 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: Loaded APR based Apache Tomcat Native library 1.1.24 using APR version 1.4.6.
+Jan 30, 2013 6:27:08 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Jan 30, 2013 6:27:09 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.1c 10 May 2012)
+Jan 30, 2013 6:27:09 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-80"]
+Jan 30, 2013 6:27:09 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Jan 30, 2013 6:27:09 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 1263 ms
+Jan 30, 2013 6:27:09 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Jan 30, 2013 6:27:09 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.35
+Jan 30, 2013 6:27:09 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\docs
+Jan 30, 2013 6:27:09 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\examples
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\host-manager
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\manager
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\monstermash
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\MonsterMashGameGlassfish
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\N07
+Jan 30, 2013 6:27:10 AM org.apache.tomcat.util.digester.Digester fatalError
+SEVERE: Parse Fatal Error at line 17 column 19: XML document structures must start and end within the same entity.
+org.xml.sax.SAXParseException: XML document structures must start and end within the same entity.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.peekChar(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1537)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1879)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1259)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:878)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:369)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5179)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:633)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1114)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1673)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Parse error in application web.xml file at jndi:/localhost/N07/WEB-INF/web.xml
+org.xml.sax.SAXParseException: XML document structures must start and end within the same entity.
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)
+	at com.sun.org.apache.xerces.internal.util.ErrorHandlerWrapper.fatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLErrorReporter.reportError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLScanner.reportFatalError(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityManager.endEntity(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.load(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLEntityScanner.peekChar(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(Unknown Source)
+	at com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(Unknown Source)
+	at com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(Unknown Source)
+	at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1537)
+	at org.apache.catalina.startup.ContextConfig.parseWebXml(ContextConfig.java:1879)
+	at org.apache.catalina.startup.ContextConfig.webConfig(ContextConfig.java:1259)
+	at org.apache.catalina.startup.ContextConfig.configureStart(ContextConfig.java:878)
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:369)
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:119)
+	at org.apache.catalina.util.LifecycleBase.fireLifecycleEvent(LifecycleBase.java:90)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5179)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:901)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:877)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:633)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1114)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1673)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.runTask(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.ContextConfig parseWebXml
+SEVERE: Occurred at line 17 column 19
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.ContextConfig configureStart
+SEVERE: Marking this application unavailable due to previous error(s)
+Jan 30, 2013 6:27:10 AM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Error getConfigured
+Jan 30, 2013 6:27:10 AM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Context [/N07] startup failed due to previous errors
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\nathan_test
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\ROOT
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\stuess_test
+Jan 30, 2013 6:27:10 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-80"]
+Jan 30, 2013 6:27:10 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Jan 30, 2013 6:27:10 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 1246 ms
+Jan 30, 2013 6:29:30 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:29:30 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:29:30 AM org.apache.catalina.core.StandardWrapper unload
+INFO: Waiting for 1 instance(s) to be deallocated
+Jan 30, 2013 6:29:31 AM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/nathan_test] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak.
+Jan 30, 2013 6:29:31 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:30:31 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:30:31 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:30:31 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:32:11 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:32:11 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:32:12 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:32:22 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:32:22 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:32:22 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:33:22 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:33:22 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:33:23 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:34:43 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:34:43 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:34:43 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:36:13 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:36:13 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:36:14 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:38:54 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:38:54 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:38:54 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:39:54 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:39:54 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:39:55 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:40:35 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:40:35 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:40:35 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:41:45 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:41:45 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:41:46 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:55:56 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:55:56 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:55:56 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:57:16 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:57:16 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:57:17 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 6:59:07 AM org.apache.catalina.startup.HostConfig checkResources
+INFO: Reloading context [/nathan_test]
+Jan 30, 2013 6:59:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] has started
+Jan 30, 2013 6:59:07 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/nathan_test] is completed
+Jan 30, 2013 7:33:48 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\monstermashnew
+Jan 30, 2013 7:37:59 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/monstermashnew] has started
+Jan 30, 2013 7:37:59 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/monstermashnew] is completed
+Jan 30, 2013 7:39:02 AM org.apache.jasper.compiler.TldLocationsCache tldScanJar
+INFO: At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+Jan 30, 2013 10:25:39 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\test_nathan
+Jan 30, 2013 10:30:15 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 10:30:15 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 10:53:44 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 10:53:44 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:07:58 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:07:58 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:15:16 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:15:16 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:21:24 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:21:24 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:22:39 AM org.apache.catalina.realm.LockOutRealm authenticate
+WARNING: An attempt was made to authenticate the locked user "tomcat"
+Jan 30, 2013 11:27:39 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:27:40 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:33:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:33:37 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:36:44 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:36:45 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:38:56 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:38:56 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:40:25 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:40:26 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:45:32 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:45:32 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:50:10 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:50:11 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:51:56 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:51:57 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:52:59 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:52:59 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:56:48 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:56:48 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 11:58:14 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 11:58:15 AM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:00:23 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:00:23 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:04:18 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:04:18 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:06:28 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:06:28 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:07:12 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:07:13 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:08:51 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:08:52 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:12:45 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:12:46 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:17:29 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:17:29 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:18:53 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:18:53 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:20:01 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:20:02 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:22:28 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:22:28 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:24:03 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:24:03 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 12:28:26 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] has started
+Jan 30, 2013 12:28:27 PM org.apache.catalina.core.StandardContext reload
+INFO: Reloading Context with name [/test_nathan] is completed
+Jan 30, 2013 6:40:24 PM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\mgame
+Jan 30, 2013 7:15:04 PM org.apache.catalina.startup.HostConfig deployWAR
+INFO: Deploying web application archive C:\Users\Handy_man\tomcat\webapps\MonsterMashGame.war

@@ -1,0 +1,32 @@
+Jan 27, 2013 8:54:11 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: Loaded APR based Apache Tomcat Native library 1.1.24 using APR version 1.4.6.
+Jan 27, 2013 8:54:11 AM org.apache.catalina.core.AprLifecycleListener init
+INFO: APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+Jan 27, 2013 8:54:11 AM org.apache.catalina.core.AprLifecycleListener initializeSSL
+INFO: OpenSSL successfully initialized (OpenSSL 1.0.1c 10 May 2012)
+Jan 27, 2013 8:54:11 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-apr-8080"]
+Jan 27, 2013 8:54:11 AM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["ajp-apr-8009"]
+Jan 27, 2013 8:54:11 AM org.apache.catalina.startup.Catalina load
+INFO: Initialization processed in 830 ms
+Jan 27, 2013 8:54:11 AM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Catalina
+Jan 27, 2013 8:54:11 AM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.35
+Jan 27, 2013 8:54:11 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\docs
+Jan 27, 2013 8:54:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\examples
+Jan 27, 2013 8:54:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\host-manager
+Jan 27, 2013 8:54:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\manager
+Jan 27, 2013 8:54:12 AM org.apache.catalina.startup.HostConfig deployDirectory
+INFO: Deploying web application directory C:\Users\Handy_man\tomcat\webapps\ROOT
+Jan 27, 2013 8:54:12 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-apr-8080"]
+Jan 27, 2013 8:54:12 AM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["ajp-apr-8009"]
+Jan 27, 2013 8:54:12 AM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 442 ms
